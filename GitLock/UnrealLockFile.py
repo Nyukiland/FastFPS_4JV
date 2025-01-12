@@ -23,7 +23,7 @@ def get_git_user():
     try:
         result = subprocess.check_output(['git', 'config', '--get', 'user.name'],
                                          stderr=subprocess.STDOUT).decode().strip()
-        print(f"[DEBUG] Git user: {result}")
+        print(f"Git user: {result}")
         return result
     except subprocess.CalledProcessError:
         return "Unknown"
@@ -33,19 +33,15 @@ def get_modified_files(git_root):
     try:
         output = subprocess.check_output(['git', '-C', git_root, 'status', '--porcelain'],
                                          stderr=subprocess.STDOUT).decode().strip()
-        print(f"[DEBUG] Modified files output: {output}")
         modified_files = []
         doOnce = False
         for line in output.splitlines():
             status = line[:2].strip()  # Get the first two characters and strip spaces
-            print (f"[DEBUG] {status} / {line}")
             if status.startswith('M'):  # Handle modified, added, renamed, etc.
                 relative_path = normalize_path(line[3:].strip())  # Normalize path
                 if doOnce == False:
-                    print("[Debug] once")
                     relative_path = "C" + relative_path
                     doOnce = True
-                print(f"[DEBUG] relative_path: {relative_path}")
                 full_path = (Path(git_root) / relative_path).resolve()
                 modified_files.append(full_path)
         return modified_files
@@ -72,22 +68,17 @@ def update_lockFile(git_root, unreal_project_path, control_dir, user_name):
     # Ensure Content folder is included when processing paths
     content_folder = Path(unreal_project_path)
 
-    print(f"[DEBUG] modified length : {len(modified_files)}")
     # Manually fix the relative path for modified files
     for modified_file in modified_files:
         # Fix the path and ensure it starts with "Content"
         rel_path = str(modified_file.relative_to(content_folder))
-        print(f"[DEBUG] relpath : {rel_path}")
         
         if rel_path.startswith("Content") and rel_path not in updated_user_locked_files:
-            print(f"[DEBUG] Adding to lock: {rel_path}")
             updated_user_locked_files[rel_path] = user_name
 
     # Write the updated lock list back to the user's control file
     with open(user_control_file, 'w') as file:
-        print (f"[DEBUG] list count: {len(updated_user_locked_files)}")
         for rel_path, owner in updated_user_locked_files.items():
-            print(f"[DEBUG] Writing to control file: {rel_path}, {owner}")
             file.write(f"{rel_path},{owner}\n")
 
     commit_and_push_changes(user_control_file, git_root)
@@ -96,27 +87,25 @@ def lock_all(git_root, unreal_project_path, control_dir, user_name):
     """Locks files listed in the control files using Git."""
     user_control_file = control_dir / f"{user_name}_control.txt"
     all_control_files = list(control_dir.glob("*_control.txt"))
-    print(f"[DEBUG] All control files: {all_control_files}")
 
     # Lock files based on all control files
     for control_file in all_control_files:
-        with open(control_file, 'r') as file:
-            for line in file:
-                if line.strip():
-                    rel_path, owner = line.split(',', 1)
-                    full_path = normalize_path(str((Path(unreal_project_path) / rel_path.strip()).resolve()))
-                    try:
-                        if owner.strip() != user_name:
+        if (control_file != user_control_file):
+            with open(control_file, 'r') as file:
+                for line in file:
+                    if line.strip():
+                        rel_path, owner = line.split(',', 1)
+                        full_path = normalize_path(str((Path(unreal_project_path) / rel_path.strip()).resolve()))
+                        try:
                             os.chmod(full_path, 0o444)  # Lock the file for others
-                            print(f"[DEBUG] Locked file for others: {rel_path}")
-                    except Exception as e:
-                        print(f"[DEBUG] Error locking file '{rel_path}': {e}")
+                            print(f"[DEBUG] Locked file : {rel_path}")
+                        except Exception as e:
+                            print(f"[DEBUG] Error locking file '{rel_path}': {e}")
 
 def end_unlock_all(git_root, unreal_project_path, control_dir, user_name):
     """Locks files listed in the control files using Git."""
     user_control_file = control_dir / f"{user_name}_control.txt"
     all_control_files = list(control_dir.glob("*_control.txt"))
-    print(f"[DEBUG] All control files: {all_control_files}")
 
     # Unlock all files first
     for control_file in all_control_files:
