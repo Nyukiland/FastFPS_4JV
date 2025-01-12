@@ -1,2 +1,0 @@
-Content\BluePrint\Gabarit\Door\BP_Porte_256x128x32_a.uasset,Nyukiland
-Content\BluePrint\Gabarit\Door\BP_Porte_384x256x32_a.uasset,Nyukiland
