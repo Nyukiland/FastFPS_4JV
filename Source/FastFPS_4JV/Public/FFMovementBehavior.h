@@ -12,10 +12,6 @@ class FASTFPS_4JV_API UFFMovementBehavior : public UActorComponent
 {
 	GENERATED_BODY()
 
-private:
-	AActor* Owner;
-	UPrimitiveComponent* RootComponent;
-
 protected:
 	virtual void BeginPlay() override;
 
@@ -24,5 +20,5 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void MoveInDirection(const FVector& Direction, float Speed);
+	void MoveInDirection(FVector Direction = FVector(0,0,0), float Speed = 0, UPrimitiveComponent* MovableObject = nullptr);
 };

@@ -9,15 +9,7 @@ UFFMovementBehavior::UFFMovementBehavior()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-
-	// ...
-
-	Owner = GetOwner();
-	if (Owner == nullptr)
-	{
-		//crash
-		//RootComponent = Cast<UPrimitiveComponent>(Owner->GetRootComponent());
-	}
+	
 }
 
 
@@ -39,11 +31,20 @@ void UFFMovementBehavior::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	// ...
 }
 
-void UFFMovementBehavior::MoveInDirection(const FVector& Direction, float Speed)
+void UFFMovementBehavior::MoveInDirection(FVector Direction, float Speed, UPrimitiveComponent* MovableObject)
 {
-	if (RootComponent && RootComponent->IsSimulatingPhysics()) return;
+	if (!MovableObject || !MovableObject->IsSimulatingPhysics())
+	{
+		UE_LOG(LogTemp,
+			Error,
+			TEXT("UFFMovementBehavior: \n MovableObject Validity: %s \n Simulating physics Validity: %s"),
+			MovableObject ? TEXT("true") : TEXT("false"),
+			(MovableObject && MovableObject->IsSimulatingPhysics()) ? TEXT("true") : TEXT("false")
+		);
+		return;
+	}
 
 	FVector LinearVelocity = Direction.GetSafeNormal() * Speed;
-	RootComponent->SetPhysicsLinearVelocity(LinearVelocity);
+	MovableObject->SetPhysicsLinearVelocity(LinearVelocity);
 }
 
