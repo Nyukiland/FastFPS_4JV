@@ -1,16 +1,9 @@
 # Ignore build files
-Binaries/
 DerivedDataCache/
 Intermediate/
 Saved/
 .vscode/
 .vs/
-
-# Include essential binary files for sharing the project without recompiling
-!Binaries/**/*.exe
-!Binaries/**/*.dll
-!Binaries/**/*.pdb
-!DerivedDataCache/CompressedCookedPackages
 
 # Ignore Unreal-specific files
 *.sln
@@ -20,6 +13,7 @@ Saved/
 *.VC.db-shm
 *.VC.db-wal
 *.log
+*.pdb
 *.idb
 *.opendb
 *.tlog
@@ -72,19 +66,5 @@ Source/*.h~*
 Plugins/*/Binaries/
 Plugins/*/Intermediate/
 
-# Include necessary Wwise plugin binaries (adjust based on usage)
-!Plugins/Wwise/Binaries/
-!Plugins/Wwise/Intermediate/
-
-# Jet Brain Rider
+#Jet Brain Rider
 *.idea
-
-# Git LFS tracking for large binary files
-*.exe
-*.dll
-*.pdb
-*.uasset
-*.umap
-
-# Exclude debug symbols unless explicitly needed
-Binaries/**/*.pdb
