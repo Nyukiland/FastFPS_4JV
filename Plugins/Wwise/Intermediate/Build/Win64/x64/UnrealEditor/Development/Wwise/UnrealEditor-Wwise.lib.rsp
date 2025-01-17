@@ -1,0 +1,13 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-Wwise.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"D:\gitHub\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h.obj"
+"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\Wwise\Module.Wwise.cpp.obj"
+"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\Wwise\PerModuleInline.gen.cpp.obj"
+"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\Wwise\Default.rc2.res"
+/OUT:"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\Wwise\UnrealEditor-Wwise.lib"

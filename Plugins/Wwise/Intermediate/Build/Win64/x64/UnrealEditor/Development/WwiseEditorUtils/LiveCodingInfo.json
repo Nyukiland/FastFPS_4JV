@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.WwiseEditorUtils.cpp.obj": [
+			"WwiseEditorUtilsModuleImpl.cpp.obj",
+			"WwisePluginStyle.cpp.obj",
+			"PerModuleInline.gen.cpp.obj"
+		]
+	}
+}

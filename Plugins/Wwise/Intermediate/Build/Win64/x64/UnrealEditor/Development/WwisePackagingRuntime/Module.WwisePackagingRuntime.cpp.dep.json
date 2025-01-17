@@ -1,0 +1,27 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\wwisepackagingruntime\\module.wwisepackagingruntime.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\github\\fastfps_4jv\\intermediate\\build\\win64\\x64\\fastfps_4jveditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
+        "Includes": [
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\wwisepackagingruntime\\definitions.wwisepackagingruntime.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\private\\wwise\\packaging\\wwiseassetlibraryinfo.cpp",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\public\\wwise\\packaging\\wwiseassetlibraryinfo.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\wwisepackagingruntime\\uht\\wwiseassetlibraryinfo.generated.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\public\\wwise\\packaging\\wwiseassetlibraryfilter.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\wwisepackagingruntime\\uht\\wwiseassetlibraryfilter.generated.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\public\\wwise\\packaging\\wwisesharedassetlibraryfilter.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\public\\wwise\\packaging\\wwisefilterableassetlibrary.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\wwisepackagingruntime\\uht\\wwisefilterableassetlibrary.generated.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\wwisepackagingruntime\\uht\\wwisesharedassetlibraryfilter.generated.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\public\\wwise\\stats\\packagingruntime.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\private\\wwise\\stats\\packagingruntime.cpp",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\private\\wwise\\wwisepackagingruntimemoduleimpl.cpp",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\public\\wwise\\wwisepackagingruntimemoduleimpl.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\public\\wwise\\wwisepackagingruntimemodule.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

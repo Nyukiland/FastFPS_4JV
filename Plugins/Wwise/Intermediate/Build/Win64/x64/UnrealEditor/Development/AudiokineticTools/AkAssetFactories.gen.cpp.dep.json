@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\audiokinetictools\\uht\\akassetfactories.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\github\\fastfps_4jv\\intermediate\\build\\win64\\x64\\fastfps_4jveditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
+        "Includes": [
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\audiokinetictools\\definitions.audiokinetictools.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\audiokinetictools\\public\\akassetfactories.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\audiokinetictools\\uht\\akassetfactories.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
