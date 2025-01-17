@@ -63,7 +63,7 @@ Source/*.cpp~*
 Source/*.h~*
 
 # Ignore compiled plugins
-Plugins/*/Binaries/
+!Plugins/*/Binaries/
 Plugins/*/Intermediate/
 
 #Jet Brain Rider
