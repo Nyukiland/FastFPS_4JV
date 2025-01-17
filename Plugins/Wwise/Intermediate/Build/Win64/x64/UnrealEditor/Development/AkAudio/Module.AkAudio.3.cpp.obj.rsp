@@ -1,13 +1,11 @@
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\Module.AkAudio.3.cpp"
-/FI"D:\gitHub\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h"
-/FI"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\Definitions.AkAudio.h"
-/Yu"D:\gitHub\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h"
-/Fp"D:\gitHub\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h.pch"
-/Fo"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\Module.AkAudio.3.cpp.obj"
-/experimental:log "D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\Module.AkAudio.3.cpp.sarif"
-/sourceDependencies "D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\Module.AkAudio.3.cpp.dep.json"
-@"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\AkAudio.Shared.rsp"
-/d2ssa-cfg-question-
+"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\Module.AkAudio.3.cpp"
+/FI"E:\Github\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/FI"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\Definitions.AkAudio.h"
+/Yu"E:\Github\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h"
+/Fp"E:\Github\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.pch"
+/Fo"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\Module.AkAudio.3.cpp.obj"
+/sourceDependencies "E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\Module.AkAudio.3.cpp.dep.json"
+@"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudio\AkAudio.Shared.rsp"
 /Zc:inline
 /nologo
 /Oi

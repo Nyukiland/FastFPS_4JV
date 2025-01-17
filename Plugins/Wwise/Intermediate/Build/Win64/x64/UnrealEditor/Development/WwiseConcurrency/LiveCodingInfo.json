@@ -8,8 +8,7 @@
 			"WwiseExecutionQueue.cpp.obj",
 			"WwiseRetriggerableAsyncTask.cpp.obj",
 			"ExecutionQueueTests.cpp.obj",
-			"FutureTests.cpp.obj",
-			"PerModuleInline.gen.cpp.obj"
+			"FutureTests.cpp.obj"
 		]
 	}
 }

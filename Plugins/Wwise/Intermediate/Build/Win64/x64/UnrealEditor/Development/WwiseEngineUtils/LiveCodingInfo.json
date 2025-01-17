@@ -2,8 +2,7 @@
 	"RemapUnityFiles": 
 	{
 		"Module.WwiseEngineUtils.cpp.obj": [
-			"WwiseUnrealEngineHelper.cpp.obj",
-			"PerModuleInline.gen.cpp.obj"
+			"WwiseUnrealEngineHelper.cpp.obj"
 		]
 	}
 }

@@ -14,21 +14,21 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define AKAUDIO_AkAuxBus_generated_h
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_ARCHIVESERIALIZER \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_ARCHIVESERIALIZER \
 	DECLARE_FSTRUCTUREDARCHIVE_SERIALIZER(UAkAuxBus, NO_API)
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_INCLASS_NO_PURE_DECLS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAkAuxBus(); \
 	friend struct Z_Construct_UClass_UAkAuxBus_Statics; \
 public: \
 	DECLARE_CLASS(UAkAuxBus, UAkAudioType, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/AkAudio"), NO_API) \
 	DECLARE_SERIALIZER(UAkAuxBus) \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_ARCHIVESERIALIZER
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_ARCHIVESERIALIZER
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_ENHANCED_CONSTRUCTORS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UAkAuxBus(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -42,12 +42,12 @@ public: \
 	NO_API virtual ~UAkAuxBus();
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_32_PROLOG
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_GENERATED_BODY \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_32_PROLOG
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_INCLASS_NO_PURE_DECLS \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_ENHANCED_CONSTRUCTORS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_INCLASS_NO_PURE_DECLS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h_35_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -55,7 +55,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> AKAUDIO_API UClass* StaticClass<class UAkAuxBus>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h
+#define CURRENT_FILE_ID FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAuxBus_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -268,14 +268,14 @@ UPostEventAsync::~UPostEventAsync() {}
 // End Class UPostEventAsync
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_BlueprintNodes_PostEventAsync_h_Statics
+struct Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_BlueprintNodes_PostEventAsync_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_UPostEventAsync, UPostEventAsync::StaticClass, TEXT("UPostEventAsync"), &Z_Registration_Info_UClass_UPostEventAsync, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPostEventAsync), 1839500981U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_BlueprintNodes_PostEventAsync_h_2469113125(TEXT("/Script/AkAudio"),
-	Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_BlueprintNodes_PostEventAsync_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_BlueprintNodes_PostEventAsync_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_BlueprintNodes_PostEventAsync_h_2469113125(TEXT("/Script/AkAudio"),
+	Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_BlueprintNodes_PostEventAsync_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_BlueprintNodes_PostEventAsync_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

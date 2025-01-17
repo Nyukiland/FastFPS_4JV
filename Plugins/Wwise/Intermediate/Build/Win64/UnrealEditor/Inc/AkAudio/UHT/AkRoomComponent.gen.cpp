@@ -845,14 +845,14 @@ UAkRoomComponent::~UAkRoomComponent() {}
 // End Class UAkRoomComponent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkRoomComponent_h_Statics
+struct Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkRoomComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_UAkRoomComponent, UAkRoomComponent::StaticClass, TEXT("UAkRoomComponent"), &Z_Registration_Info_UClass_UAkRoomComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAkRoomComponent), 1584106476U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkRoomComponent_h_1940879635(TEXT("/Script/AkAudio"),
-	Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkRoomComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkRoomComponent_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkRoomComponent_h_1940879635(TEXT("/Script/AkAudio"),
+	Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkRoomComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkRoomComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

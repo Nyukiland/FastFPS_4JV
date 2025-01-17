@@ -6,8 +6,7 @@
 /NAME:"UnrealEditor-WwiseEditorUtils.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"D:\gitHub\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseEditorUtils\Module.WwiseEditorUtils.cpp.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseEditorUtils\PerModuleInline.gen.cpp.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseEditorUtils\Default.rc2.res"
-/OUT:"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseEditorUtils\UnrealEditor-WwiseEditorUtils.lib"
+"E:\Github\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseEditorUtils\Module.WwiseEditorUtils.cpp.obj"
+"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseEditorUtils\Default.rc2.res"
+/OUT:"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseEditorUtils\UnrealEditor-WwiseEditorUtils.lib"

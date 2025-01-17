@@ -16,7 +16,7 @@ enum class AkAcousticPortalState : uint8;
 #endif
 #define AKAUDIO_AkAcousticPortal_generated_h
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execSetDynamic); \
 	DECLARE_FUNCTION(execPortalPlacementValid); \
 	DECLARE_FUNCTION(execGetPrimitiveParent); \
@@ -27,7 +27,7 @@ enum class AkAcousticPortalState : uint8;
 	DECLARE_FUNCTION(execEnablePortal);
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_INCLASS_NO_PURE_DECLS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUAkPortalComponent(); \
 	friend struct Z_Construct_UClass_UAkPortalComponent_Statics; \
@@ -36,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(UAkPortalComponent)
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_ENHANCED_CONSTRUCTORS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UAkPortalComponent(UAkPortalComponent&&); \
@@ -48,48 +48,48 @@ public: \
 	NO_API virtual ~UAkPortalComponent();
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_36_PROLOG
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_GENERATED_BODY \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_36_PROLOG
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_INCLASS_NO_PURE_DECLS \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_ENHANCED_CONSTRUCTORS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_INCLASS_NO_PURE_DECLS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_39_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
 template<> AKAUDIO_API UClass* StaticClass<class UAkPortalComponent>();
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execGetCurrentState); \
 	DECLARE_FUNCTION(execDisablePortal); \
 	DECLARE_FUNCTION(execEnablePortal);
 
 
 #if WITH_EDITOR
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_RPC_WRAPPERS_NO_PURE_DECLS_EOD \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_RPC_WRAPPERS_NO_PURE_DECLS_EOD \
 	DECLARE_FUNCTION(execGetCollisionChannel);
 #else // WITH_EDITOR
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_RPC_WRAPPERS_NO_PURE_DECLS_EOD
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_RPC_WRAPPERS_NO_PURE_DECLS_EOD
 #endif // WITH_EDITOR
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_ARCHIVESERIALIZER \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_ARCHIVESERIALIZER \
 	DECLARE_FSTRUCTUREDARCHIVE_SERIALIZER(AAkAcousticPortal, NO_API)
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_INCLASS_NO_PURE_DECLS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAAkAcousticPortal(); \
 	friend struct Z_Construct_UClass_AAkAcousticPortal_Statics; \
 public: \
 	DECLARE_CLASS(AAkAcousticPortal, AVolume, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/AkAudio"), NO_API) \
 	DECLARE_SERIALIZER(AAkAcousticPortal) \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_ARCHIVESERIALIZER
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_ARCHIVESERIALIZER
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_ENHANCED_CONSTRUCTORS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AAkAcousticPortal(AAkAcousticPortal&&); \
@@ -101,14 +101,14 @@ public: \
 	NO_API virtual ~AAkAcousticPortal();
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_228_PROLOG
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_GENERATED_BODY \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_228_PROLOG
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_RPC_WRAPPERS_NO_PURE_DECLS_EOD \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_INCLASS_NO_PURE_DECLS \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_ENHANCED_CONSTRUCTORS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_RPC_WRAPPERS_NO_PURE_DECLS_EOD \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_INCLASS_NO_PURE_DECLS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h_231_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -116,7 +116,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> AKAUDIO_API UClass* StaticClass<class AAkAcousticPortal>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h
+#define CURRENT_FILE_ID FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAcousticPortal_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

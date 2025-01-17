@@ -6,8 +6,7 @@
 			"AkObstructionAndOcclusionService.cpp.obj",
 			"AkPortalObstructionAndOcclusionService.cpp.obj",
 			"ObstructionOcclusion.cpp.obj",
-			"WwiseObstructionOcclusionModuleImpl.cpp.obj",
-			"PerModuleInline.gen.cpp.obj"
+			"WwiseObstructionOcclusionModuleImpl.cpp.obj"
 		]
 	}
 }

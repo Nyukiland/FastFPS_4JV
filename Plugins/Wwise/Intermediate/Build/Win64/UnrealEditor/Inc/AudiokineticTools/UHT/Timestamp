@@ -1,7 +1,7 @@
-D:\gitHub\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Classes\AssetManagement\AkMigrationCommandlet.h
-D:\gitHub\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Classes\Factories\ActorFactoryAkAmbientSound.h
-D:\gitHub\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Classes\AssetManagement\GenerateSoundBanksCommandlet.h
-D:\gitHub\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Classes\Factories\AkJsonFactory.h
-D:\gitHub\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Public\AkAssetFactories.h
-D:\gitHub\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Private\AssetManagement\StaticPluginWriter.h
-D:\gitHub\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Private\WwiseBrowser\WwiseBrowserHelpers.h
+E:\Github\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Classes\AssetManagement\GenerateSoundBanksCommandlet.h
+E:\Github\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Classes\Factories\ActorFactoryAkAmbientSound.h
+E:\Github\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Classes\AssetManagement\AkMigrationCommandlet.h
+E:\Github\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Classes\Factories\AkJsonFactory.h
+E:\Github\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Public\AkAssetFactories.h
+E:\Github\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Private\AssetManagement\StaticPluginWriter.h
+E:\Github\FastFPS_4JV\Plugins\Wwise\Source\AudiokineticTools\Private\WwiseBrowser\WwiseBrowserHelpers.h

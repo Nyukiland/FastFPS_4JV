@@ -6,11 +6,7 @@
 /NAME:"UnrealEditor-WwiseAudioLinkRuntime.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"D:\gitHub\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseAudioLinkRuntime\Module.WwiseAudioLinkRuntime.cpp.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseAudioLinkRuntime\PerModuleInline.gen.cpp.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseAudioLinkRuntime\WwiseAudioLinkComponent.gen.cpp.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseAudioLinkRuntime\WwiseAudioLinkRuntime.init.gen.cpp.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseAudioLinkRuntime\WwiseAudioLinkSettings.gen.cpp.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseAudioLinkRuntime\Default.rc2.res"
-/OUT:"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseAudioLinkRuntime\UnrealEditor-WwiseAudioLinkRuntime.lib"
+"E:\Github\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseAudioLinkRuntime\Module.WwiseAudioLinkRuntime.cpp.obj"
+"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseAudioLinkRuntime\Default.rc2.res"
+/OUT:"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\WwiseAudioLinkRuntime\UnrealEditor-WwiseAudioLinkRuntime.lib"

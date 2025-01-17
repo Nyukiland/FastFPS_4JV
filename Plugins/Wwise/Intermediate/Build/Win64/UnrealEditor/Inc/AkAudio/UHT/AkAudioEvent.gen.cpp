@@ -878,14 +878,14 @@ IMPLEMENT_FSTRUCTUREDARCHIVE_SERIALIZER(UAkAudioEvent)
 // End Class UAkAudioEvent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAudioEvent_h_Statics
+struct Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAudioEvent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_UAkAudioEvent, UAkAudioEvent::StaticClass, TEXT("UAkAudioEvent"), &Z_Registration_Info_UClass_UAkAudioEvent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAkAudioEvent), 2374406499U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAudioEvent_h_1688209461(TEXT("/Script/AkAudio"),
-	Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAudioEvent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAudioEvent_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAudioEvent_h_1688209461(TEXT("/Script/AkAudio"),
+	Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAudioEvent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAudioEvent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

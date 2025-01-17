@@ -86,7 +86,7 @@ struct Z_Construct_UClass_UMovieSceneWwiseGameParameterSection_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UMovieSceneWwiseGameParameterSection_Statics::NewProp_GameParameter = { "GameParameter", nullptr, (EPropertyFlags)0x0124080000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMovieSceneWwiseGameParameterSection, GameParameter), Z_Construct_UClass_UAkRtpc_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GameParameter_MetaData), NewProp_GameParameter_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMovieSceneWwiseGameParameterSection_Statics::NewProp_FloatCurve = { "FloatCurve", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMovieSceneWwiseGameParameterSection, FloatCurve), Z_Construct_UScriptStruct_FRichCurve, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FloatCurve_MetaData), NewProp_FloatCurve_MetaData) }; // 777865741
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMovieSceneWwiseGameParameterSection_Statics::NewProp_FloatCurve = { "FloatCurve", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMovieSceneWwiseGameParameterSection, FloatCurve), Z_Construct_UScriptStruct_FRichCurve, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FloatCurve_MetaData), NewProp_FloatCurve_MetaData) }; // 1340883375
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMovieSceneWwiseGameParameterSection_Statics::NewProp_FloatChannelSerializationHelper = { "FloatChannelSerializationHelper", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMovieSceneWwiseGameParameterSection, FloatChannelSerializationHelper), Z_Construct_UScriptStruct_FMovieSceneFloatChannelSerializationHelper, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FloatChannelSerializationHelper_MetaData), NewProp_FloatChannelSerializationHelper_MetaData) }; // 3544769784
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UMovieSceneWwiseGameParameterSection_Statics::NewProp_GameParameterChannel = { "GameParameterChannel", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMovieSceneWwiseGameParameterSection, GameParameterChannel), Z_Construct_UScriptStruct_FMovieSceneFloatChannel, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GameParameterChannel_MetaData), NewProp_GameParameterChannel_MetaData) }; // 139010471
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMovieSceneWwiseGameParameterSection_Statics::PropPointers[] = {
@@ -113,7 +113,7 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UMovieSceneWwiseGamePar
 	0,
 	UE_ARRAY_COUNT(Z_Construct_UClass_UMovieSceneWwiseGameParameterSection_Statics::PropPointers),
 	0,
-	0x00B000A0u,
+	0x003000A0u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMovieSceneWwiseGameParameterSection_Statics::Class_MetaDataParams), Z_Construct_UClass_UMovieSceneWwiseGameParameterSection_Statics::Class_MetaDataParams)
 };
 UClass* Z_Construct_UClass_UMovieSceneWwiseGameParameterSection()
@@ -134,14 +134,14 @@ IMPLEMENT_FSTRUCTUREDARCHIVE_SERIALIZER(UMovieSceneWwiseGameParameterSection)
 // End Class UMovieSceneWwiseGameParameterSection
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneWwiseGameParameterSection_h_Statics
+struct Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneWwiseGameParameterSection_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UMovieSceneWwiseGameParameterSection, UMovieSceneWwiseGameParameterSection::StaticClass, TEXT("UMovieSceneWwiseGameParameterSection"), &Z_Registration_Info_UClass_UMovieSceneWwiseGameParameterSection, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMovieSceneWwiseGameParameterSection), 2992599775U) },
+		{ Z_Construct_UClass_UMovieSceneWwiseGameParameterSection, UMovieSceneWwiseGameParameterSection::StaticClass, TEXT("UMovieSceneWwiseGameParameterSection"), &Z_Registration_Info_UClass_UMovieSceneWwiseGameParameterSection, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMovieSceneWwiseGameParameterSection), 1734027961U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneWwiseGameParameterSection_h_983799198(TEXT("/Script/AkAudio"),
-	Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneWwiseGameParameterSection_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneWwiseGameParameterSection_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneWwiseGameParameterSection_h_1895780219(TEXT("/Script/AkAudio"),
+	Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneWwiseGameParameterSection_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneWwiseGameParameterSection_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

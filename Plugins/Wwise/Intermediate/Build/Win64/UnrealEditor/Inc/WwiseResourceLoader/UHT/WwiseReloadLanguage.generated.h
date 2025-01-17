@@ -16,7 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define WWISERESOURCELOADER_WwiseReloadLanguage_generated_h
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_WwiseResourceLoader_Public_Wwise_WwiseReloadLanguage_h
+#define CURRENT_FILE_ID FID_FastFPS_4JV_Plugins_Wwise_Source_WwiseResourceLoader_Public_Wwise_WwiseReloadLanguage_h
 
 
 #define FOREACH_ENUM_EWWISERELOADLANGUAGE(op) \

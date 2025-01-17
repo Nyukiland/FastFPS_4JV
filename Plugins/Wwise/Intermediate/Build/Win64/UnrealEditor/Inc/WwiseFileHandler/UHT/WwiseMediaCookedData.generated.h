@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define WWISEFILEHANDLER_WwiseMediaCookedData_generated_h
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_WwiseFileHandler_Public_Wwise_CookedData_WwiseMediaCookedData_h_27_GENERATED_BODY \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_WwiseFileHandler_Public_Wwise_CookedData_WwiseMediaCookedData_h_27_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FWwiseMediaCookedData_Statics; \
 	static class UScriptStruct* StaticStruct();
 
@@ -22,7 +22,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 template<> WWISEFILEHANDLER_API UScriptStruct* StaticStruct<struct FWwiseMediaCookedData>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_WwiseFileHandler_Public_Wwise_CookedData_WwiseMediaCookedData_h
+#define CURRENT_FILE_ID FID_FastFPS_4JV_Plugins_Wwise_Source_WwiseFileHandler_Public_Wwise_CookedData_WwiseMediaCookedData_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

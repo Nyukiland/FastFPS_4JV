@@ -238,14 +238,14 @@ AAkAmbientSound::~AAkAmbientSound() {}
 // End Class AAkAmbientSound
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAmbientSound_h_Statics
+struct Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAmbientSound_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_AAkAmbientSound, AAkAmbientSound::StaticClass, TEXT("AAkAmbientSound"), &Z_Registration_Info_UClass_AAkAmbientSound, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAkAmbientSound), 3203433025U) },
+		{ Z_Construct_UClass_AAkAmbientSound, AAkAmbientSound::StaticClass, TEXT("AAkAmbientSound"), &Z_Registration_Info_UClass_AAkAmbientSound, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AAkAmbientSound), 2408075337U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAmbientSound_h_398927926(TEXT("/Script/AkAudio"),
-	Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAmbientSound_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAmbientSound_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAmbientSound_h_1784632038(TEXT("/Script/AkAudio"),
+	Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAmbientSound_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkAmbientSound_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

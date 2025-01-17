@@ -15,14 +15,14 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define AKAUDIO_AkSpatialAudioVolume_generated_h
 
 #if WITH_EDITOR
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_RPC_WRAPPERS_NO_PURE_DECLS_EOD \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_RPC_WRAPPERS_NO_PURE_DECLS_EOD \
 	DECLARE_FUNCTION(execGetCollisionChannel);
 #else // WITH_EDITOR
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_RPC_WRAPPERS_NO_PURE_DECLS_EOD
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_RPC_WRAPPERS_NO_PURE_DECLS_EOD
 #endif // WITH_EDITOR
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_INCLASS_NO_PURE_DECLS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAAkSpatialAudioVolume(); \
 	friend struct Z_Construct_UClass_AAkSpatialAudioVolume_Statics; \
@@ -31,7 +31,7 @@ public: \
 	DECLARE_SERIALIZER(AAkSpatialAudioVolume)
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_ENHANCED_CONSTRUCTORS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	AAkSpatialAudioVolume(AAkSpatialAudioVolume&&); \
@@ -43,13 +43,13 @@ public: \
 	NO_API virtual ~AAkSpatialAudioVolume();
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_56_PROLOG
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_GENERATED_BODY \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_56_PROLOG
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_RPC_WRAPPERS_NO_PURE_DECLS_EOD \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_INCLASS_NO_PURE_DECLS \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_ENHANCED_CONSTRUCTORS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_RPC_WRAPPERS_NO_PURE_DECLS_EOD \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_INCLASS_NO_PURE_DECLS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h_59_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -57,7 +57,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> AKAUDIO_API UClass* StaticClass<class AAkSpatialAudioVolume>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h
+#define CURRENT_FILE_ID FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_AkSpatialAudioVolume_h
 
 
 #define FOREACH_ENUM_EAKFITTOGEOMETRYMODE(op) \

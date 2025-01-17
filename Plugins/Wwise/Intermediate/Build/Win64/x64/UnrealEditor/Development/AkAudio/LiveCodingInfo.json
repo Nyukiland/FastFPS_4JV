@@ -2,7 +2,6 @@
 	"RemapUnityFiles": 
 	{
 		"Module.AkAudio.1.cpp.obj": [
-			"AkAcousticPortal.cpp.obj",
 			"AkAcousticPortal.gen.cpp.obj",
 			"AkAcousticTexture.gen.cpp.obj",
 			"AkAcousticTextureSetComponent.gen.cpp.obj",
@@ -18,18 +17,24 @@
 			"AkAudioType.gen.cpp.obj",
 			"AkAuxBus.gen.cpp.obj",
 			"AkComponent.gen.cpp.obj",
-			"AkDeprecated.gen.cpp.obj",
+			"AkDeprecated.gen.cpp.obj"
+		],
+		"Module.AkAudio.2.cpp.obj": [
 			"AkDrawPortalComponent.gen.cpp.obj",
 			"AkDrawRoomComponent.gen.cpp.obj",
 			"AkEffectShareSet.gen.cpp.obj",
 			"AkGameObject.gen.cpp.obj",
-			"AkGameplayStatics.gen.cpp.obj",
+			"AkGameplayStatics.gen.cpp.obj"
+		],
+		"Module.AkAudio.3.cpp.obj": [
 			"AkGameplayTypes.gen.cpp.obj",
 			"AkGeometryComponent.gen.cpp.obj",
 			"AkGeometryData.gen.cpp.obj",
 			"AkGroupValue.gen.cpp.obj",
 			"AkInitBank.gen.cpp.obj",
-			"AkInitializationSettings.gen.cpp.obj",
+			"AkInitializationSettings.gen.cpp.obj"
+		],
+		"Module.AkAudio.4.cpp.obj": [
 			"AkIOSInitializationSettings.gen.cpp.obj",
 			"AkIOSPlatformInfo.gen.cpp.obj",
 			"AkLateReverbComponent.gen.cpp.obj",
@@ -49,7 +54,9 @@
 			"AkSettings.gen.cpp.obj",
 			"AkSettingsPerUser.gen.cpp.obj",
 			"AkSpatialAudioVolume.gen.cpp.obj",
-			"AkSpotReflector.gen.cpp.obj",
+			"AkSpotReflector.gen.cpp.obj"
+		],
+		"Module.AkAudio.5.cpp.obj": [
 			"AkStateValue.gen.cpp.obj",
 			"AkSubmixInputComponent.gen.cpp.obj",
 			"AkSurfaceReflectorSetComponent.gen.cpp.obj",
@@ -70,13 +77,13 @@
 			"MovieSceneWwiseGameParameterTrack.gen.cpp.obj",
 			"PostEventAsync.gen.cpp.obj",
 			"PostEventAtLocationAsync.gen.cpp.obj",
-			"PerModuleInline.gen.cpp.obj"
-		],
-		"Module.AkAudio.2.cpp.obj": [
+			"AkAcousticPortal.cpp.obj",
 			"AkAcousticTexture.cpp.obj",
 			"AkAcousticTextureSetComponent.cpp.obj",
 			"AkAmbientSound.cpp.obj",
-			"AkAudioDevice.cpp.obj",
+			"AkAudioDevice.cpp.obj"
+		],
+		"Module.AkAudio.6.cpp.obj": [
 			"AkAudioDeviceShareSet.cpp.obj",
 			"AkAudioEvent.cpp.obj",
 			"AkAudioInputComponent.cpp.obj",
@@ -95,9 +102,7 @@
 			"AkEffectShareSet.cpp.obj",
 			"AkEnvironmentIndex.cpp.obj",
 			"AkGameObject.cpp.obj",
-			"AkGameplayStatics.cpp.obj"
-		],
-		"Module.AkAudio.3.cpp.obj": [
+			"AkGameplayStatics.cpp.obj",
 			"AkGameplayTypes.cpp.obj",
 			"AkGeometryComponent.cpp.obj",
 			"AkGeometryData.cpp.obj",
@@ -108,7 +113,9 @@
 			"AkReverbDescriptor.cpp.obj",
 			"AkReverbVolume.cpp.obj",
 			"AkReverbZone.cpp.obj",
-			"AkRoomComponent.cpp.obj",
+			"AkRoomComponent.cpp.obj"
+		],
+		"Module.AkAudio.7.cpp.obj": [
 			"AkRtpc.cpp.obj",
 			"AkSettings.cpp.obj",
 			"AkSettingsPerUser.cpp.obj",
@@ -123,9 +130,7 @@
 			"AkSwitchValue.cpp.obj",
 			"AkTrigger.cpp.obj",
 			"AkUnrealEditorHelper.cpp.obj",
-			"AkWaapiClient.cpp.obj"
-		],
-		"Module.AkAudio.4.cpp.obj": [
+			"AkWaapiClient.cpp.obj",
 			"AkWaapiUtils.cpp.obj",
 			"WwiseProjectInfo.cpp.obj",
 			"PostEventAsync.cpp.obj",
@@ -151,7 +156,9 @@
 			"AkWindowsInitializationSettings.cpp.obj",
 			"AkUEPlatform.cpp.obj",
 			"StringMatching.cpp.obj",
-			"WwiseEventTracking.cpp.obj",
+			"WwiseEventTracking.cpp.obj"
+		],
+		"Module.AkAudio.8.cpp.obj": [
 			"WwiseInitBankLoader.cpp.obj",
 			"AkAudio.cpp.obj",
 			"AkAudioMemory.cpp.obj",

@@ -17,7 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeWwiseFileHandler_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xDAAC8670,
+				0x006E8D8A,
 				0xB26143A6,
 				METADATA_PARAMS(0, nullptr)
 			};
@@ -25,5 +25,5 @@ void EmptyLinkFunctionForGeneratedCodeWwiseFileHandler_init() {}
 		}
 		return Z_Registration_Info_UPackage__Script_WwiseFileHandler.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_WwiseFileHandler(Z_Construct_UPackage__Script_WwiseFileHandler, TEXT("/Script/WwiseFileHandler"), Z_Registration_Info_UPackage__Script_WwiseFileHandler, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xDAAC8670, 0xB26143A6));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_WwiseFileHandler(Z_Construct_UPackage__Script_WwiseFileHandler, TEXT("/Script/WwiseFileHandler"), Z_Registration_Info_UPackage__Script_WwiseFileHandler, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x006E8D8A, 0xB26143A6));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -6,8 +6,7 @@
 /NAME:"UnrealEditor-AkAudioMixer.dll"
 /IGNORE:4221
 /NODEFAULTLIB
-"D:\gitHub\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.InclOrderUnreal5_4.h.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudioMixer\Module.AkAudioMixer.cpp.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudioMixer\PerModuleInline.gen.cpp.obj"
-"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudioMixer\Default.rc2.res"
-/OUT:"D:\gitHub\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudioMixer\UnrealEditor-AkAudioMixer.lib"
+"E:\Github\FastFPS_4JV\Intermediate\Build\Win64\x64\FastFPS_4JVEditor\Development\UnrealEd\SharedPCH.UnrealEd.Project.ValApi.Cpp20.h.obj"
+"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudioMixer\Module.AkAudioMixer.cpp.obj"
+"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudioMixer\Default.rc2.res"
+/OUT:"E:\Github\FastFPS_4JV\Plugins\Wwise\Intermediate\Build\Win64\x64\UnrealEditor\Development\AkAudioMixer\UnrealEditor-AkAudioMixer.lib"

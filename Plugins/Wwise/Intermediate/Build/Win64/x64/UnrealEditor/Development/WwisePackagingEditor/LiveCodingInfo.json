@@ -2,6 +2,14 @@
 	"RemapUnityFiles": 
 	{
 		"Module.WwisePackagingEditor.cpp.obj": [
+			"WwiseAssetLibraryDetailsCustomization.gen.cpp.obj",
+			"WwiseAssetLibraryEventFilter.gen.cpp.obj",
+			"WwiseAssetLibraryFilterLanguage.gen.cpp.obj",
+			"WwiseAssetLibraryFilterMultiReference.gen.cpp.obj",
+			"WwiseAssetLibraryFilterSoundBankType.gen.cpp.obj",
+			"WwiseAssetLibraryTextFilter.gen.cpp.obj",
+			"WwisePackagingEditor.init.gen.cpp.obj",
+			"WwisePackagingFactories.gen.cpp.obj",
 			"WwiseAssetLibraryEventFilter.cpp.obj",
 			"WwiseAssetLibraryFilterLanguage.cpp.obj",
 			"WwiseAssetLibraryFilterMultiReference.cpp.obj",
@@ -13,16 +21,7 @@
 			"WwisePackagingFactories.cpp.obj",
 			"WwisePackagingTypeActions.cpp.obj",
 			"PackagingEditor.cpp.obj",
-			"WwisePackagingEditorModuleImpl.cpp.obj",
-			"WwiseAssetLibraryDetailsCustomization.gen.cpp.obj",
-			"WwiseAssetLibraryEventFilter.gen.cpp.obj",
-			"WwiseAssetLibraryFilterLanguage.gen.cpp.obj",
-			"WwiseAssetLibraryFilterMultiReference.gen.cpp.obj",
-			"WwiseAssetLibraryFilterSoundBankType.gen.cpp.obj",
-			"WwiseAssetLibraryTextFilter.gen.cpp.obj",
-			"WwisePackagingEditor.init.gen.cpp.obj",
-			"WwisePackagingFactories.gen.cpp.obj",
-			"PerModuleInline.gen.cpp.obj"
+			"WwisePackagingEditorModuleImpl.cpp.obj"
 		]
 	}
 }

@@ -14,7 +14,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define AKAUDIO_MovieSceneAkTrack_generated_h
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_34_INCLASS_NO_PURE_DECLS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_34_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUMovieSceneAkTrack(); \
 	friend struct Z_Construct_UClass_UMovieSceneAkTrack_Statics; \
@@ -23,7 +23,7 @@ public: \
 	DECLARE_SERIALIZER(UMovieSceneAkTrack)
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_34_ENHANCED_CONSTRUCTORS \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_34_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	AKAUDIO_API UMovieSceneAkTrack(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -37,12 +37,12 @@ public: \
 	AKAUDIO_API virtual ~UMovieSceneAkTrack();
 
 
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_30_PROLOG
-#define FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_34_GENERATED_BODY \
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_30_PROLOG
+#define FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_34_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_34_INCLASS_NO_PURE_DECLS \
-	FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_34_ENHANCED_CONSTRUCTORS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_34_INCLASS_NO_PURE_DECLS \
+	FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h_34_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -50,7 +50,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> AKAUDIO_API UClass* StaticClass<class UMovieSceneAkTrack>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_gitHub_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h
+#define CURRENT_FILE_ID FID_FastFPS_4JV_Plugins_Wwise_Source_AkAudio_Classes_MovieSceneAkTrack_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
