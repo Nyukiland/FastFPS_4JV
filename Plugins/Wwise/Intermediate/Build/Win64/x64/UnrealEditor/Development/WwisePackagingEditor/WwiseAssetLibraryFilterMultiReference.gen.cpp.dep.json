@@ -1,0 +1,34 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\wwisepackagingeditor\\uht\\wwiseassetlibraryfiltermultireference.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\github\\fastfps_4jv\\intermediate\\build\\win64\\x64\\fastfps_4jveditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
+        "Includes": [
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\wwisepackagingeditor\\definitions.wwisepackagingeditor.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingeditor\\public\\wwise\\packaging\\filters\\wwiseassetlibraryfiltermultireference.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\public\\wwise\\packaging\\wwiseassetlibraryfilter.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingruntime\\public\\wwise\\packaging\\wwiseassetlibraryinfo.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\wwisepackagingruntime\\uht\\wwiseassetlibraryinfo.generated.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\wwisepackagingruntime\\uht\\wwiseassetlibraryfilter.generated.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwisepackagingeditor\\public\\wwise\\packaging\\wwisepackagingtypeactions.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\developer\\assettools\\public\\assettypeactions_base.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\developer\\assettools\\public\\iassettools.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\developer\\assettools\\public\\assettypecategories.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\developer\\assettools\\public\\iassettypeactions.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\developer\\merge\\public\\merge.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\editor\\unrealed\\classes\\thumbnailrendering\\thumbnailmanager.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\editor\\unrealed\\classes\\thumbnailrendering\\thumbnailrenderer.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealed\\uht\\thumbnailrenderer.generated.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealed\\uht\\thumbnailmanager.generated.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\editor\\unrealed\\public\\automatedassetimportdata.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealed\\uht\\automatedassetimportdata.generated.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\assettools\\uht\\iassettools.generated.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\developer\\assettools\\public\\assettoolsmodule.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\editor\\unrealed\\public\\toolkits\\simpleasseteditor.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\wwisepackagingeditor\\uht\\wwiseassetlibraryfiltermultireference.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

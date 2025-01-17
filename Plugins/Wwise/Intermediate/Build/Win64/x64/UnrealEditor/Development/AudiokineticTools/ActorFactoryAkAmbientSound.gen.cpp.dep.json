@@ -1,0 +1,34 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\audiokinetictools\\uht\\actorfactoryakambientsound.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "d:\\github\\fastfps_4jv\\intermediate\\build\\win64\\x64\\fastfps_4jveditor\\development\\unrealed\\sharedpch.unrealed.project.valapi.cpp20.inclorderunreal5_4.h.pch",
+        "Includes": [
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\audiokinetictools\\definitions.audiokinetictools.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\audiokinetictools\\classes\\factories\\actorfactoryakambientsound.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\source\\wwiseutils\\public\\wwiseunrealdefines.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwisesoundengine\\source\\wwiselowlevelutils\\public\\wwise\\wwiseunrealversion.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\editor\\unrealed\\classes\\actorfactories\\actorfactory.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\editor\\editorframework\\public\\factories\\assetfactoryinterface.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\runtime\\engine\\public\\instances\\instancedplacementclientinfo.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\runtime\\engine\\public\\ismpartition\\ismcomponentdescriptor.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\ismcomponentdescriptor.generated.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\runtime\\engine\\public\\ismpartition\\ismpartitionclient.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\ismpartitionclient.generated.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\runtime\\engine\\public\\ismpartition\\ismpartitioninstancemanager.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\ismpartitioninstancemanager.generated.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\runtime\\engine\\public\\instances\\instancedplacementhash.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\hashbuilder.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\runtime\\engine\\public\\elements\\sminstance\\sminstanceelementid.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\source\\runtime\\engine\\public\\instancedstaticmeshdelegates.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\sminstanceelementid.generated.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\instancedplacementclientinfo.generated.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\editorframework\\uht\\assetfactoryinterface.generated.h",
+            "d:\\unrealengine\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealed\\uht\\actorfactory.generated.h",
+            "d:\\github\\fastfps_4jv\\plugins\\wwise\\intermediate\\build\\win64\\unrealeditor\\inc\\audiokinetictools\\uht\\actorfactoryakambientsound.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
