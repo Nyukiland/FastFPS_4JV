@@ -7,12 +7,12 @@
 #include "FFShootRelatedBehavior.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class FASTFPS_4JV_API UFFShootRelatedBehavior : public UActorComponent
 {
 	GENERATED_BODY()
 
-public:	
+public:
 	// Sets default values for this component's properties
 	UFFShootRelatedBehavior();
 
@@ -20,10 +20,16 @@ protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Aim")
-	void LookAround(AActor* ActorToRotate, const float Speed, const FVector Direction, const float MinClamp, const float MaxClamp);
+	void LookAround(USceneComponent* Pivot, USceneComponent* PivotY, const float Speed, const FVector Direction, const float MinClamp, const float MaxClamp);
+
+	UFUNCTION(BlueprintCallable, Category = "Shoot")
+	void ShootLineTrace(USceneComponent* ShootPoint, FHitResult& HitResult);
+
+	UFUNCTION(BlueprintCallable, Category = "Shoot")
+	void ShootSphereTrace(USceneComponent* ShootPoint, float Radius, TArray<FHitResult>& HitResults);
 };

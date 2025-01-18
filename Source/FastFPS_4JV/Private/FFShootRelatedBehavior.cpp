@@ -32,22 +32,73 @@ void UFFShootRelatedBehavior::TickComponent(float DeltaTime, ELevelTick TickType
 	// ...
 }
 
-void UFFShootRelatedBehavior::LookAround(AActor* ActorToRotate, const float Speed, const FVector Direction, const float MinClamp, const float MaxClamp)
+void UFFShootRelatedBehavior::LookAround(USceneComponent* Pivot, USceneComponent* PivotY, const float Speed, const FVector Direction, const float MinClamp, const float MaxClamp)
 {
-	if (!ActorToRotate)
+	if (!Pivot || !PivotY)
 	{
 		UE_LOG(LogTemp, Error, TEXT("No Actor to rotate"))
 		return;
 	}
 
-	FRotator CurrentRotation = ActorToRotate->GetActorRotation();
+	FRotator CurrentRotation = Pivot->GetRelativeRotation(); 
+	FRotator CurrentRotationY = PivotY->GetRelativeRotation(); 
 
-	FRotator DeltaRotation = Direction.Rotation() * Speed * GetWorld()->GetDeltaSeconds();
+	FRotator Rotation = FRotator(Direction.X, Direction.Y, Direction.Z) * Speed;
 
-	FRotator NewRotation = CurrentRotation + DeltaRotation;
+	FRotator NewRotation = CurrentRotation + FRotator(0.f, Rotation.Yaw, 0.f); 
 
-	NewRotation.Yaw = FMath::Clamp(NewRotation.Yaw, MinClamp, MaxClamp);
+	FRotator NewRotationY = CurrentRotationY + FRotator(Rotation.Pitch, 0.f, 0.f); 
 
-	ActorToRotate->SetActorRotation(NewRotation);
+	NewRotationY.Pitch = FMath::Clamp(NewRotationY.Pitch, MinClamp, MaxClamp);
+
+	Pivot->SetRelativeRotation(NewRotation);  
+	PivotY->SetRelativeRotation(NewRotationY);
+}
+
+void UFFShootRelatedBehavior::ShootLineTrace(USceneComponent* ShootPoint, FHitResult& HitResult)
+{
+	if (!ShootPoint)
+	{
+		UE_LOG(LogTemp, Error, TEXT("No Shooting Point"));
+		return;
+	}
+
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(GetOwner());
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, ShootPoint->GetComponentLocation(), ShootPoint->GetForwardVector()*10000, ECC_Visibility, QueryParams);
+
+	if (bHit)
+	{
+		
+	}
+	else
+	{
+		
+	}
+}
+
+void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, float Radius, TArray<FHitResult>& HitResults)
+{
+	if (!ShootPoint)
+	{
+		UE_LOG(LogTemp, Error, TEXT("No Shooting Point"));
+		return;
+	}
+
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(GetOwner()); 
+
+	// Perform the sphere trace
+	bool bHit = GetWorld()->SweepMultiByChannel(HitResults, ShootPoint->GetComponentLocation(), ShootPoint->GetForwardVector() * 10000, FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(Radius), QueryParams);
+
+	if (bHit)
+	{
+		
+	}
+	else
+	{
+		
+	}
 }
 

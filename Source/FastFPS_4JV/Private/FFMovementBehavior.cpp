@@ -31,7 +31,7 @@ void UFFMovementBehavior::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	// ...
 }
 
-void UFFMovementBehavior::MoveInDirection(const FVector Direction, const float Speed, UPrimitiveComponent* MovableObject, AActor* ObjectTransform, bool UseObjectForwardWithHeight)
+void UFFMovementBehavior::MoveInDirection(const FVector Direction, const float Speed, UPrimitiveComponent* MovableObject, USceneComponent* ToUseTransform, bool UseObjectForwardWithHeight)
 {
 	if (!MovableObject || !MovableObject->IsSimulatingPhysics())
 	{
@@ -46,17 +46,17 @@ void UFFMovementBehavior::MoveInDirection(const FVector Direction, const float S
 
 	FVector LinearVelocity = FVector(0, 0, 0);
 
-	if (!ObjectTransform)
+	if (!ToUseTransform)
 	{
 		LinearVelocity = Direction.GetSafeNormal() * Speed;
 		LinearVelocity.Z = Direction.Z == 0 ? MovableObject->GetPhysicsLinearVelocity().Z : Direction.Z; //Gravity
 	}
 	else
 	{
-		LinearVelocity = ObjectTransform->GetActorForwardVector() * Direction.X;
-		LinearVelocity += ObjectTransform->GetActorRightVector() * Direction.Y;
+		LinearVelocity = ToUseTransform->GetForwardVector() * Direction.X;
+		LinearVelocity += ToUseTransform->GetRightVector() * Direction.Y;
 
-		if (UseObjectForwardWithHeight) LinearVelocity.Z = 0;
+		if (!UseObjectForwardWithHeight) LinearVelocity.Z = 0;
 
 		LinearVelocity = LinearVelocity.GetSafeNormal() * Speed;
 	}

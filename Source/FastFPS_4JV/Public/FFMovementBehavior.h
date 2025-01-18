@@ -20,5 +20,5 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void MoveInDirection(const FVector Direction, const float Speed, UPrimitiveComponent* MovableObject, AActor* ObjectTransform, bool UseObjectForwardWithHeight);
+	void MoveInDirection(const FVector Direction, const float Speed, UPrimitiveComponent* MovableObject, USceneComponent* ToUseTransform, bool UseObjectForwardWithHeight);
 };
