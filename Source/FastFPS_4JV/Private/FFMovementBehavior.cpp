@@ -9,7 +9,7 @@ UFFMovementBehavior::UFFMovementBehavior()
 	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
 	// off to improve performance if you don't need them.
 	PrimaryComponentTick.bCanEverTick = true;
-	
+
 }
 
 
@@ -19,7 +19,7 @@ void UFFMovementBehavior::BeginPlay()
 	Super::BeginPlay();
 
 	// ...
-	
+
 }
 
 
@@ -31,7 +31,7 @@ void UFFMovementBehavior::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	// ...
 }
 
-void UFFMovementBehavior::MoveInDirection(FVector Direction, float Speed, UPrimitiveComponent* MovableObject)
+void UFFMovementBehavior::MoveInDirection(const FVector Direction, const float Speed, UPrimitiveComponent* MovableObject, AActor* ObjectTransform, bool UseObjectForwardWithHeight)
 {
 	if (!MovableObject || !MovableObject->IsSimulatingPhysics())
 	{
@@ -44,7 +44,23 @@ void UFFMovementBehavior::MoveInDirection(FVector Direction, float Speed, UPrimi
 		return;
 	}
 
-	FVector LinearVelocity = Direction.GetSafeNormal() * Speed;
+	FVector LinearVelocity = FVector(0, 0, 0);
+
+	if (!ObjectTransform)
+	{
+		LinearVelocity = Direction.GetSafeNormal() * Speed;
+		LinearVelocity.Z = Direction.Z == 0 ? MovableObject->GetPhysicsLinearVelocity().Z : Direction.Z; //Gravity
+	}
+	else
+	{
+		LinearVelocity = ObjectTransform->GetActorForwardVector() * Direction.X;
+		LinearVelocity += ObjectTransform->GetActorRightVector() * Direction.Y;
+
+		if (UseObjectForwardWithHeight) LinearVelocity.Z = 0;
+
+		LinearVelocity = LinearVelocity.GetSafeNormal() * Speed;
+	}
+
 	MovableObject->SetPhysicsLinearVelocity(LinearVelocity);
 }
 
