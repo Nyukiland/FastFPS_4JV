@@ -31,36 +31,56 @@ void UFFMovementBehavior::TickComponent(float DeltaTime, ELevelTick TickType, FA
 	// ...
 }
 
-void UFFMovementBehavior::MoveInDirection(const FVector Direction, const float Speed, UPrimitiveComponent* MovableObject, USceneComponent* ToUseTransform, bool UseObjectForwardWithHeight)
+void UFFMovementBehavior::GetMovement(UPrimitiveComponent* MovableObject, USceneComponent* ToUseTransform)
 {
-	if (!MovableObject || !MovableObject->IsSimulatingPhysics())
+	if (!MovableObject || !MovableObject->IsSimulatingPhysics() || !ToUseTransform)
 	{
 		UE_LOG(LogTemp,
 			Error,
-			TEXT("UFFMovementBehavior: \n MovableObject Validity: %s \n Simulating physics Validity: %s"),
+			TEXT("[UFFMovementBehavior::GetMovement] UFFMovementBehavior: \n MovableObject Validity: %s \n Simulating physics Validity: %s \n ToUseTransfrom: %s"),
 			MovableObject ? TEXT("true") : TEXT("false"),
-			(MovableObject && MovableObject->IsSimulatingPhysics()) ? TEXT("true") : TEXT("false")
+			(MovableObject && MovableObject->IsSimulatingPhysics()) ? TEXT("true") : TEXT("false"),
+			ToUseTransform ? TEXT("true") : TEXT("false")
 		);
 		return;
 	}
 
-	FVector LinearVelocity = FVector(0, 0, 0);
-
-	if (!ToUseTransform)
-	{
-		LinearVelocity = Direction.GetSafeNormal() * Speed;
-		LinearVelocity.Z = Direction.Z == 0 ? MovableObject->GetPhysicsLinearVelocity().Z : Direction.Z; //Gravity
-	}
-	else
-	{
-		LinearVelocity = ToUseTransform->GetForwardVector() * Direction.X;
-		LinearVelocity += ToUseTransform->GetRightVector() * Direction.Y;
-
-		if (!UseObjectForwardWithHeight) LinearVelocity.Z = 0;
-
-		LinearVelocity = LinearVelocity.GetSafeNormal() * Speed;
-	}
-
-	MovableObject->SetPhysicsLinearVelocity(LinearVelocity);
+	ObjectToMove = MovableObject;
+	ObjectTransformMovement = ToUseTransform;
+	CurVelocity = ObjectToMove->GetPhysicsLinearVelocity();
 }
 
+void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed)
+{
+	if (!ObjectToMove || !ObjectToMove->IsSimulatingPhysics() || !ObjectTransformMovement)
+	{
+		UE_LOG(LogTemp, Error, TEXT("[UFFMovementBehavior::MoveInDirection] Set up issue"));
+		return;
+	}
+
+	float SpeedToGo = Direction.Length() * MaxSpeed;
+	float CurSpeed = CurVelocity.Length();
+
+	if (SpeedToGo > CurSpeed) CurSpeed += Acceleration;
+	else CurSpeed -= Deceleration;
+
+	CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
+
+	FVector NewVelo = ObjectTransformMovement->GetForwardVector() * Direction.X;
+	NewVelo += ObjectTransformMovement->GetRightVector() * Direction.Y;
+	NewVelo = NewVelo.GetSafeNormal();
+	NewVelo *= CurSpeed;
+
+	CurVelocity = FVector(NewVelo.X, NewVelo.Y, CurVelocity.Z);
+}
+
+void UFFMovementBehavior::GiveVelocity()
+{
+	if (!ObjectToMove || !ObjectToMove->IsSimulatingPhysics() || !ObjectTransformMovement)
+	{
+		UE_LOG(LogTemp, Error, TEXT("[UFFMovementBehavior::MoveInDirection] Set up issue"));
+		return;
+	}
+
+	ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
+}

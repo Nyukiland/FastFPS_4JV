@@ -12,6 +12,11 @@ class FASTFPS_4JV_API UFFMovementBehavior : public UActorComponent
 {
 	GENERATED_BODY()
 
+private:
+	UPrimitiveComponent* ObjectToMove;
+	USceneComponent* ObjectTransformMovement;
+	FVector CurVelocity;
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -20,5 +25,11 @@ public:
 	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void MoveInDirection(const FVector Direction, const float Speed, UPrimitiveComponent* MovableObject, USceneComponent* ToUseTransform, bool UseObjectForwardWithHeight);
+	void GetMovement(UPrimitiveComponent* MovableObject, USceneComponent* ToUseTransform);
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+	void MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed);
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+	void GiveVelocity();
 };
