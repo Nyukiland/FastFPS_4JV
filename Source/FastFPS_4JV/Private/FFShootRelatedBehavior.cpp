@@ -20,7 +20,7 @@ void UFFShootRelatedBehavior::BeginPlay()
 	Super::BeginPlay();
 
 	// ...
-	
+
 }
 
 
@@ -37,25 +37,25 @@ void UFFShootRelatedBehavior::LookAround(USceneComponent* Pivot, USceneComponent
 	if (!Pivot || !PivotY)
 	{
 		UE_LOG(LogTemp, Error, TEXT("No Actor to rotate"))
-		return;
+			return;
 	}
 
-	FRotator CurrentRotation = Pivot->GetRelativeRotation(); 
-	FRotator CurrentRotationY = PivotY->GetRelativeRotation(); 
+	FRotator CurrentRotation = Pivot->GetRelativeRotation();
+	FRotator CurrentRotationY = PivotY->GetRelativeRotation();
 
 	FRotator Rotation = FRotator(Direction.X, Direction.Y, Direction.Z) * Speed;
 
-	FRotator NewRotation = CurrentRotation + FRotator(0.f, Rotation.Yaw, 0.f); 
+	FRotator NewRotation = CurrentRotation + FRotator(0.f, Rotation.Yaw, 0.f);
 
-	FRotator NewRotationY = CurrentRotationY + FRotator(Rotation.Pitch, 0.f, 0.f); 
+	FRotator NewRotationY = CurrentRotationY + FRotator(Rotation.Pitch, 0.f, 0.f);
 
 	NewRotationY.Pitch = FMath::Clamp(NewRotationY.Pitch, MinClamp, MaxClamp);
 
-	Pivot->SetRelativeRotation(NewRotation);  
+	Pivot->SetRelativeRotation(NewRotation);
 	PivotY->SetRelativeRotation(NewRotationY);
 }
 
-void UFFShootRelatedBehavior::ShootLineTrace(USceneComponent* ShootPoint, FHitResult& HitResult)
+void UFFShootRelatedBehavior::ShootLineTrace(USceneComponent* ShootPoint, float DistMax, FHitResult& HitResult, EShootStatusOutputPin& OutputPins)
 {
 	if (!ShootPoint)
 	{
@@ -66,19 +66,14 @@ void UFFShootRelatedBehavior::ShootLineTrace(USceneComponent* ShootPoint, FHitRe
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(GetOwner());
 
-	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, ShootPoint->GetComponentLocation(), ShootPoint->GetForwardVector()*10000, ECC_Visibility, QueryParams);
+	float Dist = DistMax < 0 ? 10000 : DistMax;
 
-	if (bHit)
-	{
-		
-	}
-	else
-	{
-		
-	}
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, ShootPoint->GetComponentLocation(), ShootPoint->GetForwardVector() * Dist, ECC_Visibility, QueryParams);
+
+	OutputPins = bHit? EShootStatusOutputPin::Hit : EShootStatusOutputPin::NoHit;
 }
 
-void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, float Radius, TArray<FHitResult>& HitResults)
+void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, float Radius, float DistMax, TArray<FHitResult>& HitResults, EShootStatusOutputPin& OutputPins)
 {
 	if (!ShootPoint)
 	{
@@ -87,18 +82,17 @@ void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, floa
 	}
 
 	FCollisionQueryParams QueryParams;
-	QueryParams.AddIgnoredActor(GetOwner()); 
+	QueryParams.AddIgnoredActor(GetOwner());
 
-	// Perform the sphere trace
-	bool bHit = GetWorld()->SweepMultiByChannel(HitResults, ShootPoint->GetComponentLocation(), ShootPoint->GetForwardVector() * 10000, FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(Radius), QueryParams);
+	float Dist = DistMax < 0 ? 10000 : DistMax;
 
-	if (bHit)
-	{
-		
-	}
-	else
-	{
-		
-	}
+	FHitResult firstHit;
+	bool LineHit = GetWorld()->LineTraceSingleByChannel(firstHit, ShootPoint->GetComponentLocation(), ShootPoint->GetForwardVector() * Dist, ECC_Visibility, QueryParams);
+
+	if (LineHit) Dist = firstHit.Distance;
+
+	bool bHit = GetWorld()->SweepMultiByChannel(HitResults, ShootPoint->GetComponentLocation(), ShootPoint->GetForwardVector() * Dist, FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(Radius), QueryParams);
+
+	OutputPins = bHit ? EShootStatusOutputPin::Hit : EShootStatusOutputPin::NoHit;
 }
 

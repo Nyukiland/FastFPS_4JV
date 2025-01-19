@@ -29,6 +29,54 @@ float UFFMathBlueprintHelper::GetAngleBetweenVectors(const FVector VectorA, cons
 	return FMath::Acos(DotProduct) * (180.0f / PI);
 }
 
+FVector UFFMathBlueprintHelper::GetClosestPoint(const FVector FirstVector, const TArray<FVector> Vectors)
+{
+	if (Vectors.Num() <= 0)
+	{
+		UE_LOG(LogTemp, Error, TEXT("[UFFMathBlueprintHelper::GetClosestPoint] List Is Empty"));
+		return FVector(0, 0, 0);
+	}
+
+	FVector Closest = Vectors[0];
+	float DistClosest = FVector::Dist(FirstVector, Vectors[0]);
+
+	for(const FVector Vector : Vectors)
+	{
+		float CurDist = FVector::Dist(FirstVector, Vector);
+		if (CurDist < DistClosest)
+		{
+			Closest = Vector;
+			DistClosest = CurDist;
+		}
+	}
+
+	return Closest;
+}
+
+AActor* UFFMathBlueprintHelper::GetClosestActor(const AActor* BaseActor, const TArray<AActor*> Actors)
+{
+	if (!BaseActor || Actors.Num() <= 0)
+	{
+		UE_LOG(LogTemp, Error, TEXT("[UFFMathBlueprintHelper::GetClosestPoint] List Is Empty or Self is not set"));
+		return nullptr;
+	}
+
+	AActor* Closest = Actors[0];
+	float DistClosest = FVector::Dist(BaseActor->GetActorLocation(), Actors[0]->GetActorLocation());
+
+	for (AActor* Actor : Actors)
+	{
+		float CurDist = FVector::Dist(BaseActor->GetActorLocation(), Actor->GetActorLocation());
+		if (CurDist < DistClosest)
+		{
+			Closest = Actor;
+			DistClosest = CurDist;
+		}
+	}
+
+	return Closest;
+}
+
 FVector2D UFFMathBlueprintHelper::RandomPointInCircle(float Radius)
 {
 	float RandomX = FMath::RandRange(0, 1);

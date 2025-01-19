@@ -7,6 +7,13 @@
 #include "FFShootRelatedBehavior.generated.h"
 
 
+UENUM()
+enum class EShootStatusOutputPin : uint8
+{
+	Hit,
+	NoHit
+};
+
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class FASTFPS_4JV_API UFFShootRelatedBehavior : public UActorComponent
 {
@@ -27,9 +34,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Aim")
 	void LookAround(USceneComponent* Pivot, USceneComponent* PivotY, const float Speed, const FVector Direction, const float MinClamp, const float MaxClamp);
 
-	UFUNCTION(BlueprintCallable, Category = "Shoot")
-	void ShootLineTrace(USceneComponent* ShootPoint, FHitResult& HitResult);
+	UFUNCTION(BlueprintCallable, Category = "Shoot", meta = (ExpandEnumAsExecs = "OutputPins"))
+	void ShootLineTrace(USceneComponent* ShootPoint, float DistMax, FHitResult& HitResult, EShootStatusOutputPin& OutputPins);
 
-	UFUNCTION(BlueprintCallable, Category = "Shoot")
-	void ShootSphereTrace(USceneComponent* ShootPoint, float Radius, TArray<FHitResult>& HitResults);
+	UFUNCTION(BlueprintCallable, Category = "Shoot", meta = (ExpandEnumAsExecs = "OutputPins"))
+	void ShootSphereTrace(USceneComponent* ShootPoint, float Radius, float DistMax, TArray<FHitResult>& HitResults, EShootStatusOutputPin& OutputPins);
 };

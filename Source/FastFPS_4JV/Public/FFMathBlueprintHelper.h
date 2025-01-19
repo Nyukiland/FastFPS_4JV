@@ -26,11 +26,17 @@ public:
 	static void DecrementInt(UPARAM(ref) int& Value, int Amount);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper|Vector")
-	static float GetAngleBetweenVectors(const FVector VectorA, const FVector VectorB);
+	static float GetAngleBetweenVectors(const FVector VectorA = FVector(0,0,0), const FVector VectorB = FVector(0,0,0));
+
+	UFUNCTION(BlueprintCallable, Category = "Math Helper|Vector")
+	static FVector GetClosestPoint(const FVector FirstVector, const TArray<FVector> Vectors);
+
+	UFUNCTION(BlueprintCallable, Category = "Math Helper|Vector")
+	static AActor* GetClosestActor(const AActor* BaseActor, const TArray<AActor*> Actors);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper|Random")
-	static FVector2D RandomPointInCircle(float Radius);
+	static FVector2D RandomPointInCircle(float Radius = 0);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper|Random")
-	static FVector RandomPointInSphere(float Radius);
+	static FVector RandomPointInSphere(float Radius = 0);
 };
