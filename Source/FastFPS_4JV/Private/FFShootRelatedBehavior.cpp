@@ -36,7 +36,7 @@ void UFFShootRelatedBehavior::LookAround(USceneComponent* Pivot, USceneComponent
 {
 	if (!Pivot || !PivotY)
 	{
-		UE_LOG(LogTemp, Error, TEXT("No Actor to rotate"))
+		UE_LOG(LogTemp, Error, TEXT("[LookAround] No Actor to rotate"))
 			return;
 	}
 
