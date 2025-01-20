@@ -150,3 +150,8 @@ void UFFMovementBehavior::GiveVelocity()
 
 	ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
 }
+
+void UFFMovementBehavior::AddExternalForce(FVector Force)
+{
+	AwaitingForce.Add(Force);
+}

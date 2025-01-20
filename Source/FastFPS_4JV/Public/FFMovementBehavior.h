@@ -54,4 +54,6 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void GiveVelocity();
 
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+	void AddExternalForce(FVector Force);
 };
