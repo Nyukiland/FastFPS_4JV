@@ -1,9 +1,0 @@
-{
-	"RemapUnityFiles": 
-	{
-		"Module.Wwise.cpp.obj": [
-			"Wwise.cpp.obj",
-			"WwiseModule.cpp.obj"
-		]
-	}
-}
