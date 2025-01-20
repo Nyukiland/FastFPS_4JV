@@ -65,6 +65,7 @@ void UFFShootRelatedBehavior::ShootLineTrace(USceneComponent* ShootPoint, float 
 
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(GetOwner());
+	QueryParams.bReturnPhysicalMaterial = true;
 
 	float Dist = DistMax < 0 ? 10000 : DistMax;
 
@@ -83,6 +84,7 @@ void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, floa
 
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(GetOwner());
+	QueryParams.bReturnPhysicalMaterial = true;
 
 	float Dist = DistMax < 0 ? 10000 : DistMax;
 
