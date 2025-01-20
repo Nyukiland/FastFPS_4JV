@@ -68,7 +68,7 @@ void UFFShootRelatedBehavior::ShootLineTrace(USceneComponent* ShootPoint, float 
 
 	float Dist = DistMax < 0 ? 10000 : DistMax;
 
-	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, ShootPoint->GetComponentLocation(), ShootPoint->GetForwardVector() * Dist, ECC_Visibility, QueryParams);
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), ECC_Visibility, QueryParams);
 
 	OutputPins = bHit? EShootStatusOutputPin::Hit : EShootStatusOutputPin::NoHit;
 }
@@ -87,12 +87,12 @@ void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, floa
 	float Dist = DistMax < 0 ? 10000 : DistMax;
 
 	FHitResult firstHit;
-	bool LineHit = GetWorld()->LineTraceSingleByChannel(firstHit, ShootPoint->GetComponentLocation(), ShootPoint->GetForwardVector() * Dist, ECC_Visibility, QueryParams);
+	bool LineHit = GetWorld()->LineTraceSingleByChannel(firstHit, ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), ECC_Visibility, QueryParams);
 
-	if (LineHit) Dist = firstHit.Distance;
+	if (LineHit) Dist = firstHit.Distance + Radius;
 
-	bool bHit = GetWorld()->SweepMultiByChannel(HitResults, ShootPoint->GetComponentLocation(), ShootPoint->GetForwardVector() * Dist, FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(Radius), QueryParams);
-
+	bool bHit = GetWorld()->SweepMultiByChannel(HitResults, ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(Radius), QueryParams);
+	
 	OutputPins = bHit ? EShootStatusOutputPin::Hit : EShootStatusOutputPin::NoHit;
 }
 
