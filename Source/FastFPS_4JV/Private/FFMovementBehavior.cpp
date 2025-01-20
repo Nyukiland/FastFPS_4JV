@@ -91,14 +91,9 @@ void UFFMovementBehavior::MoveInAir(const FVector2D Direction, const float Accel
 
 	dir *= Acceleration;
 
-	UE_LOG(LogTemp, Error, TEXT("Velo: %s"), *dir.ToString());
-
 	FVector NewVelo = ObjectTransformMovement->GetForwardVector() * dir.X;
 	NewVelo += ObjectTransformMovement->GetRightVector() * dir.Y;
 	NewVelo.Z = 0;
-
-	UE_LOG(LogTemp, Error, TEXT("Velo: %s"), *NewVelo.ToString());
-	UE_LOG(LogTemp, Error, TEXT("____________________"));
 
 	CurVelocity += NewVelo;
 	CurVelocity = CurVelocity.GetClampedToSize(0, MaxSpeed);
