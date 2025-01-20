@@ -22,6 +22,17 @@ void UFFMovementBehavior::BeginPlay()
 
 }
 
+bool UFFMovementBehavior::IsMovementReady()
+{
+	if (!ObjectToMove || !ObjectToMove->IsSimulatingPhysics() || !ObjectTransformMovement)
+	{
+		UE_LOG(LogTemp, Error, TEXT("[UFFMovementBehavior::MoveInDirection] Set up issue"));
+		return false;
+	}
+
+	return true;
+}
+
 
 // Called every frame
 void UFFMovementBehavior::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
@@ -52,11 +63,7 @@ void UFFMovementBehavior::GetMovement(UPrimitiveComponent* MovableObject, UScene
 
 void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed)
 {
-	if (!ObjectToMove || !ObjectToMove->IsSimulatingPhysics() || !ObjectTransformMovement)
-	{
-		UE_LOG(LogTemp, Error, TEXT("[UFFMovementBehavior::MoveInDirection] Set up issue"));
-		return;
-	}
+	if (!IsMovementReady()) return;
 
 	float SpeedToGo = Direction.Length() * MaxSpeed;
 	float CurSpeed = CurVelocity.Length();
@@ -74,12 +81,68 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 	CurVelocity = FVector(NewVelo.X, NewVelo.Y, CurVelocity.Z);
 }
 
+void UFFMovementBehavior::IsGrounded(FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins)
+{
+	if (!IsMovementReady()) return;
+
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(GetOwner());
+
+	FVector VectorDown = ObjectToMove->GetUpVector();
+	VectorDown *= TraceSize * -1;
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(GroundHit, ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + VectorDown, ECC_Visibility, QueryParams);
+
+	OutputPins = bHit ? EGroundStatusOutputPin::Grounded : EGroundStatusOutputPin::NotGrounded;
+}
+
+void UFFMovementBehavior::Jump(const float JumpForce)
+{
+	if (!IsMovementReady()) return;
+
+	CurVelocity.Z = JumpForce;
+}
+
+void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, bool isInSlope)
+{
+	if (!IsMovementReady()) return;
+
+	if (IsSlide && SlideTimer == 0)
+	{
+		SlideTimer = 0;
+	}
+	else if (!IsSlide)
+	{
+		if (SlideTimer != 0) SlideTimer = MaxTime;
+		return;
+	}
+
+	if (SlideTimer == MaxTime && !isInSlope) return;
+
+	SlideTimer += GetWorld()->DeltaTimeSeconds;
+
+	float Value0To1 = FMath::Clamp(SlideTimer / MaxTime, 0, 1);
+	float CurveEval = Curve->GetFloatValue(Value0To1);
+	FVector Movement = FVector(CurVelocity.X, CurVelocity.Y, 0);
+
+	float StoredZ = CurVelocity.Z;
+
+	CurVelocity = Movement * CurveEval * SlideMultiply;
+	CurVelocity.Z = StoredZ;
+}
+
 void UFFMovementBehavior::GiveVelocity()
 {
-	if (!ObjectToMove || !ObjectToMove->IsSimulatingPhysics() || !ObjectTransformMovement)
+	if (!IsMovementReady()) return;
+
+	if (AwaitingForce.Num() > 0)
 	{
-		UE_LOG(LogTemp, Error, TEXT("[UFFMovementBehavior::MoveInDirection] Set up issue"));
-		return;
+		for (const FVector Force : AwaitingForce)
+		{
+			CurVelocity += Force;
+		}
+
+		AwaitingForce.Empty();
 	}
 
 	ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
