@@ -41,6 +41,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed);
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+	void MoveInAir(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed);
 	
 	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
 	void IsGrounded(FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins);

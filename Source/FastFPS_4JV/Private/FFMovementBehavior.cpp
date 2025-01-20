@@ -75,10 +75,34 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 
 	FVector NewVelo = ObjectTransformMovement->GetForwardVector() * Direction.X;
 	NewVelo += ObjectTransformMovement->GetRightVector() * Direction.Y;
+	NewVelo.Z = 0;
 	NewVelo = NewVelo.GetSafeNormal();
 	NewVelo *= CurSpeed;
 
 	CurVelocity = FVector(NewVelo.X, NewVelo.Y, CurVelocity.Z);
+}
+
+void UFFMovementBehavior::MoveInAir(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed)
+{
+	if (!IsMovementReady()) return;
+
+	FVector2D dir = Direction;
+	float VeloZ = CurVelocity.Z;
+
+	dir *= Acceleration;
+
+	UE_LOG(LogTemp, Error, TEXT("Velo: %s"), *dir.ToString());
+
+	FVector NewVelo = ObjectTransformMovement->GetForwardVector() * dir.X;
+	NewVelo += ObjectTransformMovement->GetRightVector() * dir.Y;
+	NewVelo.Z = 0;
+
+	UE_LOG(LogTemp, Error, TEXT("Velo: %s"), *NewVelo.ToString());
+	UE_LOG(LogTemp, Error, TEXT("____________________"));
+
+	CurVelocity += NewVelo;
+	CurVelocity = CurVelocity.GetClampedToSize(0, MaxSpeed);
+	CurVelocity.Z = VeloZ;
 }
 
 void UFFMovementBehavior::IsGrounded(FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins)
