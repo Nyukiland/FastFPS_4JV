@@ -107,13 +107,13 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 {
 	if (!IsMovementReady()) return;
 
-	if (IsSlide && SlideTimer == 0)
+	if (IsSlide && SlideTimer == MaxTime)
 	{
 		SlideTimer = 0;
 	}
 	else if (!IsSlide)
 	{
-		if (SlideTimer != 0) SlideTimer = MaxTime;
+		SlideTimer = MaxTime;
 		return;
 	}
 
