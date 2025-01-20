@@ -100,7 +100,7 @@ void UFFMovementBehavior::Jump(const float JumpForce)
 {
 	if (!IsMovementReady()) return;
 
-	CurVelocity.Z = JumpForce;
+	AwaitingForce.Add(FVector(0, 0, JumpForce));
 }
 
 void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, bool isInSlope)
@@ -139,7 +139,10 @@ void UFFMovementBehavior::GiveVelocity()
 	{
 		for (const FVector Force : AwaitingForce)
 		{
-			CurVelocity += Force;
+			FVector ModifiedForce = FVector(Force.X, Force.Y, 0);
+
+			if (FMath::Abs(Force.Z) > FMath::Abs(CurVelocity.Z)) CurVelocity.Z = Force.Z;
+			CurVelocity += ModifiedForce;
 		}
 
 		AwaitingForce.Empty();
