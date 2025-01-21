@@ -91,9 +91,12 @@ void UFFMovementBehavior::MoveInAir(const FVector2D Direction, const float Accel
 
 	dir *= Acceleration;
 
-	FVector NewVelo = ObjectTransformMovement->GetForwardVector() * dir.X;
-	NewVelo += ObjectTransformMovement->GetRightVector() * dir.Y;
-	NewVelo.Z = 0;
+	FVector ForwardDir = ObjectTransformMovement->GetForwardVector();
+	ForwardDir.Z = 0;
+	FVector RightDir = ObjectTransformMovement->GetRightVector();
+	RightDir.Z = 0;
+	FVector NewVelo = ForwardDir.GetSafeNormal() * dir.X;
+	NewVelo += RightDir.GetSafeNormal() * dir.Y;
 
 	CurVelocity += NewVelo;
 	CurVelocity = CurVelocity.GetClampedToSize(0, MaxSpeed);
@@ -173,9 +176,6 @@ void UFFMovementBehavior::GiveVelocity()
 
 		AwaitingForce.Empty();
 	}
-
-	UE_LOG(LogTemp, Error, TEXT("value: %s"), *CurVelocity.ToString());
-	UE_LOG(LogTemp, Error, TEXT("------------"));
 
 	ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
 }
