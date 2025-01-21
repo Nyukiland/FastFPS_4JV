@@ -115,38 +115,46 @@ void UFFMovementBehavior::IsGrounded(FHitResult& GroundHit, float TraceSize, EGr
 	OutputPins = bHit ? EGroundStatusOutputPin::Grounded : EGroundStatusOutputPin::NotGrounded;
 }
 
-void UFFMovementBehavior::Jump(const float JumpForce)
+void UFFMovementBehavior::JumpBehavior(const bool Jumped, const float JumpForce, const UCurveFloat* Curve, float MaxTime)
 {
 	if (!IsMovementReady()) return;
 
-	AwaitingForce.Add(FVector(0, 0, JumpForce));
+	if (!Jumped)
+	{
+		JumpTimer = 0;
+		return;
+	}
+	else if (MaxTime < JumpTimer) return;
+
+	JumpTimer += GetWorld()->DeltaTimeSeconds;
+	float Value0to1 = FMath::Clamp(MaxTime/ JumpTimer, 0, 1);
+	float ForceUp = Curve->GetFloatValue(Value0to1);
+	AddExternalForce(FVector(0, 0, ForceUp * JumpForce));
 }
 
 void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, bool isInSlope)
 {
 	if (!IsMovementReady()) return;
 
-	if (IsSlide && SlideTimer == MaxTime)
+	if (!IsSlide)
 	{
+		SlideDir = CurVelocity;
+		SlideDir.Z = 0;
+		SlideDir = SlideDir.GetSafeNormal();
 		SlideTimer = 0;
-	}
-	else if (!IsSlide)
-	{
-		SlideTimer = MaxTime;
 		return;
 	}
-
-	if (SlideTimer == MaxTime && !isInSlope) return;
+	else if (MaxTime < SlideTimer) return;
 
 	SlideTimer += GetWorld()->DeltaTimeSeconds;
 
-	float Value0To1 = FMath::Clamp(SlideTimer / MaxTime, 0, 1);
+	float Value0To1 = FMath::Clamp(MaxTime / SlideTimer, 0, 1);
 	float CurveEval = Curve->GetFloatValue(Value0To1);
-	FVector Movement = FVector(CurVelocity.X, CurVelocity.Y, 0);
+	CurveEval = FMath::Lerp(CurveEval, 1, SlideMultiply);
 
 	float StoredZ = CurVelocity.Z;
 
-	CurVelocity = Movement * CurveEval * SlideMultiply;
+	CurVelocity = SlideDir * CurveEval;
 	CurVelocity.Z = StoredZ;
 }
 
@@ -158,9 +166,9 @@ void UFFMovementBehavior::GiveVelocity()
 	{
 		for (const FVector Force : AwaitingForce)
 		{
-			FVector ModifiedForce = FVector(Force.X, Force.Y, 0);
+			FVector ModifiedForce = Force; //FVector(Force.X, Force.Y, 0);
 
-			if (FMath::Abs(Force.Z) > FMath::Abs(CurVelocity.Z)) CurVelocity.Z = Force.Z;
+			//if (FMath::Abs(Force.Z) > FMath::Abs(CurVelocity.Z)) CurVelocity.Z = Force.Z;
 			CurVelocity += ModifiedForce;
 		}
 
@@ -168,6 +176,11 @@ void UFFMovementBehavior::GiveVelocity()
 	}
 
 	ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
+}
+
+void UFFMovementBehavior::Gravity(const float Gravity)
+{
+	AddExternalForce(FVector(0, 0, -Gravity));
 }
 
 void UFFMovementBehavior::AddExternalForce(FVector Force)

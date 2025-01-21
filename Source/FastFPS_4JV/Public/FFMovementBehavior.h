@@ -24,6 +24,8 @@ private:
 	FVector CurVelocity;
 	TArray<FVector> AwaitingForce;
 	float SlideTimer;
+	float JumpTimer;
+	FVector SlideDir;
 
 protected:
 	virtual void BeginPlay() override;
@@ -49,13 +51,16 @@ public:
 	void IsGrounded(FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void Jump(const float JumpForce);
+	void JumpBehavior(const bool Jumped, const float JumpForce, const UCurveFloat* Curve, float MaxTime);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, bool IsInSlope);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void GiveVelocity();
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+	void Gravity(const float Gravity);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void AddExternalForce(FVector Force);
