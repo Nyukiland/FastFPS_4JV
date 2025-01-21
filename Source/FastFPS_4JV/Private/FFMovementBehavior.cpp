@@ -127,7 +127,7 @@ void UFFMovementBehavior::JumpBehavior(const bool Jumped, const float JumpForce,
 	else if (MaxTime < JumpTimer) return;
 
 	JumpTimer += GetWorld()->DeltaTimeSeconds;
-	float Value0to1 = FMath::Clamp(MaxTime/ JumpTimer, 0, 1);
+	float Value0to1 = FMath::Clamp(JumpTimer / MaxTime, 0, 1);
 	float ForceUp = Curve->GetFloatValue(Value0to1);
 	AddExternalForce(FVector(0, 0, ForceUp * JumpForce));
 }
@@ -140,7 +140,6 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 	{
 		SlideDir = CurVelocity;
 		SlideDir.Z = 0;
-		SlideDir = SlideDir.GetSafeNormal();
 		SlideTimer = 0;
 		return;
 	}
@@ -148,13 +147,14 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 
 	SlideTimer += GetWorld()->DeltaTimeSeconds;
 
-	float Value0To1 = FMath::Clamp(MaxTime / SlideTimer, 0, 1);
+	float Value0To1 = FMath::Clamp(SlideTimer / MaxTime, 0, 1);
 	float CurveEval = Curve->GetFloatValue(Value0To1);
 	CurveEval = FMath::Lerp(CurveEval, 1, SlideMultiply);
 
 	float StoredZ = CurVelocity.Z;
 
 	CurVelocity = SlideDir * CurveEval;
+	UE_LOG(LogTemp, Error, TEXT("value: %s"), *CurVelocity.ToString());
 	CurVelocity.Z = StoredZ;
 }
 
@@ -174,6 +174,9 @@ void UFFMovementBehavior::GiveVelocity()
 
 		AwaitingForce.Empty();
 	}
+
+	UE_LOG(LogTemp, Error, TEXT("value: %s"), *CurVelocity.ToString());
+	UE_LOG(LogTemp, Error, TEXT("------------"));
 
 	ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
 }
