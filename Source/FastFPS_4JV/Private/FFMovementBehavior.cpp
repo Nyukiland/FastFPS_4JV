@@ -132,7 +132,7 @@ void UFFMovementBehavior::JumpBehavior(const bool Jumped, const float JumpForce,
 	AddExternalForce(FVector(0, 0, ForceUp * JumpForce));
 }
 
-void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, bool isInSlope)
+void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, bool IsInSlope)
 {
 	if (!IsMovementReady()) return;
 
@@ -143,7 +143,7 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 		SlideTimer = 0;
 		return;
 	}
-	else if (MaxTime < SlideTimer) return;
+	else if (MaxTime < SlideTimer && !IsInSlope) return;
 
 	SlideTimer += GetWorld()->DeltaTimeSeconds;
 
@@ -154,7 +154,6 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 	float StoredZ = CurVelocity.Z;
 
 	CurVelocity = SlideDir * CurveEval;
-	UE_LOG(LogTemp, Error, TEXT("value: %s"), *CurVelocity.ToString());
 	CurVelocity.Z = StoredZ;
 }
 
