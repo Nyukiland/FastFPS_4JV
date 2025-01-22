@@ -141,9 +141,14 @@ void UFFMovementBehavior::JumpBehavior(const float JumpForce, const UCurveFloat*
 	AddExternalForce(FVector(0, 0, ForceUp * JumpForce));
 }
 
-void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, bool IsInSlope)
+void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal)
 {
 	if (!IsMovementReady()) return;
+	if (!Curve) return;
+
+	float dot;
+	dot = FVector::DotProduct(SlopeNormal, FVector(0, 0, 1));
+	dot = FMath::Abs(dot);
 
 	if (!IsSlide)
 	{
@@ -152,17 +157,28 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 		SlideTimer = 0;
 		return;
 	}
-	else if (MaxTime < SlideTimer && !IsInSlope) return;
+	else if (MaxTime < SlideTimer) return;
+
+	FVector SlopeDir = FVector::CrossProduct(SlopeNormal, FVector(0, 0, 1));
+	SlopeDir = FVector::CrossProduct(SlopeNormal, SlopeDir);
+	if (dot < 1 && SlopeDir.Z < 0) SlopeDir *= -1;
+
+	FVector ProjectedSlideDir = SlideDir - FVector::DotProduct(SlideDir, SlopeNormal.GetSafeNormal()) * SlopeNormal.GetSafeNormal();
 
 	SlideTimer += GetWorld()->DeltaTimeSeconds;
+
+	float dotDown = FVector::DotProduct(SlopeNormal, SlideDir);
+	if (dot != 1 && dotDown > 0) SlideTimer = 0;
 
 	float Value0To1 = FMath::Clamp(SlideTimer / MaxTime, 0, 1);
 	float CurveEval = Curve->GetFloatValue(Value0To1);
 	CurveEval = FMath::Lerp(CurveEval, 1, SlideMultiply);
 
+	if (dot == 1) ProjectedSlideDir = SlideDir;
+
 	float StoredZ = CurVelocity.Z;
 
-	CurVelocity = SlideDir * CurveEval;
+	CurVelocity = ProjectedSlideDir * CurveEval;
 	CurVelocity.Z = StoredZ;
 }
 

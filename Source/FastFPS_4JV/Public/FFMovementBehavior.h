@@ -57,7 +57,7 @@ public:
 	void JumpBehavior(const float JumpForce, const UCurveFloat* Curve, const float MaxTime, const float Timer);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, bool IsInSlope);
+	void Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void GiveVelocity();

@@ -6,6 +6,13 @@
 #include "UObject/NoExportTypes.h"
 #include "FFMathBlueprintHelper.generated.h"
 
+UENUM()
+enum class ERandomPinOut : uint8
+{
+	Random1,
+	Random2
+};
+
 UCLASS()
 class FASTFPS_4JV_API UFFMathBlueprintHelper : public UObject
 {
@@ -39,4 +46,8 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper|Random")
 	static FVector RandomPointInSphere(float Radius = 0);
+
+	UFUNCTION(BlueprintCallable, Category = "Math Helper", meta = (ExpandEnumAsExecs = "OutputPins"))
+	static void RandomOutput(ERandomPinOut& OutputPins);
+
 };

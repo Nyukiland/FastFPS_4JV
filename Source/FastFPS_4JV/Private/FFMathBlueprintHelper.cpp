@@ -95,3 +95,10 @@ FVector UFFMathBlueprintHelper::RandomPointInSphere(float Radius)
 	float RandomZ = FMath::RandRange(0, 1);
 	return FVector(RandomX, RandomY, RandomZ).GetSafeNormal() * Radius;
 }
+
+void UFFMathBlueprintHelper::RandomOutput(ERandomPinOut& OutputPins)
+{
+	bool rand = FMath::RandBool();
+	if (rand) OutputPins = ERandomPinOut::Random1;
+	else OutputPins = ERandomPinOut::Random2;
+}
