@@ -68,17 +68,29 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 	float SpeedToGo = Direction.Length() * MaxSpeed;
 	float CurSpeed = CurVelocity.Length();
 
-	if (SpeedToGo > CurSpeed) CurSpeed += Acceleration;
-	else CurSpeed -= Deceleration;
+	FVector NewVelo;
+	if (Direction != FVector2D(0,0))
+	{
+		CurSpeed += Acceleration;
+		CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
 
+		NewVelo = ObjectTransformMovement->GetForwardVector() * Direction.X;
+		NewVelo += ObjectTransformMovement->GetRightVector() * Direction.Y;
+		NewVelo.Z = 0;
+		NewVelo = NewVelo.GetSafeNormal();
+		NewVelo *= CurSpeed;
+	}
+	else
+	{
+		CurSpeed -= Acceleration;
+		CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
 
-	CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
+		NewVelo = CurVelocity;
+		NewVelo.Z = 0;
+		NewVelo = NewVelo.GetSafeNormal();
+		NewVelo *= CurSpeed;
 
-	FVector NewVelo = ObjectTransformMovement->GetForwardVector() * Direction.X;
-	NewVelo += ObjectTransformMovement->GetRightVector() * Direction.Y;
-	NewVelo.Z = 0;
-	NewVelo = NewVelo.GetSafeNormal();
-	NewVelo *= CurSpeed;
+	}
 
 	CurVelocity = FVector(NewVelo.X, NewVelo.Y, CurVelocity.Z);
 }
