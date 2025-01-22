@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{5939409B-6F16-481D-BCEB-38424F61E154}" SchemaVersion="123">
 	<SoundBanks>
-		<WorkUnit Name="Default Work Unit" ID="{5939409B-6F16-481D-BCEB-38424F61E154}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{5939409B-6F16-481D-BCEB-38424F61E154}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundBank Name="Main" ID="{D3FBFA52-A5A9-4410-BB2C-34A581AB5C6E}">
+					<ObjectInclusionList>
+						<ObjectRef Name="Shoot_empty" ID="{AE597D71-37F5-407E-9EF3-B32098F0E2AB}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Shoot" ID="{AA384353-F1D6-4245-91D5-CAC2CE4DA020}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="SLIDE" ID="{9D1441E3-E506-4330-A1CC-0BE99609852D}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DOUBLE_JUMP" ID="{F24C0B36-AD14-464E-9622-F38E49724B8C}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="collide_wall" ID="{6B7CD9DE-99AD-470A-B650-56CD6E758099}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Reload" ID="{2AB8D60D-C15F-484A-89FB-CEA5BFB4125A}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="JUMP" ID="{3B6809BC-11C8-4C86-B33B-9B87A4C634A0}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Reload_Short" ID="{517157A9-E7A0-4E19-A0A2-20A99E2D42AC}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="RUN" ID="{BA5EB57C-0826-4E8F-A84D-8E077651C1BE}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="DEATH" ID="{D4C17807-6E92-4F57-8EEC-83A45EB732BE}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundBanks>
 </WwiseDocument>

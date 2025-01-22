@@ -3,17 +3,6 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" PersistMode="Standalone">
 			<ChildrenList>
-				<Event Name="TestEvent" ID="{F4B7ECF4-0D13-4203-871B-67462FA095D2}">
-					<ChildrenList>
-						<Action Name="" ID="{610A3D08-6DF7-4456-B492-832BD5C474AA}" ShortID="307608321">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="Test" ID="{CCA9B35A-D532-43CE-8874-93A684B791A5}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 				<Folder Name="behaviour" ID="{8CA5136F-F79C-4FBE-9C0C-64ED5AEE5D5E}" ShortID="403015743">
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="5"/>
@@ -81,6 +70,58 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="collide_wall" ID="{08F45704-E2FF-45BF-8F7A-163E246C4209}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Gun" ID="{1E8C82EA-523C-409D-BE4E-49EB6EEEC3D9}" ShortID="992075080">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="Shoot" ID="{AA384353-F1D6-4245-91D5-CAC2CE4DA020}">
+							<ChildrenList>
+								<Action Name="" ID="{2133C20B-B47A-4948-8CDA-BBEC255316E9}" ShortID="910617118">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Shoot" ID="{B4866FF1-C408-4D3D-BA0F-BF4659A50052}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Reload" ID="{2AB8D60D-C15F-484A-89FB-CEA5BFB4125A}">
+							<ChildrenList>
+								<Action Name="" ID="{A0E7BAC0-B2AF-4B20-8507-0C7FA8F9E85B}" ShortID="580119465">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Reload" ID="{B5C66500-9858-4C43-8645-BDFCB8C69A4F}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Reload_Short" ID="{517157A9-E7A0-4E19-A0A2-20A99E2D42AC}">
+							<ChildrenList>
+								<Action Name="" ID="{0A0339F7-2174-423A-8133-1F7C0520F094}" ShortID="394152780">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Reload_Short" ID="{387C848B-EC8E-4C8C-AD47-F099A3F8D086}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Shoot_empty" ID="{AE597D71-37F5-407E-9EF3-B32098F0E2AB}">
+							<ChildrenList>
+								<Action Name="" ID="{626B9F74-EC23-4792-9510-78347B35ADDA}" ShortID="140963897">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Shoot_empty" ID="{7D447585-CEF5-4E77-9793-D82CA4A9EBB7}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
