@@ -71,6 +71,7 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 	if (SpeedToGo > CurSpeed) CurSpeed += Acceleration;
 	else CurSpeed -= Deceleration;
 
+
 	CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
 
 	FVector NewVelo = ObjectTransformMovement->GetForwardVector() * Direction.X;
