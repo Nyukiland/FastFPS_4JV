@@ -3,24 +3,28 @@
 
 #include "FFMathBlueprintHelper.h"
 
-void UFFMathBlueprintHelper::IncrementFloat(float& Value, float Amount)
+float UFFMathBlueprintHelper::IncrementFloat(float& Value, float Amount)
 {
 	Value += Amount;
+	return Value;
 }
 
-void UFFMathBlueprintHelper::IncrementInt(int& Value, int Amount)
+int UFFMathBlueprintHelper::IncrementInt(int& Value, int Amount)
 {
 	Value += Amount;
+	return Value;
 }
 
-void UFFMathBlueprintHelper::DecrementFloat(float& Value, float Amount)
+float UFFMathBlueprintHelper::DecrementFloat(float& Value, float Amount)
 {
 	Value -= Amount;
+	return Value;
 }
 
-void UFFMathBlueprintHelper::DecrementInt(int& Value, int Amount)
+int UFFMathBlueprintHelper::DecrementInt(int& Value, int Amount)
 {
 	Value -= Amount;
+	return Value;
 }
 
 float UFFMathBlueprintHelper::GetAngleBetweenVectors(const FVector VectorA, const FVector VectorB)

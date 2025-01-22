@@ -119,29 +119,11 @@ void UFFMovementBehavior::IsGrounded(FHitResult& GroundHit, float TraceSize, EGr
 	OutputPins = bHit ? EGroundStatusOutputPin::Grounded : EGroundStatusOutputPin::NotGrounded;
 }
 
-void UFFMovementBehavior::JumpBehavior(const bool Jumped, const float JumpForce, const UCurveFloat* Curve, float MaxTime, bool& InJump)
+void UFFMovementBehavior::JumpBehavior(const float JumpForce, const UCurveFloat* Curve, const float MaxTime, const float Timer)
 {
-	InJump = false;
 	if (!IsMovementReady()) return;
 
-	if (!Jumped)
-	{
-		JumpTimer = 0;
-		JumpDoOnce = false;
-		return;
-	}
-	else if (MaxTime < JumpTimer) return;
-
-	if (!JumpDoOnce)
-	{
-		JumpDoOnce = true;
-		CurVelocity.Z = 0;
-	}
-
-	InJump = true;
-
-	JumpTimer += GetWorld()->DeltaTimeSeconds;
-	float Value0to1 = FMath::Clamp(JumpTimer / MaxTime, 0, 1);
+	float Value0to1 = FMath::Clamp(Timer / MaxTime, 0, 1);
 	float ForceUp = Curve->GetFloatValue(Value0to1);
 	AddExternalForce(FVector(0, 0, ForceUp * JumpForce));
 }

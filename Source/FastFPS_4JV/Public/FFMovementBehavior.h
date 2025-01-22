@@ -21,12 +21,14 @@ class FASTFPS_4JV_API UFFMovementBehavior : public UActorComponent
 private:
 	UPrimitiveComponent* ObjectToMove;
 	USceneComponent* ObjectTransformMovement;
-	FVector CurVelocity;
 	TArray<FVector> AwaitingForce;
 	float SlideTimer;
-	float JumpTimer;
 	bool JumpDoOnce;
 	FVector SlideDir;
+
+public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	FVector CurVelocity;
 
 protected:
 	virtual void BeginPlay() override;
@@ -52,7 +54,7 @@ public:
 	void IsGrounded(FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void JumpBehavior(const bool Jumped, const float JumpForce, const UCurveFloat* Curve, float MaxTime, bool& InJump);
+	void JumpBehavior(const float JumpForce, const UCurveFloat* Curve, const float MaxTime, const float Timer);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, bool IsInSlope);

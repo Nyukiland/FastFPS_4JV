@@ -14,16 +14,16 @@ class FASTFPS_4JV_API UFFMathBlueprintHelper : public UObject
 public:
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static void IncrementFloat(UPARAM(ref) float& Value, float Amount);
+	static float IncrementFloat(UPARAM(ref) float& Value, float Amount);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static void IncrementInt(UPARAM(ref) int& Value, int Amount);
+	static int IncrementInt(UPARAM(ref) int& Value, int Amount);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static void DecrementFloat(UPARAM(ref) float& Value, float Amount);
+	static float DecrementFloat(UPARAM(ref) float& Value, float Amount);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static void DecrementInt(UPARAM(ref) int& Value, int Amount);
+	static int DecrementInt(UPARAM(ref) int& Value, int Amount);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper|Vector")
 	static float GetAngleBetweenVectors(const FVector VectorA = FVector(0,0,0), const FVector VectorB = FVector(0,0,0));
