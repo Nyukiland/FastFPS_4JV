@@ -3,7 +3,6 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}" PersistMode="Standalone">
 			<ChildrenList>
-<<<<<<< Updated upstream
 				<Sound Name="Test" ID="{CCA9B35A-D532-43CE-8874-93A684B791A5}" ShortID="131243159">
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -33,7 +32,6 @@
 						<ActiveSource Name="signal_v2" ID="{23048DE2-EA5E-43D2-9331-402795CB2C67}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
-=======
 				<Folder Name="behaviour" ID="{1DC985AB-9135-486F-ABD4-64D84FE38E98}" ShortID="522329840">
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="5"/>
@@ -479,7 +477,6 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
->>>>>>> Stashed changes
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

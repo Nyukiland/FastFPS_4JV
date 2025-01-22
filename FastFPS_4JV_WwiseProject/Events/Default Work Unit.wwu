@@ -3,7 +3,6 @@
 	<Events>
 		<WorkUnit Name="Default Work Unit" ID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" PersistMode="Standalone">
 			<ChildrenList>
-<<<<<<< Updated upstream
 				<Event Name="TestEvent" ID="{F4B7ECF4-0D13-4203-871B-67462FA095D2}">
 					<ChildrenList>
 						<Action Name="" ID="{610A3D08-6DF7-4456-B492-832BD5C474AA}" ShortID="307608321">
@@ -15,7 +14,6 @@
 						</Action>
 					</ChildrenList>
 				</Event>
-=======
 				<Folder Name="behaviour" ID="{8CA5136F-F79C-4FBE-9C0C-64ED5AEE5D5E}" ShortID="403015743">
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="5"/>
@@ -90,7 +88,6 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
->>>>>>> Stashed changes
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
