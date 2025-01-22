@@ -39,5 +39,4 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper|Random")
 	static FVector RandomPointInSphere(float Radius = 0);
-
 };
