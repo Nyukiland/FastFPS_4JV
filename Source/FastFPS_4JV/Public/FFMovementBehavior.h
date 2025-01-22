@@ -25,6 +25,7 @@ private:
 	TArray<FVector> AwaitingForce;
 	float SlideTimer;
 	float JumpTimer;
+	bool JumpDoOnce;
 	FVector SlideDir;
 
 protected:
@@ -51,7 +52,7 @@ public:
 	void IsGrounded(FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void JumpBehavior(const bool Jumped, const float JumpForce, const UCurveFloat* Curve, float MaxTime);
+	void JumpBehavior(const bool Jumped, const float JumpForce, const UCurveFloat* Curve, float MaxTime, bool& InJump);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, bool IsInSlope);

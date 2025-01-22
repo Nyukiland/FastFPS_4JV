@@ -99,6 +99,7 @@ void UFFMovementBehavior::MoveInAir(const FVector2D Direction, const float Accel
 	NewVelo += RightDir.GetSafeNormal() * dir.Y;
 
 	CurVelocity += NewVelo;
+	CurVelocity.Z = 0;
 	CurVelocity = CurVelocity.GetClampedToSize(0, MaxSpeed);
 	CurVelocity.Z = VeloZ;
 }
@@ -118,16 +119,26 @@ void UFFMovementBehavior::IsGrounded(FHitResult& GroundHit, float TraceSize, EGr
 	OutputPins = bHit ? EGroundStatusOutputPin::Grounded : EGroundStatusOutputPin::NotGrounded;
 }
 
-void UFFMovementBehavior::JumpBehavior(const bool Jumped, const float JumpForce, const UCurveFloat* Curve, float MaxTime)
+void UFFMovementBehavior::JumpBehavior(const bool Jumped, const float JumpForce, const UCurveFloat* Curve, float MaxTime, bool& InJump)
 {
+	InJump = false;
 	if (!IsMovementReady()) return;
 
 	if (!Jumped)
 	{
 		JumpTimer = 0;
+		JumpDoOnce = false;
 		return;
 	}
 	else if (MaxTime < JumpTimer) return;
+
+	if (!JumpDoOnce)
+	{
+		JumpDoOnce = true;
+		CurVelocity.Z = 0;
+	}
+
+	InJump = true;
 
 	JumpTimer += GetWorld()->DeltaTimeSeconds;
 	float Value0to1 = FMath::Clamp(JumpTimer / MaxTime, 0, 1);
