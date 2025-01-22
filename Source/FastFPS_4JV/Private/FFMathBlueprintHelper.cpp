@@ -3,25 +3,25 @@
 
 #include "FFMathBlueprintHelper.h"
 
-float UFFMathBlueprintHelper::IncrementFloat(float& Value, float Amount)
+float UFFMathBlueprintHelper::IncrementFloat(UPARAM(ref) float& Value, float Amount)
 {
 	Value += Amount;
 	return Value;
 }
 
-int UFFMathBlueprintHelper::IncrementInt(int& Value, int Amount)
+int UFFMathBlueprintHelper::IncrementInt(UPARAM(ref) int& Value, int Amount)
 {
 	Value += Amount;
 	return Value;
 }
 
-float UFFMathBlueprintHelper::DecrementFloat(float& Value, float Amount)
+float UFFMathBlueprintHelper::DecrementFloat(UPARAM(ref) float& Value, float Amount)
 {
 	Value -= Amount;
 	return Value;
 }
 
-int UFFMathBlueprintHelper::DecrementInt(int& Value, int Amount)
+int UFFMathBlueprintHelper::DecrementInt(UPARAM(ref) int& Value, int Amount)
 {
 	Value -= Amount;
 	return Value;
