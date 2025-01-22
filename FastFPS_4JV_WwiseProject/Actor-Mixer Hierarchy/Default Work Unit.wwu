@@ -3,6 +3,7 @@
 	<AudioObjects>
 		<WorkUnit Name="Default Work Unit" ID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}" PersistMode="Standalone">
 			<ChildrenList>
+<<<<<<< Updated upstream
 				<Sound Name="Test" ID="{CCA9B35A-D532-43CE-8874-93A684B791A5}" ShortID="131243159">
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -32,6 +33,453 @@
 						<ActiveSource Name="signal_v2" ID="{23048DE2-EA5E-43D2-9331-402795CB2C67}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
+=======
+				<Folder Name="behaviour" ID="{1DC985AB-9135-486F-ABD4-64D84FE38E98}" ShortID="522329840">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="5"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="RUN" ID="{BD9921A9-AB18-443E-BF73-9FE8D7F14829}" ShortID="370393935">
+							<PropertyList>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{57E63C65-3EF2-4E54-84E8-915B5DC31FC8}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="step" ID="{582A1807-A7FB-46EF-87DF-D71FECEB1BE8}" ShortID="801975796">
+									<PropertyList>
+										<Property Name="OverrideEffect" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{CA6EB7C6-D128-45DE-B86D-6752EA9F4D18}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="step 1" ID="{1DE8D8D9-05D1-44F6-AC2B-ABC3F25685C9}">
+											<Language>SFX</Language>
+											<AudioFile>step 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="292467799"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Effects">
+											<Reference>
+												<Local>
+													<EffectSlot Name="" ID="{B548285A-861B-44D3-89A4-D964BBACB0B3}" ShortID="1007682075">
+														<ReferenceList>
+															<Reference Name="Effect">
+																<Custom>
+																	<Effect Name="Parametric EQ (Custom)" ID="{8D2782F0-2897-4894-944C-82D8FA6FDD02}" ShortID="200885648" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																		<PropertyList>
+																			<Property Name="FrequencyBand2" Type="Real32" Value="2565"/>
+																			<Property Name="GainBand2" Type="Real32" Value="-24"/>
+																			<Property Name="QFactorBand2" Type="Real32" Value="38.3"/>
+																		</PropertyList>
+																	</Effect>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</EffectSlot>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+									<ActiveSourceList>
+										<ActiveSource Name="step 1" ID="{1DE8D8D9-05D1-44F6-AC2B-ABC3F25685C9}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="step 2" ID="{1B434840-1A73-425D-A563-8177ACBB36AF}" ShortID="696622029">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{19C0981D-5C6E-4C40-99D3-D4AC3C384AD0}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="step 2" ID="{D38CB52A-4261-4DB0-9CFE-CD5B17590381}">
+											<Language>SFX</Language>
+											<AudioFile>step 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="406837357"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="step 2" ID="{D38CB52A-4261-4DB0-9CFE-CD5B17590381}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="step 3" ID="{6A6EE23F-5F96-4967-9BC2-F4DDA86A466B}" ShortID="798719396">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{7917A7EC-E9FC-4B63-A2EE-0D1755E7AA84}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="step 3" ID="{D4D3D65B-A99A-4B49-BE13-15F2D137AD27}">
+											<Language>SFX</Language>
+											<AudioFile>step 3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="599446206"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="step 3" ID="{D4D3D65B-A99A-4B49-BE13-15F2D137AD27}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="step 4" ID="{5196BC49-C5C8-4828-8F9C-217D251C5C12}" ShortID="918128790">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{D09A8E44-1853-4CEB-B926-1A0F4767AE9F}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="step 4" ID="{522315ED-CE39-487A-8A08-AA05D83458C8}">
+											<Language>SFX</Language>
+											<AudioFile>step 4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="473389369"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="step 4" ID="{522315ED-CE39-487A-8A08-AA05D83458C8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<Sound Name="slide" ID="{29C0B41E-CA71-41E2-B4A3-6E789DBA6ACA}" ShortID="349033510">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>11</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>9</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{7CDC7799-AE5C-45F2-80A8-BEF9EF26F1BB}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="50"/>
+													<Property Name="Min" Type="Real64" Value="-50"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="slide_v2" ID="{60B131CE-1707-4F8D-BB6D-15B42E61F1A9}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0292474138202952"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.223115985429109"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>slide.v2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="806121069"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{54724E6D-A3A1-4089-BBF5-D321ADB57E43}" ShortID="746931844">
+												<ReferenceList>
+													<Reference Name="Effect">
+														<Custom>
+															<Effect Name="Parametric EQ (Custom)" ID="{BFDDD21B-91C2-4066-8DB6-86960A57F592}" ShortID="183954312" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																<PropertyList>
+																	<Property Name="FrequencyBand1" Type="Real32" Value="384"/>
+																	<Property Name="FrequencyBand3" Type="Real32" Value="9234"/>
+																	<Property Name="GainBand1" Type="Real32" Value="-1"/>
+																	<Property Name="GainBand2" Type="Real32" Value="-2"/>
+																	<Property Name="GainBand3" Type="Real32" Value="-3"/>
+																</PropertyList>
+															</Effect>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+							<ActiveSourceList>
+								<ActiveSource Name="slide_v2" ID="{60B131CE-1707-4F8D-BB6D-15B42E61F1A9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="jump" ID="{4D54F675-4F8F-4DFB-833F-95A1E79E9FB2}" ShortID="279783379">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{ED7673DF-F282-4434-8C3F-EC4F85D5A9D9}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="300"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="jump" ID="{3B07D240-527F-4082-A4B9-679908DAA49F}">
+									<Language>SFX</Language>
+									<AudioFile>jump.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="945341518"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="jump" ID="{3B07D240-527F-4082-A4B9-679908DAA49F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="double_jump" ID="{34130186-DDF5-4547-B37E-457D871C98EC}" ShortID="944783239">
+							<PropertyList>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{0458E560-AF08-489F-9F42-1266D6E7BE70}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="300"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="double jump" ID="{7B60EF54-2C45-4E95-9999-38C2B1567E57}">
+									<Language>SFX</Language>
+									<AudioFile>double jump.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="906934062"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="double jump" ID="{7B60EF54-2C45-4E95-9999-38C2B1567E57}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="collide_wall" ID="{08F45704-E2FF-45BF-8F7A-163E246C4209}" ShortID="335181495">
+							<PropertyList>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>50</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{5F12F76D-2398-490B-9C68-77F1F537D94E}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-300"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="collide wall" ID="{80855F8F-573E-4D6F-9AB1-BEE95B2EAEDB}">
+									<Language>SFX</Language>
+									<AudioFile>collide wall.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="659447736"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="collide wall" ID="{80855F8F-573E-4D6F-9AB1-BEE95B2EAEDB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="death" ID="{2A27B893-664E-40F6-8F5B-D03A087A8F24}" ShortID="102482351">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>-300</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{903E3EC2-222E-491E-98A2-1B53EC1A755E}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="death" ID="{30977560-A834-425D-B580-3EC3D2851367}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.113150680458153"/>
+										<Property Name="LoopBegin" Type="Real64" Value="0.301735147888407"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.143324195246993"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>death.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="461745261"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="death" ID="{30977560-A834-425D-B580-3EC3D2851367}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</Folder>
+>>>>>>> Stashed changes
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
