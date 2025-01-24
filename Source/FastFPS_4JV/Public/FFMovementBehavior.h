@@ -60,7 +60,7 @@ public:
 	void Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void GiveVelocity();
+	void GiveVelocity(const FVector Offset, const float Dist);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void Gravity(const float Gravity);

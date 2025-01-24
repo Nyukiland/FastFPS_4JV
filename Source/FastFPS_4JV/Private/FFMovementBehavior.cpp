@@ -69,7 +69,7 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 	float CurSpeed = CurVelocity.Length();
 
 	FVector NewVelo;
-	if (Direction != FVector2D(0,0))
+	if (Direction != FVector2D(0, 0))
 	{
 		CurSpeed += Acceleration;
 		CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
@@ -182,7 +182,7 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 	CurVelocity.Z = StoredZ;
 }
 
-void UFFMovementBehavior::GiveVelocity()
+void UFFMovementBehavior::GiveVelocity(const FVector Offset, const float Dist)
 {
 	if (!IsMovementReady()) return;
 
@@ -199,7 +199,26 @@ void UFFMovementBehavior::GiveVelocity()
 		AwaitingForce.Empty();
 	}
 
+	/*FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(GetOwner());
+
+	FHitResult HitResult;
+	FVector Pos = ObjectToMove->GetComponentLocation() + Offset;
+	FVector Dir = FVector(CurVelocity.X, CurVelocity.Y, 0);
+	Dir *= Dist;
+	Dir += Pos;*/
 	ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
+
+	/*bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, Pos, Dir, ECC_Visibility, QueryParams);
+	if (!bHit)
+	{
+		ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
+	}
+	else
+	{
+		ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, CurVelocity.Z));
+	}*/
+	//UE_LOG(LogTemp, Error, TEXT("hitObject: %s"), HitResult->GetActor());
 }
 
 void UFFMovementBehavior::Gravity(const float Gravity)
