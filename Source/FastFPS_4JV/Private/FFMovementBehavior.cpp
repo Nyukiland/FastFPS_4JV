@@ -141,7 +141,7 @@ void UFFMovementBehavior::JumpBehavior(const float JumpForce, const UCurveFloat*
 	AddExternalForce(FVector(0, 0, ForceUp * JumpForce));
 }
 
-void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal)
+void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins)
 {
 	if (!IsMovementReady()) return;
 	if (!Curve) return;
@@ -149,6 +149,7 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 	float dot;
 	dot = FVector::DotProduct(SlopeNormal, FVector(0, 0, 1));
 	dot = FMath::Abs(dot);
+	OutputPins = EInUseStatusOutputPin::NotInUse;
 
 	if (!IsSlide)
 	{
@@ -158,6 +159,8 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 		return;
 	}
 	else if (MaxTime < SlideTimer) return;
+
+	OutputPins = EInUseStatusOutputPin::InUse;
 
 	FVector SlopeDir = FVector::CrossProduct(SlopeNormal, FVector(0, 0, 1));
 	SlopeDir = FVector::CrossProduct(SlopeNormal, SlopeDir);

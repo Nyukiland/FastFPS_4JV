@@ -13,6 +13,13 @@ enum class EGroundStatusOutputPin : uint8
 	NotGrounded
 };
 
+UENUM()
+enum class EInUseStatusOutputPin : uint8
+{
+	InUse,
+	NotInUse
+};
+
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class FASTFPS_4JV_API UFFMovementBehavior : public UActorComponent
 {
@@ -56,8 +63,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void JumpBehavior(const float JumpForce, const UCurveFloat* Curve, const float MaxTime, const float Timer);
 
-	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal);
+	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
+	void Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void GiveVelocity(const FVector Offset, const float Dist);
