@@ -186,39 +186,51 @@ void UFFMovementBehavior::GiveVelocity(const FVector Offset, const float Dist)
 {
 	if (!IsMovementReady()) return;
 
+	// Apply awaiting forces to current velocity
 	if (AwaitingForce.Num() > 0)
 	{
-		for (const FVector Force : AwaitingForce)
+		for (const FVector& Force : AwaitingForce)
 		{
-			FVector ModifiedForce = Force; //FVector(Force.X, Force.Y, 0);
-
-			//if (FMath::Abs(Force.Z) > FMath::Abs(CurVelocity.Z)) CurVelocity.Z = Force.Z;
-			CurVelocity += ModifiedForce;
+			CurVelocity += Force;
 		}
-
 		AwaitingForce.Empty();
 	}
 
-	/*FCollisionQueryParams QueryParams;
+	// Perform line trace to check for obstructions
+	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(GetOwner());
 
 	FHitResult HitResult;
-	FVector Pos = ObjectToMove->GetComponentLocation() + Offset;
-	FVector Dir = FVector(CurVelocity.X, CurVelocity.Y, 0);
-	Dir *= Dist;
-	Dir += Pos;*/
-	ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
+	FVector Start = ObjectToMove->GetComponentLocation() + Offset;
+	FVector Direction = FVector(CurVelocity.X, CurVelocity.Y, 0).GetSafeNormal();
+	FVector End = Start + (Direction * Dist);
 
-	/*bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, Pos, Dir, ECC_Visibility, QueryParams);
-	if (!bHit)
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, QueryParams);
+
+	if (bHit)
 	{
-		ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
+		FVector HitNormal = HitResult.ImpactNormal; // Normal of the surface hit
+		float DotProduct = FVector::DotProduct(HitNormal, FVector(0, 0, 1)); // Compare with up vector
+
+		if (FMath::Abs(DotProduct) < KINDA_SMALL_NUMBER) // Perpendicular to up vector
+		{
+			// If the normal is perpendicular, stop X and Y movement
+			ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, CurVelocity.Z));
+			UE_LOG(LogTemp, Error, TEXT("Movement blocked. Hit Object: %s"), *HitResult.GetActor()->GetName());
+		}
+		else
+		{
+			// Project current velocity onto the plane defined by the hit normal
+			FVector ProjectedVelocity = FVector::VectorPlaneProject(CurVelocity, HitNormal);
+			ObjectToMove->SetPhysicsLinearVelocity(ProjectedVelocity);
+			UE_LOG(LogTemp, Error, TEXT("Movement adjusted. Projected Velocity: %s"), *ProjectedVelocity.ToString());
+		}
 	}
 	else
 	{
-		ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, CurVelocity.Z));
-	}*/
-	//UE_LOG(LogTemp, Error, TEXT("hitObject: %s"), HitResult->GetActor());
+		// No hit, apply full velocity
+		ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
+	}
 }
 
 void UFFMovementBehavior::Gravity(const float Gravity)
