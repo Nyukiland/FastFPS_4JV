@@ -186,7 +186,6 @@ void UFFMovementBehavior::GiveVelocity(const FVector Offset, const float Dist)
 {
 	if (!IsMovementReady()) return;
 
-	// Apply awaiting forces to current velocity
 	if (AwaitingForce.Num() > 0)
 	{
 		for (const FVector& Force : AwaitingForce)
@@ -196,7 +195,6 @@ void UFFMovementBehavior::GiveVelocity(const FVector Offset, const float Dist)
 		AwaitingForce.Empty();
 	}
 
-	// Perform line trace to check for obstructions
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(GetOwner());
 
@@ -209,26 +207,21 @@ void UFFMovementBehavior::GiveVelocity(const FVector Offset, const float Dist)
 
 	if (bHit)
 	{
-		FVector HitNormal = HitResult.ImpactNormal; // Normal of the surface hit
-		float DotProduct = FVector::DotProduct(HitNormal, FVector(0, 0, 1)); // Compare with up vector
+		FVector HitNormal = HitResult.ImpactNormal; 
+		float DotProduct = FVector::DotProduct(HitNormal, FVector(0, 0, 1)); 
 
-		if (FMath::Abs(DotProduct) < KINDA_SMALL_NUMBER) // Perpendicular to up vector
+		if (FMath::Abs(DotProduct) < KINDA_SMALL_NUMBER) 
 		{
-			// If the normal is perpendicular, stop X and Y movement
 			ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, CurVelocity.Z));
-			UE_LOG(LogTemp, Error, TEXT("Movement blocked. Hit Object: %s"), *HitResult.GetActor()->GetName());
 		}
 		else
 		{
-			// Project current velocity onto the plane defined by the hit normal
 			FVector ProjectedVelocity = FVector::VectorPlaneProject(CurVelocity, HitNormal);
 			ObjectToMove->SetPhysicsLinearVelocity(ProjectedVelocity);
-			UE_LOG(LogTemp, Error, TEXT("Movement adjusted. Projected Velocity: %s"), *ProjectedVelocity.ToString());
 		}
 	}
 	else
 	{
-		// No hit, apply full velocity
 		ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
 	}
 }
