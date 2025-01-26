@@ -51,8 +51,8 @@ public:
 	static void RandomOutput(ERandomPinOut& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static void ClampFloatByRef(UPARAM(ref) float& Value, const float Min, const float Max);
+	static float ClampFloatByRef(UPARAM(ref) float& Value, const float Min, const float Max);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static void ClampIntByRef(UPARAM(ref) int& Value, const int Min, const int Max);
+	static int ClampIntByRef(UPARAM(ref) int& Value, const int Min, const int Max);
 };

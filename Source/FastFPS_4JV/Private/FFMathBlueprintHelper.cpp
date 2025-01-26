@@ -103,14 +103,18 @@ void UFFMathBlueprintHelper::RandomOutput(ERandomPinOut& OutputPins)
 	else OutputPins = ERandomPinOut::Random2;
 }
 
-void UFFMathBlueprintHelper::ClampFloatByRef(UPARAM(ref) float& Value, const float Min, const float Max)
+float UFFMathBlueprintHelper::ClampFloatByRef(UPARAM(ref) float& Value, const float Min, const float Max)
 {
 	if (Value < Min) Value = Min;
 	else if (Value > Max) Value = Max;
+
+	return Value;
 }
 
-void UFFMathBlueprintHelper::ClampIntByRef(UPARAM(ref) int& Value, const int Min, const int Max)
+int UFFMathBlueprintHelper::ClampIntByRef(UPARAM(ref) int& Value, const int Min, const int Max)
 {
 	if (Value < Min) Value = Min;
 	else if (Value > Max) Value = Max;
+
+	return Value;
 }
