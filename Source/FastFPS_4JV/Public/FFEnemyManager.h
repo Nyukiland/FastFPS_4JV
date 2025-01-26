@@ -38,5 +38,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "EnemyManager")
 	void KillAllEnemies();
 
+	UFUNCTION(BlueprintCallable, Category = "EnemyManager")
+	void ResetEnemyManager();
+
 	TArray<AActor*> GetAllEnemies();
 };

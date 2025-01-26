@@ -2,6 +2,7 @@
 
 
 #include "FFShootRelatedBehavior.h"
+#include "FFEnemyManager.h"
 
 // Sets default values for this component's properties
 UFFShootRelatedBehavior::UFFShootRelatedBehavior()
@@ -85,6 +86,8 @@ void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, floa
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(GetOwner());
 	QueryParams.bReturnPhysicalMaterial = true;
+	TArray<AActor*> EnemyActors = UFFEnemyManager::GetEnemyManager()->GetAllEnemies();
+	QueryParams.AddIgnoredActors(EnemyActors);
 
 	float Dist = DistMax < 0 ? 10000 : DistMax;
 
@@ -93,7 +96,10 @@ void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, floa
 
 	if (LineHit) Dist = firstHit.Distance + Radius;
 
-	bool bHit = GetWorld()->SweepMultiByChannel(HitResults, ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(Radius), QueryParams);
+	FCollisionQueryParams QueryParamsSphere;
+	QueryParamsSphere.AddIgnoredActor(GetOwner());
+	QueryParamsSphere.bReturnPhysicalMaterial = true;
+	bool bHit = GetWorld()->SweepMultiByChannel(HitResults, ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(Radius), QueryParamsSphere);
 	
 	OutputPins = bHit ? EShootStatusOutputPin::Hit : EShootStatusOutputPin::NoHit;
 }

@@ -10,7 +10,6 @@ UFFEnemyManager* UFFEnemyManager::GetEnemyManager()
 	if (Instance == nullptr)
 	{
 		Instance = NewObject<UFFEnemyManager>();
-		Instance->AddToRoot(); // Prevent garbage collection
 	}
 	return Instance;
 }
@@ -27,25 +26,47 @@ UFFEnemyManager::~UFFEnemyManager()
 
 void UFFEnemyManager::RegisterEnemySpawned(AActor* Spawned)
 {
-	//EnemiesArray.Add(Spawned);
+	if (Instance == nullptr) return;
+
+	EnemiesArray.Add(Spawned);
 }
 
 void UFFEnemyManager::EnemyDied(AActor* Died)
 {
-	/*if (EnemiesArray.Contains(Died))
+	if (Instance == nullptr) return;
+
+	if (EnemiesArray.Contains(Died))
 	{
 		EnemiesArray.Remove(Died);
 		EnemiesKilled++;
-	}*/
+	}
 }
 
 void UFFEnemyManager::KillAllEnemies()
 {
-	/*EnemiesKilled += EnemiesArray.Num();
-	EnemiesArray.Empty();*/
+	if (Instance == nullptr) return;
+
+	EnemiesKilled += EnemiesArray.Num();
+	EnemiesArray.Empty();
+}
+
+void UFFEnemyManager::ResetEnemyManager()
+{
+	if (Instance != nullptr)
+	{
+		// Allow the object to be garbage collected
+		Instance->RemoveFromRoot();  // Unbind it from GC
+		Instance = nullptr;  // Clear the Singleton instance
+
+		// Optionally clear arrays and variables here if needed:
+		EnemiesArray.Empty();
+		EnemiesKilled = 0;
+	}
 }
 
 TArray<AActor*> UFFEnemyManager::GetAllEnemies()
 {
+	if (Instance == nullptr) return TArray<AActor*>();
+
 	return EnemiesArray;
 }
