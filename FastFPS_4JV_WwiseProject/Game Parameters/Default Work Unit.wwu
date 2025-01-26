@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{58A30D99-4446-40E1-91F8-B0211A6F8031}" SchemaVersion="123">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{58A30D99-4446-40E1-91F8-B0211A6F8031}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{58A30D99-4446-40E1-91F8-B0211A6F8031}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="shot_evolutiv" ID="{7BC90206-111B-44E0-9367-23C4050D9F41}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

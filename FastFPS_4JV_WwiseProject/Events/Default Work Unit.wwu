@@ -127,6 +127,91 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Shot_Evolutiv" ID="{6B32A700-82BC-47F7-9D72-42D25F699D41}">
+							<ChildrenList>
+								<Action Name="" ID="{F1993D58-F27F-415B-B9FC-E89F8BBED71F}" ShortID="717791406">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Shot base" ID="{C3522360-367D-4D0D-9C95-1AAA467A3602}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{F7DFE5B1-B604-4CDF-9DD2-495C2B0CD8CA}" ShortID="997275422">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="shot near empty" ID="{37347FDF-1122-4EF9-BA73-6A356FF4560B}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="LASER" ID="{05B9357F-F42F-4ABE-B60E-D073D9490896}" ShortID="353367743">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="2"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="LASER_START" ID="{E6376BA7-D1CC-49E1-99AD-95A421FB7CC3}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="2"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{8CEEB8F5-DA30-4360-A4A4-6A83983A2F85}" ShortID="436807508">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Laser_Start" ID="{7B970F67-470C-457C-864E-8B0F3BD06BE4}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="LASER_END" ID="{5BD196E0-B9D9-4B3E-B959-F1655429869C}">
+							<ChildrenList>
+								<Action Name="" ID="{5694A057-F933-4DD1-88E3-221D3E4A8FF6}" ShortID="794212201">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Laser_End" ID="{C67938C1-3636-4528-9D26-04B718F1D099}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="LASER_LOOP" ID="{7D05C8D6-3E69-415D-BCA1-24219FABCDD3}">
+							<ChildrenList>
+								<Action Name="" ID="{D45A96AB-0D75-499C-A16D-59A541278B7F}" ShortID="677879357">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Laser_loop" ID="{262E7F4B-77B9-49EA-9752-7EED29E16299}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="LASER_EMPTY" ID="{F017A833-F314-4CF0-A3C7-BDFD5AF6871E}">
+							<ChildrenList>
+								<Action Name="" ID="{1F7E697B-B4A9-4BE8-828D-07F1D7D409C1}" ShortID="681222563">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="laser_empty" ID="{4DD1AF00-FF26-4D71-8460-190AE145CBE3}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="LASER_CONSOMINGCHARGE" ID="{9705E092-8E3A-4D0A-A124-540A992FF502}">
+							<ChildrenList>
+								<Action Name="" ID="{9D01447D-52B6-4819-AA22-B2B2641A1B1F}" ShortID="88961851">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="consuming_charge" ID="{83F41F5D-C8CE-4FA7-80FB-A96F4D56D12A}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

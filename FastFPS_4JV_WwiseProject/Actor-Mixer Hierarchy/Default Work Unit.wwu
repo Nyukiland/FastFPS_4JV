@@ -66,6 +66,20 @@
 												<MediaID ID="292467799"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="Footsteps, Human, Gravel, Run SND62072" ID="{8E0F2550-5F0F-43FA-8149-2F029E37C2AD}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.022245852462141"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.126059811227421"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.00285203236694115"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.222458505230033"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Footsteps, Human, Gravel, Run SND62072.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="674441926"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ObjectLists>
 										<ObjectList Name="Effects">
@@ -91,7 +105,7 @@
 										</ObjectList>
 									</ObjectLists>
 									<ActiveSourceList>
-										<ActiveSource Name="step 1" ID="{1DE8D8D9-05D1-44F6-AC2B-ABC3F25685C9}" Platform="Linked"/>
+										<ActiveSource Name="Footsteps, Human, Gravel, Run SND62072" ID="{8E0F2550-5F0F-43FA-8149-2F029E37C2AD}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="step 2" ID="{1B434840-1A73-425D-A563-8177ACBB36AF}" ShortID="696622029">
@@ -126,9 +140,24 @@
 												<MediaID ID="406837357"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="Footsteps, Human, Gravel, Run SND62072 1" ID="{5255C07D-38CD-4022-94D1-4C293B9E258F}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0237987000188786"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0844853850670191"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0202288950160468"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.017254057513687"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.239176957362658"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Footsteps, Human, Gravel, Run SND62072 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="686871457"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="step 2" ID="{D38CB52A-4261-4DB0-9CFE-CD5B17590381}" Platform="Linked"/>
+										<ActiveSource Name="Footsteps, Human, Gravel, Run SND62072 1" ID="{5255C07D-38CD-4022-94D1-4C293B9E258F}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="step 3" ID="{6A6EE23F-5F96-4967-9BC2-F4DDA86A466B}" ShortID="798719396">
@@ -163,9 +192,23 @@
 												<MediaID ID="599446206"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="Footsteps, Human, Gravel, Run SND62072 2" ID="{18E8ABCD-CBE7-4D1D-8734-0F3B7A458A53}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0160641225127431"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0499772700396451"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0202288950160468"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.290939129903719"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Footsteps, Human, Gravel, Run SND62072 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="226295342"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="step 3" ID="{D4D3D65B-A99A-4B49-BE13-15F2D137AD27}" Platform="Linked"/>
+										<ActiveSource Name="Footsteps, Human, Gravel, Run SND62072 2" ID="{18E8ABCD-CBE7-4D1D-8734-0F3B7A458A53}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="step 4" ID="{5196BC49-C5C8-4828-8F9C-217D251C5C12}" ShortID="918128790">
@@ -200,9 +243,23 @@
 												<MediaID ID="473389369"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="Footsteps, Human, Gravel, Run SND62072 3" ID="{A7B95F44-2941-4675-9029-9EC704A37CEB}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.0273489042966053"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.10437234905031"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.00781397265617294"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.261209963263887"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Footsteps, Human, Gravel, Run SND62072 3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="61729214"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="step 4" ID="{522315ED-CE39-487A-8A08-AA05D83458C8}" Platform="Linked"/>
+										<ActiveSource Name="Footsteps, Human, Gravel, Run SND62072 3" ID="{A7B95F44-2941-4675-9029-9EC704A37CEB}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
@@ -564,6 +621,307 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Reload_Short" ID="{B475B1FD-2ACD-42BB-BBE6-64584A018629}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Folder Name="Evolutiv Shot" ID="{0A0FAFCF-06E6-45CC-BC80-EC436342927F}" ShortID="622492835">
+							<ChildrenList>
+								<Sound Name="Shot base" ID="{C3522360-367D-4D0D-9C95-1AAA467A3602}" ShortID="1052018229">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Shot_Base" ID="{F1F312B6-1B5F-44B9-98CA-D5B4DBC7C074}">
+											<Language>SFX</Language>
+											<AudioFile>Shot_Base.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="57519821"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="RTPC">
+											<Reference>
+												<Local>
+													<RTPC Name="" ID="{E2CDB478-927A-4376-A4DF-8D1CE3F80BA1}" ShortID="539427611">
+														<PropertyList>
+															<Property Name="PropertyName" Type="string" Value="Volume"/>
+														</PropertyList>
+														<ReferenceList>
+															<Reference Name="ControlInput">
+																<ObjectRef Name="shot_evolutiv" ID="{7BC90206-111B-44E0-9367-23C4050D9F41}" WorkUnitID="{58A30D99-4446-40E1-91F8-B0211A6F8031}"/>
+															</Reference>
+															<Reference Name="Curve">
+																<Custom>
+																	<Curve Name="" ID="{2F057952-744E-4730-A6E9-9729C457B288}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>0</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>-2.30237</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</RTPC>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+									<ActiveSourceList>
+										<ActiveSource Name="Shot_Base" ID="{F1F312B6-1B5F-44B9-98CA-D5B4DBC7C074}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="shot near empty" ID="{37347FDF-1122-4EF9-BA73-6A356FF4560B}" ShortID="35718770">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Shot_NearEmpty" ID="{ADA2ED89-8CFD-4B69-8BBE-42A946892FAB}">
+											<Language>SFX</Language>
+											<AudioFile>Shot_NearEmpty.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="643615397"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="RTPC">
+											<Reference>
+												<Local>
+													<RTPC Name="" ID="{04E7ADFE-B2A6-4A7F-81E4-CE18333085DB}" ShortID="637500659">
+														<PropertyList>
+															<Property Name="PropertyName" Type="string" Value="Volume"/>
+														</PropertyList>
+														<ReferenceList>
+															<Reference Name="ControlInput">
+																<ObjectRef Name="shot_evolutiv" ID="{7BC90206-111B-44E0-9367-23C4050D9F41}" WorkUnitID="{58A30D99-4446-40E1-91F8-B0211A6F8031}"/>
+															</Reference>
+															<Reference Name="Curve">
+																<Custom>
+																	<Curve Name="" ID="{52211FDC-756F-4912-AE14-3F8330A410BD}">
+																		<PropertyList>
+																			<Property Name="Flags" Type="int32" Value="3"/>
+																		</PropertyList>
+																		<PointList>
+																			<Point>
+																				<XPos>0</XPos>
+																				<YPos>-200</YPos>
+																				<Flags>5</Flags>
+																			</Point>
+																			<Point>
+																				<XPos>100</XPos>
+																				<YPos>4.98352</YPos>
+																				<Flags>37</Flags>
+																			</Point>
+																		</PointList>
+																	</Curve>
+																</Custom>
+															</Reference>
+														</ReferenceList>
+													</RTPC>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+									<ActiveSourceList>
+										<ActiveSource Name="Shot_NearEmpty" ID="{ADA2ED89-8CFD-4B69-8BBE-42A946892FAB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Laser" ID="{40D59F3A-A794-4843-B136-410FB2829C37}" ShortID="647526846">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="2"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Sound Name="Laser_End" ID="{C67938C1-3636-4528-9D26-04B718F1D099}" ShortID="292814210">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Laser_End" ID="{DBFB1117-B72D-4AD2-B658-0CF96557C3FF}">
+									<Language>SFX</Language>
+									<AudioFile>Laser_End.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="83677764"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="Laser_state" ID="{EE6F79C0-D60A-4BD4-84FC-D05AC4207D52}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="end" ID="{E0F18F21-7CF2-4990-A016-304C58DDBBCF}"/>
+										<CustomState Name="" ID="{AEF48EAF-8094-4513-95B5-C4B6352F5563}" ShortID="294700992"/>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Loop" ID="{BBF335AA-4D49-4ABE-812A-CCDDD67F6873}"/>
+										<CustomState Name="" ID="{0765CA0C-94B0-4FAB-8F2D-3246C101645E}" ShortID="228354799">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-108"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="Laser_End" ID="{DBFB1117-B72D-4AD2-B658-0CF96557C3FF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Laser_Start" ID="{7B970F67-470C-457C-864E-8B0F3BD06BE4}" ShortID="779045938">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Laser_Start" ID="{C212FF16-6B62-477D-81FA-618F517F165C}">
+									<Language>SFX</Language>
+									<AudioFile>Laser_Start.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="59606152"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Laser_Start" ID="{C212FF16-6B62-477D-81FA-618F517F165C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Laser_loop" ID="{262E7F4B-77B9-49EA-9752-7EED29E16299}" ShortID="753856372">
+							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsStreamingEnabled" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="LoopCount" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{FED9FD26-12DC-4877-B45A-4972F75BD99E}"/>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Laser_Loop" ID="{AA4F3BC9-45F8-4B04-9E8D-8A0A8B2F25BF}">
+									<Language>SFX</Language>
+									<AudioFile>Laser_Loop.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="921190029"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo>
+										<StateGroupRef Name="Laser_state" ID="{EE6F79C0-D60A-4BD4-84FC-D05AC4207D52}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="end" ID="{E0F18F21-7CF2-4990-A016-304C58DDBBCF}"/>
+										<CustomState Name="" ID="{C25E8612-8672-4413-BE8E-D4DD458A257E}" ShortID="90702640">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64" Value="-108"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+									<CustomState>
+										<StateRef Name="Loop" ID="{BBF335AA-4D49-4ABE-812A-CCDDD67F6873}"/>
+										<CustomState Name="" ID="{207A5988-2B56-4215-81F5-E5E22609C02F}" ShortID="971798650"/>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="Laser_Loop" ID="{AA4F3BC9-45F8-4B04-9E8D-8A0A8B2F25BF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="laser_empty" ID="{4DD1AF00-FF26-4D71-8460-190AE145CBE3}" ShortID="213398347">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Laser_Empty" ID="{159C9CAB-6707-43D2-8D8D-76087844E45F}">
+									<Language>SFX</Language>
+									<AudioFile>Laser_Empty.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="847806691"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Laser_Empty" ID="{159C9CAB-6707-43D2-8D8D-76087844E45F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="consuming_charge" ID="{83F41F5D-C8CE-4FA7-80FB-A96F4D56D12A}" ShortID="969197648">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Laser_ConsumingCharge" ID="{9929880C-125B-43CF-9A53-C1D876A2273E}">
+									<Language>SFX</Language>
+									<AudioFile>Laser_ConsumingCharge.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="674027411"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Laser_ConsumingCharge" ID="{9929880C-125B-43CF-9A53-C1D876A2273E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
