@@ -47,6 +47,7 @@ void UFFEnemyManager::KillAllEnemies()
 	if (Instance == nullptr) return;
 
 	EnemiesKilled += EnemiesArray.Num();
+	for (int i = EnemiesArray.Num() - 1; i >= 0; i--) EnemiesArray[i]->Destroy();
 	EnemiesArray.Empty();
 }
 
