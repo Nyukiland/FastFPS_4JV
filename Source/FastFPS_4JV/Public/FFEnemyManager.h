@@ -40,6 +40,7 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "EnemyManager")
 	void ResetEnemyManager();
 
+	UFUNCTION(BlueprintCallable, Category = "EnemyManager")
 	TArray<AActor*> GetAllEnemies();
 
 protected:

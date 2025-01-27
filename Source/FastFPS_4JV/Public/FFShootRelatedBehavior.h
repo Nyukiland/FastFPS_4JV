@@ -38,5 +38,5 @@ public:
 	void ShootLineTrace(USceneComponent* ShootPoint, float DistMax, FHitResult& HitResult, EShootStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Shoot", meta = (ExpandEnumAsExecs = "OutputPins"))
-	void ShootSphereTrace(USceneComponent* ShootPoint, float Radius, float DistMax, TArray<FHitResult>& HitResults, EShootStatusOutputPin& OutputPins);
+	void ShootSphereTrace(USceneComponent* ShootPoint, float Radius, float DistMax, ECollisionChannel EnemyTrace, TArray<FHitResult>& HitResults, EShootStatusOutputPin& OutputPins);
 };

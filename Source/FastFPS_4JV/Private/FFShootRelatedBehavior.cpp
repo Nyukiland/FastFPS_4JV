@@ -72,10 +72,10 @@ void UFFShootRelatedBehavior::ShootLineTrace(USceneComponent* ShootPoint, float 
 
 	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), ECC_Visibility, QueryParams);
 
-	OutputPins = bHit? EShootStatusOutputPin::Hit : EShootStatusOutputPin::NoHit;
+	OutputPins = bHit ? EShootStatusOutputPin::Hit : EShootStatusOutputPin::NoHit;
 }
 
-void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, float Radius, float DistMax, TArray<FHitResult>& HitResults, EShootStatusOutputPin& OutputPins)
+void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, float Radius, float DistMax, ECollisionChannel EnemyTrace, TArray<FHitResult>& HitResults, EShootStatusOutputPin& OutputPins)
 {
 	if (!ShootPoint)
 	{
@@ -83,24 +83,53 @@ void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, floa
 		return;
 	}
 
-	FCollisionQueryParams QueryParams;
-	QueryParams.AddIgnoredActor(GetOwner());
-	QueryParams.bReturnPhysicalMaterial = true;
+	// QueryParams for LineTrace (ignores enemy actors)
+	FCollisionQueryParams QueryParamsLine;
+	QueryParamsLine.AddIgnoredActor(GetOwner());
+	QueryParamsLine.bReturnPhysicalMaterial = true;
 	TArray<AActor*> EnemyActors = UFFEnemyManager::GetEnemyManager(GetWorld())->GetAllEnemies();
-	QueryParams.AddIgnoredActors(EnemyActors);
+	QueryParamsLine.AddIgnoredActors(EnemyActors);
 
-	float Dist = DistMax < 0 ? 10000 : DistMax;
+	float Dist = (DistMax < 0) ? 10000.0f : DistMax;
 
-	FHitResult firstHit;
-	bool LineHit = GetWorld()->LineTraceSingleByChannel(firstHit, ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), ECC_Visibility, QueryParams);
+	// Perform line trace to adjust max distance if needed
+	FHitResult FirstHit;
+	bool LineHit = GetWorld()->LineTraceSingleByChannel(FirstHit, ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), ECC_Visibility, QueryParamsLine);
 
-	if (LineHit) Dist = firstHit.Distance + Radius;
+	if (LineHit)
+	{
+		Dist = FirstHit.Distance + Radius;
+	}
 
+	if (LineHit)
+	{
+		// Draw a line from the shooting point to the hit point
+		DrawDebugLine(GetWorld(), ShootPoint->GetComponentLocation(), FirstHit.ImpactPoint, FColor::Green, false, 2.0f, 0, 1.0f);
+	}
+	else
+	{
+		// If no hit, draw the full distance line
+		DrawDebugLine(GetWorld(), ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), FColor::Red, false, 2.0f, 0, 1.0f);
+	}
+
+	// QueryParams for Sphere Trace
 	FCollisionQueryParams QueryParamsSphere;
 	QueryParamsSphere.AddIgnoredActor(GetOwner());
 	QueryParamsSphere.bReturnPhysicalMaterial = true;
-	bool bHit = GetWorld()->SweepMultiByChannel(HitResults, ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), FQuat::Identity, ECC_Visibility, FCollisionShape::MakeSphere(Radius), QueryParamsSphere);
-	
-	OutputPins = bHit ? EShootStatusOutputPin::Hit : EShootStatusOutputPin::NoHit;
-}
 
+	// Perform sphere trace (includes enemy actors)
+	bool bHit = GetWorld()->SweepMultiByChannel(HitResults, ShootPoint->GetComponentLocation(), ShootPoint->GetComponentLocation() + (ShootPoint->GetForwardVector() * Dist), FQuat::Identity, EnemyTrace, FCollisionShape::MakeSphere(Radius), QueryParamsSphere);
+
+	OutputPins = bHit ? EShootStatusOutputPin::Hit : EShootStatusOutputPin::NoHit;
+
+	if (bHit)
+	{
+		for (const FHitResult& Hit : HitResults)
+		{
+			if (Hit.GetActor())
+			{
+				UE_LOG(LogTemp, Error, TEXT("Detected Actor: %s"), *Hit.GetActor()->GetName());
+			}
+		}
+	}
+}
