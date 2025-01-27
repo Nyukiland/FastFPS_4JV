@@ -17,17 +17,16 @@ class FASTFPS_4JV_API UFFEnemyManager : public UObject
 private:
 	UFFEnemyManager();
 	~UFFEnemyManager();
-
 	static UFFEnemyManager* Instance;
 
 public:
 	TArray<AActor*> EnemiesArray;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "EnemyManager")
 	int EnemiesKilled;
 
-public:
 	UFUNCTION(BlueprintCallable, Category = "EnemyManager")
-	static UFFEnemyManager* GetEnemyManager();
+	static UFFEnemyManager* GetEnemyManager(UObject* WorldContext);
 
 	UFUNCTION(BlueprintCallable, Category = "EnemyManager")
 	void RegisterEnemySpawned(AActor* Spawned);
@@ -42,4 +41,7 @@ public:
 	void ResetEnemyManager();
 
 	TArray<AActor*> GetAllEnemies();
+
+protected:
+	virtual void BeginDestroy() override;
 };

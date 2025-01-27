@@ -5,35 +5,32 @@
 
 UFFEnemyManager* UFFEnemyManager::Instance = nullptr;
 
-UFFEnemyManager* UFFEnemyManager::GetEnemyManager()
+UFFEnemyManager::UFFEnemyManager() : EnemiesKilled(0) {}
+
+UFFEnemyManager::~UFFEnemyManager() {}
+
+UFFEnemyManager* UFFEnemyManager::GetEnemyManager(UObject* WorldContext)
 {
-	if (Instance == nullptr)
+	if (!Instance)
 	{
-		Instance = NewObject<UFFEnemyManager>();
+		UGameInstance* GameInstance = WorldContext->GetWorld()->GetGameInstance();
+		if (!GameInstance) return nullptr;
+
+		Instance = NewObject<UFFEnemyManager>(GameInstance);
+		Instance->AddToRoot();  // Prevent GC
 	}
 	return Instance;
 }
 
-UFFEnemyManager::UFFEnemyManager()
-{
-	// Constructor 
-}
-
-UFFEnemyManager::~UFFEnemyManager()
-{
-	// Destructor 
-}
-
 void UFFEnemyManager::RegisterEnemySpawned(AActor* Spawned)
 {
-	if (Instance == nullptr) return;
-
+	if (!Instance) return;
 	EnemiesArray.Add(Spawned);
 }
 
 void UFFEnemyManager::EnemyDied(AActor* Died)
 {
-	if (Instance == nullptr) return;
+	if (!Instance) return;
 
 	if (EnemiesArray.Contains(Died))
 	{
@@ -44,30 +41,35 @@ void UFFEnemyManager::EnemyDied(AActor* Died)
 
 void UFFEnemyManager::KillAllEnemies()
 {
-	if (Instance == nullptr) return;
+	if (!Instance) return;
 
 	EnemiesKilled += EnemiesArray.Num();
-	for (int i = EnemiesArray.Num() - 1; i >= 0; i--) EnemiesArray[i]->Destroy();
+	for (int32 i = EnemiesArray.Num() - 1; i >= 0; i--)
+	{
+		if (EnemiesArray[i])
+		{
+			EnemiesArray[i]->Destroy();
+		}
+	}
 	EnemiesArray.Empty();
 }
 
 void UFFEnemyManager::ResetEnemyManager()
 {
-	if (Instance != nullptr)
+	if (Instance)
 	{
-		// Allow the object to be garbage collected
-		Instance->RemoveFromRoot();  // Unbind it from GC
-		Instance = nullptr;  // Clear the Singleton instance
-
-		// Optionally clear arrays and variables here if needed:
-		EnemiesArray.Empty();
-		EnemiesKilled = 0;
+		Instance->RemoveFromRoot();
+		Instance = nullptr;
 	}
 }
 
 TArray<AActor*> UFFEnemyManager::GetAllEnemies()
 {
-	if (Instance == nullptr) return TArray<AActor*>();
+	return Instance ? EnemiesArray : TArray<AActor*>();
+}
 
-	return EnemiesArray;
+void UFFEnemyManager::BeginDestroy()
+{
+	Super::BeginDestroy();
+	// Optional cleanup
 }

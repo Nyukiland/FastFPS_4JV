@@ -71,8 +71,9 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 	FVector NewVelo;
 	if (Direction != FVector2D(0, 0))
 	{
-		CurSpeed += Acceleration;
-		CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
+		if (CurSpeed < MaxSpeed) CurSpeed += Acceleration;
+		else CurSpeed -= Deceleration;
+		//CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
 
 		NewVelo = ObjectTransformMovement->GetForwardVector() * Direction.X;
 		NewVelo += ObjectTransformMovement->GetRightVector() * Direction.Y;
@@ -82,14 +83,13 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 	}
 	else
 	{
-		CurSpeed -= Acceleration;
-		CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
+		CurSpeed -= Deceleration;
+		if (CurSpeed < 0) CurSpeed = 0; //CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
 
 		NewVelo = CurVelocity;
 		NewVelo.Z = 0;
 		NewVelo = NewVelo.GetSafeNormal();
 		NewVelo *= CurSpeed;
-
 	}
 
 	CurVelocity = FVector(NewVelo.X, NewVelo.Y, CurVelocity.Z);
@@ -113,7 +113,8 @@ void UFFMovementBehavior::MoveInAir(const FVector2D Direction, const float Accel
 
 	CurVelocity += NewVelo;
 	CurVelocity.Z = 0;
-	CurVelocity = CurVelocity.GetClampedToSize(0, MaxSpeed);
+	//CurVelocity = CurVelocity.GetClampedToSize(0, MaxSpeed);
+	if (CurVelocity.Length() > MaxSpeed) CurVelocity -= CurVelocity.GetSafeNormal() * Deceleration;
 	CurVelocity.Z = VeloZ;
 }
 

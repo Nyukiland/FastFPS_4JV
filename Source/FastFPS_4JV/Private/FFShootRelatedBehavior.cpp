@@ -86,7 +86,7 @@ void UFFShootRelatedBehavior::ShootSphereTrace(USceneComponent* ShootPoint, floa
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(GetOwner());
 	QueryParams.bReturnPhysicalMaterial = true;
-	TArray<AActor*> EnemyActors = UFFEnemyManager::GetEnemyManager()->GetAllEnemies();
+	TArray<AActor*> EnemyActors = UFFEnemyManager::GetEnemyManager(GetWorld())->GetAllEnemies();
 	QueryParams.AddIgnoredActors(EnemyActors);
 
 	float Dist = DistMax < 0 ? 10000 : DistMax;
