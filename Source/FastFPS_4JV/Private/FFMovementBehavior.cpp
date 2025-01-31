@@ -61,7 +61,7 @@ void UFFMovementBehavior::GetMovement(UPrimitiveComponent* MovableObject, UScene
 	CurVelocity = ObjectToMove->GetPhysicsLinearVelocity();
 }
 
-void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed)
+void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed, EInUseStatusOutputPin& OutputPins)
 {
 	if (!IsMovementReady()) return;
 
@@ -80,6 +80,7 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 		NewVelo.Z = 0;
 		NewVelo = NewVelo.GetSafeNormal();
 		NewVelo *= CurSpeed;
+		OutputPins = EInUseStatusOutputPin::NotInUse;
 	}
 	else
 	{
@@ -90,12 +91,13 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 		NewVelo.Z = 0;
 		NewVelo = NewVelo.GetSafeNormal();
 		NewVelo *= CurSpeed;
+		OutputPins = EInUseStatusOutputPin::InUse;
 	}
 
 	CurVelocity = FVector(NewVelo.X, NewVelo.Y, CurVelocity.Z);
 }
 
-void UFFMovementBehavior::MoveInAir(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed)
+void UFFMovementBehavior::MoveInAir(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed, EInUseStatusOutputPin& OutputPins)
 {
 	if (!IsMovementReady()) return;
 
@@ -113,6 +115,8 @@ void UFFMovementBehavior::MoveInAir(const FVector2D Direction, const float Accel
 
 	CurVelocity += NewVelo;
 	CurVelocity.Z = 0;
+	if (Direction.IsNearlyZero()) OutputPins = EInUseStatusOutputPin::NotInUse;
+	else OutputPins = EInUseStatusOutputPin::InUse;
 	//CurVelocity = CurVelocity.GetClampedToSize(0, MaxSpeed);
 	if (CurVelocity.Length() > MaxSpeed) CurVelocity -= CurVelocity.GetSafeNormal() * Deceleration;
 	CurVelocity.Z = VeloZ;

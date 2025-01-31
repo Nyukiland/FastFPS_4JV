@@ -51,11 +51,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void GetMovement(UPrimitiveComponent* MovableObject, USceneComponent* ToUseTransform);
 
-	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed);
+	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
+	void MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed, EInUseStatusOutputPin& OutputPins);
 
-	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void MoveInAir(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed);
+	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
+	void MoveInAir(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed, EInUseStatusOutputPin& OutputPins);
 	
 	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
 	void IsGrounded(FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins);
