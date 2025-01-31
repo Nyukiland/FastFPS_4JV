@@ -66,7 +66,7 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 	if (!IsMovementReady()) return;
 
 	float SpeedToGo = Direction.Length() * MaxSpeed;
-	float CurSpeed = CurVelocity.Length();
+	float CurSpeed = FVector(CurVelocity.X, CurVelocity.Y, 0).Length();
 
 	FVector NewVelo;
 	if (Direction != FVector2D(0, 0))
@@ -217,8 +217,9 @@ void UFFMovementBehavior::GiveVelocity(const FVector Offset, const float Dist)
 	{
 		FVector HitNormal = HitResult.ImpactNormal; 
 		float DotProduct = FVector::DotProduct(HitNormal, FVector(0, 0, 1)); 
+		DotProduct = FMath::Abs(DotProduct);
 
-		if (FMath::Abs(DotProduct) < KINDA_SMALL_NUMBER) 
+		if (DotProduct < KINDA_SMALL_NUMBER) 
 		{
 			ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, CurVelocity.Z));
 		}
