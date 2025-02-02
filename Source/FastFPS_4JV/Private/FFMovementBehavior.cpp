@@ -66,14 +66,14 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 		NewVelo = ObjectTransformMovement->GetForwardVector() * Direction.X;
 		NewVelo += ObjectTransformMovement->GetRightVector() * Direction.Y;
 
-		OutputPins = EInUseStatusOutputPin::NotInUse;
+		OutputPins = EInUseStatusOutputPin::InUse;
 	}
 	else
 	{
 		CurSpeed -= Deceleration;
 		if (CurSpeed < 0) CurSpeed = 0;
 
-		OutputPins = EInUseStatusOutputPin::InUse;
+		OutputPins = EInUseStatusOutputPin::NotInUse;
 	}
 
 	NewVelo.Z = 0;
@@ -88,10 +88,9 @@ void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFl
 	if (!Curve) return;
 
 	FCollisionQueryParams QueryParams;
-	QueryParams.AddIgnoredActor(GetOwner());
+	QueryParams.AddIgnoredActor(ObjectToMove->GetOwner());
 
-	FVector VectorDown = ObjectToMove->GetUpVector();
-	VectorDown *= TraceSize * -1;
+	FVector VectorDown = FVector(0,0, -TraceSize);
 
 	bool bHit = GetWorld()->LineTraceSingleByChannel(GroundHit, ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + VectorDown, ECC_Visibility, QueryParams);
 
@@ -178,7 +177,6 @@ void UFFMovementBehavior::GiveVelocity(const float GroundCheck, const FVector Of
 {
 	if (!IsMovementReady()) return;
 
-
 	if (AwaitingForce.Num() > 0)
 	{
 		for (const FVector& Force : AwaitingForce)
@@ -190,12 +188,12 @@ void UFFMovementBehavior::GiveVelocity(const float GroundCheck, const FVector Of
 	FVector VeloToGive = CurVelocity;
 
 	FCollisionQueryParams QueryParams;
-	QueryParams.AddIgnoredActor(GetOwner());
+	QueryParams.AddIgnoredActor(ObjectToMove->GetOwner());
 
 	FHitResult HitResult;
 	FVector Start = ObjectToMove->GetComponentLocation() + Offset;
-	FVector Direction = FVector(0,0,1);
-	FVector End = Start + (Direction * GroundCheck);
+	FVector Direction = FVector(0,0,-GroundCheck);
+	FVector End = Start + Direction;
 
 	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, QueryParams);
 
@@ -215,19 +213,20 @@ void UFFMovementBehavior::GiveVelocity(const float GroundCheck, const FVector Of
 	if (bHit)
 	{
 		ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, 0));
-		/*FVector HitNormal = HitResult.ImpactNormal;
+		FVector HitNormal = HitResult.ImpactNormal;
 		float DotProduct = FVector::DotProduct(HitNormal, FVector(0, 0, 1));
 		DotProduct = FMath::Abs(DotProduct);
 
 		if (DotProduct < KINDA_SMALL_NUMBER)
 		{
+
 			ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, 0));
 		}
 		else
 		{
 			FVector ProjectedVelocity = FVector::VectorPlaneProject(VeloToGive, HitNormal);
 			ObjectToMove->SetPhysicsLinearVelocity(ProjectedVelocity);
-		}*/
+		}
 	}
 	else
 	{
