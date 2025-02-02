@@ -18,8 +18,7 @@ void UFFMovementBehavior::BeginPlay()
 {
 	Super::BeginPlay();
 
-	// ...
-
+	CurVelocity = FVector(0, 0, 0);
 }
 
 bool UFFMovementBehavior::IsMovementReady()
@@ -31,15 +30,6 @@ bool UFFMovementBehavior::IsMovementReady()
 	}
 
 	return true;
-}
-
-
-// Called every frame
-void UFFMovementBehavior::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
 }
 
 void UFFMovementBehavior::GetMovement(UPrimitiveComponent* MovableObject, USceneComponent* ToUseTransform)
@@ -58,7 +48,6 @@ void UFFMovementBehavior::GetMovement(UPrimitiveComponent* MovableObject, UScene
 
 	ObjectToMove = MovableObject;
 	ObjectTransformMovement = ToUseTransform;
-	CurVelocity = ObjectToMove->GetPhysicsLinearVelocity();
 }
 
 void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed, EInUseStatusOutputPin& OutputPins)
@@ -68,63 +57,35 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 	float SpeedToGo = Direction.Length() * MaxSpeed;
 	float CurSpeed = FVector(CurVelocity.X, CurVelocity.Y, 0).Length();
 
-	FVector NewVelo;
+	FVector NewVelo = CurVelocity;
 	if (Direction != FVector2D(0, 0))
 	{
 		if (CurSpeed < MaxSpeed) CurSpeed += Acceleration;
 		else CurSpeed -= Deceleration;
-		//CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
 
 		NewVelo = ObjectTransformMovement->GetForwardVector() * Direction.X;
 		NewVelo += ObjectTransformMovement->GetRightVector() * Direction.Y;
-		NewVelo.Z = 0;
-		NewVelo = NewVelo.GetSafeNormal();
-		NewVelo *= CurSpeed;
+
 		OutputPins = EInUseStatusOutputPin::NotInUse;
 	}
 	else
 	{
 		CurSpeed -= Deceleration;
-		if (CurSpeed < 0) CurSpeed = 0; //CurSpeed = FMath::Clamp(CurSpeed, 0, MaxSpeed);
+		if (CurSpeed < 0) CurSpeed = 0;
 
-		NewVelo = CurVelocity;
-		NewVelo.Z = 0;
-		NewVelo = NewVelo.GetSafeNormal();
-		NewVelo *= CurSpeed;
 		OutputPins = EInUseStatusOutputPin::InUse;
 	}
 
+	NewVelo.Z = 0;
+	NewVelo = NewVelo.GetSafeNormal();
+	NewVelo *= CurSpeed;
 	CurVelocity = FVector(NewVelo.X, NewVelo.Y, CurVelocity.Z);
 }
 
-void UFFMovementBehavior::MoveInAir(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed, EInUseStatusOutputPin& OutputPins)
+void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFloat* Curve, const float Timer, const float MaxTime, FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins)
 {
 	if (!IsMovementReady()) return;
-
-	FVector2D dir = Direction;
-	float VeloZ = CurVelocity.Z;
-
-	dir *= Acceleration;
-
-	FVector ForwardDir = ObjectTransformMovement->GetForwardVector();
-	ForwardDir.Z = 0;
-	FVector RightDir = ObjectTransformMovement->GetRightVector();
-	RightDir.Z = 0;
-	FVector NewVelo = ForwardDir.GetSafeNormal() * dir.X;
-	NewVelo += RightDir.GetSafeNormal() * dir.Y;
-
-	CurVelocity += NewVelo;
-	CurVelocity.Z = 0;
-	if (Direction.IsNearlyZero()) OutputPins = EInUseStatusOutputPin::NotInUse;
-	else OutputPins = EInUseStatusOutputPin::InUse;
-	//CurVelocity = CurVelocity.GetClampedToSize(0, MaxSpeed);
-	if (CurVelocity.Length() > MaxSpeed) CurVelocity -= CurVelocity.GetSafeNormal() * Deceleration;
-	CurVelocity.Z = VeloZ;
-}
-
-void UFFMovementBehavior::IsGrounded(FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins)
-{
-	if (!IsMovementReady()) return;
+	if (!Curve) return;
 
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(GetOwner());
@@ -134,16 +95,39 @@ void UFFMovementBehavior::IsGrounded(FHitResult& GroundHit, float TraceSize, EGr
 
 	bool bHit = GetWorld()->LineTraceSingleByChannel(GroundHit, ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + VectorDown, ECC_Visibility, QueryParams);
 
-	OutputPins = bHit ? EGroundStatusOutputPin::Grounded : EGroundStatusOutputPin::NotGrounded;
+	if (bHit)
+	{
+		CurVelocity.Z = 0;
+		
+		OutputPins = EGroundStatusOutputPin::Grounded;
+	}
+	else
+	{
+		float Value0To1 = FMath::Clamp(Timer / MaxTime, 0.0f, 1.0f);
+		float CurveValue = Curve->GetFloatValue(Value0To1);
+		CurVelocity.Z = -Gravity * CurveValue;
+
+		OutputPins = EGroundStatusOutputPin::NotGrounded;
+	}
 }
 
-void UFFMovementBehavior::JumpBehavior(const float JumpForce, const UCurveFloat* Curve, const float MaxTime, const float Timer)
+void UFFMovementBehavior::JumpBehavior(const float InitialHeight, const float TargetHeight, const UCurveFloat* Curve, const float MaxTime, const float Timer)
 {
 	if (!IsMovementReady()) return;
 
-	float Value0to1 = FMath::Clamp(Timer / MaxTime, 0, 1);
-	float ForceUp = Curve->GetFloatValue(Value0to1);
-	AddExternalForce(FVector(0, 0, ForceUp * JumpForce));
+	if (!Curve || MaxTime <= 0.0f) return;
+
+	float Value0To1 = FMath::Clamp(Timer / MaxTime, 0.0f, 1.0f);
+
+	float CurveValue = Curve->GetFloatValue(Value0To1);
+
+	float StartHeight = InitialHeight;
+	float CurrentHeight = ObjectToMove->GetComponentLocation().Z;
+	float DesiredHeight = FMath::Lerp(StartHeight, InitialHeight + TargetHeight, CurveValue);
+
+	float VelocityZ = (DesiredHeight - CurrentHeight) / GetWorld()->DeltaTimeSeconds;
+
+	CurVelocity.Z = VelocityZ;
 }
 
 void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins)
@@ -190,9 +174,10 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 	CurVelocity.Z = StoredZ;
 }
 
-void UFFMovementBehavior::GiveVelocity(const FVector Offset, const float Dist)
+void UFFMovementBehavior::GiveVelocity(const float GroundCheck, const FVector Offset, const float Dist)
 {
 	if (!IsMovementReady()) return;
+
 
 	if (AwaitingForce.Num() > 0)
 	{
@@ -202,42 +187,52 @@ void UFFMovementBehavior::GiveVelocity(const FVector Offset, const float Dist)
 		}
 		AwaitingForce.Empty();
 	}
+	FVector VeloToGive = CurVelocity;
 
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(GetOwner());
 
 	FHitResult HitResult;
 	FVector Start = ObjectToMove->GetComponentLocation() + Offset;
-	FVector Direction = FVector(CurVelocity.X, CurVelocity.Y, 0).GetSafeNormal();
-	FVector End = Start + (Direction * Dist);
+	FVector Direction = FVector(0,0,1);
+	FVector End = Start + (Direction * GroundCheck);
 
 	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, QueryParams);
 
 	if (bHit)
 	{
-		FVector HitNormal = HitResult.ImpactNormal; 
-		float DotProduct = FVector::DotProduct(HitNormal, FVector(0, 0, 1)); 
+		float ZVelo = VeloToGive.Z;
+		VeloToGive.Z = 0;
+		VeloToGive = FVector::VectorPlaneProject(VeloToGive, HitResult.ImpactNormal);
+		VeloToGive.Z = ZVelo;
+	}
+
+	Direction = VeloToGive.GetSafeNormal();
+	End = Start + (Direction * Dist);
+
+	bHit = GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, QueryParams);
+
+	if (bHit)
+	{
+		ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, 0));
+		/*FVector HitNormal = HitResult.ImpactNormal;
+		float DotProduct = FVector::DotProduct(HitNormal, FVector(0, 0, 1));
 		DotProduct = FMath::Abs(DotProduct);
 
-		if (DotProduct < KINDA_SMALL_NUMBER) 
+		if (DotProduct < KINDA_SMALL_NUMBER)
 		{
-			ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, CurVelocity.Z));
+			ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, 0));
 		}
 		else
 		{
-			FVector ProjectedVelocity = FVector::VectorPlaneProject(CurVelocity, HitNormal);
+			FVector ProjectedVelocity = FVector::VectorPlaneProject(VeloToGive, HitNormal);
 			ObjectToMove->SetPhysicsLinearVelocity(ProjectedVelocity);
-		}
+		}*/
 	}
 	else
 	{
-		ObjectToMove->SetPhysicsLinearVelocity(CurVelocity);
+		ObjectToMove->SetPhysicsLinearVelocity(VeloToGive);
 	}
-}
-
-void UFFMovementBehavior::Gravity(const float Gravity)
-{
-	AddExternalForce(FVector(0, 0, -Gravity));
 }
 
 void UFFMovementBehavior::AddExternalForce(FVector Force)

@@ -46,31 +46,24 @@ private:
 
 public:	
 	UFFMovementBehavior();
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void GetMovement(UPrimitiveComponent* MovableObject, USceneComponent* ToUseTransform);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
 	void MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed, EInUseStatusOutputPin& OutputPins);
-
-	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
-	void MoveInAir(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed, EInUseStatusOutputPin& OutputPins);
 	
 	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
-	void IsGrounded(FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins);
+	void GroundCheckGravity(const float Gravity, const UCurveFloat* Curve, const float Timer, const float MaxTime, FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void JumpBehavior(const float JumpForce, const UCurveFloat* Curve, const float MaxTime, const float Timer);
+	void JumpBehavior(const float InitialHeight, const float TargetHeight, const UCurveFloat* Curve, const float MaxTime, const float Timer);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
 	void Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void GiveVelocity(const FVector Offset, const float Dist);
-
-	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void Gravity(const float Gravity);
+	void GiveVelocity(const float GroundCheck, const FVector Offset, const float Dist);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void AddExternalForce(FVector Force);
