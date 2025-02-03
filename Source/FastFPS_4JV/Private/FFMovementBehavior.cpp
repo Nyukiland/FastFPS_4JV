@@ -90,7 +90,7 @@ void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFl
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(ObjectToMove->GetOwner());
 
-	FVector VectorDown = FVector(0,0, -TraceSize);
+	FVector VectorDown = FVector(0, 0, -TraceSize);
 
 	bool bHit = GetWorld()->LineTraceSingleByChannel(GroundHit, ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + VectorDown, ECC_Visibility, QueryParams);
 
@@ -98,7 +98,7 @@ void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFl
 	{
 		if (GroundHit.Distance > TraceSize - 5) CurVelocity.Z = -Gravity;
 		else CurVelocity.Z = 0;
-		
+
 		OutputPins = EGroundStatusOutputPin::Grounded;
 	}
 	else
@@ -210,20 +210,32 @@ void UFFMovementBehavior::GiveVelocity(const FVector GroundNormal, const FVector
 		FVector HitNormal = HitResultDir.ImpactNormal;
 		float DotProduct = FVector::DotProduct(VeloToGive.GetSafeNormal(), HitNormal);
 
-		if (DotProduct < -0.1f)
+		if (VeloToGive.Z <= 0)
 		{
-			ObjectToMove->SetPhysicsLinearVelocity(FVector::ZeroVector);
+			float Magnitude = VeloToGive.Length();
+			VeloToGive = FVector::VectorPlaneProject(VeloToGive, HitNormal);
+			VeloToGive = VeloToGive.GetSafeNormal() * Magnitude;
+			ObjectToMove->SetPhysicsLinearVelocity(VeloToGive);
+		}
+
+		/*if (FMath::Abs(DotProduct) > 0.65f)
+		{
+			if (VeloToGive.Z < 0)
+			{
+				ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, VeloToGive.Z));
+			}
+			else ObjectToMove->SetPhysicsLinearVelocity(FVector::ZeroVector);
 		}
 		else
 		{
-			if (CurVelocity.Z <= 0)
+			if (VeloToGive.Z <= 0)
 			{
 				float Magnitude = VeloToGive.Length();
 				VeloToGive = FVector::VectorPlaneProject(VeloToGive, HitNormal);
 				VeloToGive = VeloToGive.GetSafeNormal() * Magnitude;
 				ObjectToMove->SetPhysicsLinearVelocity(VeloToGive);
 			}
-		}
+		}*/
 	}
 	else
 	{
