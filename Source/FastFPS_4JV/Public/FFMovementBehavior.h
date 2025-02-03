@@ -63,7 +63,7 @@ public:
 	void Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void GiveVelocity(const float GroundCheck, const FVector Offset, const float Dist);
+	void GiveVelocity(const FVector GroundNormal, const FVector Offset, const float Dist);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void AddExternalForce(FVector Force);

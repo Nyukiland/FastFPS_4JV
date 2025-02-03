@@ -96,7 +96,8 @@ void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFl
 
 	if (bHit)
 	{
-		CurVelocity.Z = 0;
+		if (GroundHit.Distance > TraceSize - 5) CurVelocity.Z = -Gravity;
+		else CurVelocity.Z = 0;
 		
 		OutputPins = EGroundStatusOutputPin::Grounded;
 	}
@@ -173,7 +174,7 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 	CurVelocity.Z = StoredZ;
 }
 
-void UFFMovementBehavior::GiveVelocity(const float GroundCheck, const FVector Offset, const float Dist)
+void UFFMovementBehavior::GiveVelocity(const FVector GroundNormal, const FVector Offset, const float Dist)
 {
 	if (!IsMovementReady()) return;
 
@@ -185,47 +186,43 @@ void UFFMovementBehavior::GiveVelocity(const float GroundCheck, const FVector Of
 		}
 		AwaitingForce.Empty();
 	}
+
 	FVector VeloToGive = CurVelocity;
+
+	if (!GroundNormal.IsNearlyZero() && CurVelocity.Z <= 0)
+	{
+		float Magnitude = VeloToGive.Length();
+		VeloToGive = FVector::VectorPlaneProject(VeloToGive, GroundNormal);
+		VeloToGive = VeloToGive.GetSafeNormal() * Magnitude;
+	}
 
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(ObjectToMove->GetOwner());
-
-	FHitResult HitResult;
+	FHitResult HitResultDir;
 	FVector Start = ObjectToMove->GetComponentLocation() + Offset;
-	FVector Direction = FVector(0,0,-GroundCheck);
-	FVector End = Start + Direction;
+	FVector EndDir = Start + (VeloToGive.GetSafeNormal() * Dist);
 
-	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, QueryParams);
+	bool bHitDir = GetWorld()->LineTraceSingleByChannel(HitResultDir, Start, EndDir, ECC_Visibility, QueryParams);
 
-	if (bHit)
+	ObjectToMove->WakeAllRigidBodies();
+	if (bHitDir)
 	{
-		float ZVelo = VeloToGive.Z;
-		VeloToGive.Z = 0;
-		VeloToGive = FVector::VectorPlaneProject(VeloToGive, HitResult.ImpactNormal);
-		VeloToGive.Z = ZVelo;
-	}
+		FVector HitNormal = HitResultDir.ImpactNormal;
+		float DotProduct = FVector::DotProduct(VeloToGive.GetSafeNormal(), HitNormal);
 
-	Direction = VeloToGive.GetSafeNormal();
-	End = Start + (Direction * Dist);
-
-	bHit = GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, QueryParams);
-
-	if (bHit)
-	{
-		ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, 0));
-		FVector HitNormal = HitResult.ImpactNormal;
-		float DotProduct = FVector::DotProduct(HitNormal, FVector(0, 0, 1));
-		DotProduct = FMath::Abs(DotProduct);
-
-		if (DotProduct < KINDA_SMALL_NUMBER)
+		if (DotProduct < -0.1f)
 		{
-
-			ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, 0));
+			ObjectToMove->SetPhysicsLinearVelocity(FVector::ZeroVector);
 		}
 		else
 		{
-			FVector ProjectedVelocity = FVector::VectorPlaneProject(VeloToGive, HitNormal);
-			ObjectToMove->SetPhysicsLinearVelocity(ProjectedVelocity);
+			if (CurVelocity.Z <= 0)
+			{
+				float Magnitude = VeloToGive.Length();
+				VeloToGive = FVector::VectorPlaneProject(VeloToGive, HitNormal);
+				VeloToGive = VeloToGive.GetSafeNormal() * Magnitude;
+				ObjectToMove->SetPhysicsLinearVelocity(VeloToGive);
+			}
 		}
 	}
 	else
