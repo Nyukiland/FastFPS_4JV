@@ -55,4 +55,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
 	static int ClampIntByRef(UPARAM(ref) int& Value, const int Min, const int Max);
+
+	UFUNCTION(BlueprintCallable, Category = "Math Helper")
+	static FVector GetOffsetBasedOnTransform(const FVector Offset, const USceneComponent* ToUseTransform);
 };

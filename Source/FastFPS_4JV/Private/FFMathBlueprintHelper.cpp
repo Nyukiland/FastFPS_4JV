@@ -118,3 +118,18 @@ int UFFMathBlueprintHelper::ClampIntByRef(UPARAM(ref) int& Value, const int Min,
 
 	return Value;
 }
+
+FVector UFFMathBlueprintHelper::GetOffsetBasedOnTransform(const FVector Offset, const USceneComponent* ToUseTransform)
+{
+	if (ToUseTransform == nullptr) return FVector::ZeroVector;
+	FVector Temp = FVector(0, 0, 0);
+
+	Temp = ToUseTransform->GetForwardVector() * Offset.X;
+	Temp += ToUseTransform->GetRightVector() * Offset.Y;
+	Temp += ToUseTransform->GetUpVector() * Offset.Z;
+
+	Temp += ToUseTransform->GetComponentLocation();
+	Temp = FVector(FMath::RoundToInt(Temp.X), FMath::RoundToInt(Temp.Y), FMath::RoundToInt(Temp.Z));
+
+	return Temp;
+}
