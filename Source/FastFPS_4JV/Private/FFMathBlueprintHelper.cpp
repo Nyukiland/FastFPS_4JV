@@ -3,25 +3,25 @@
 
 #include "FFMathBlueprintHelper.h"
 
-float UFFMathBlueprintHelper::IncrementFloat(UPARAM(ref) float& Value, float Amount)
+float& UFFMathBlueprintHelper::IncrementFloat(UPARAM(ref) float& Value, float Amount)
 {
 	Value += Amount;
 	return Value;
 }
 
-int UFFMathBlueprintHelper::IncrementInt(UPARAM(ref) int& Value, int Amount)
+int& UFFMathBlueprintHelper::IncrementInt(UPARAM(ref) int& Value, int Amount)
 {
 	Value += Amount;
 	return Value;
 }
 
-float UFFMathBlueprintHelper::DecrementFloat(UPARAM(ref) float& Value, float Amount)
+float& UFFMathBlueprintHelper::DecrementFloat(UPARAM(ref) float& Value, float Amount)
 {
 	Value -= Amount;
 	return Value;
 }
 
-int UFFMathBlueprintHelper::DecrementInt(UPARAM(ref) int& Value, int Amount)
+int& UFFMathBlueprintHelper::DecrementInt(UPARAM(ref) int& Value, int Amount)
 {
 	Value -= Amount;
 	return Value;
@@ -103,7 +103,7 @@ void UFFMathBlueprintHelper::RandomOutput(ERandomPinOut& OutputPins)
 	else OutputPins = ERandomPinOut::Random2;
 }
 
-float UFFMathBlueprintHelper::ClampFloatByRef(UPARAM(ref) float& Value, const float Min, const float Max)
+float& UFFMathBlueprintHelper::ClampFloatByRef(UPARAM(ref) float& Value, const float Min, const float Max)
 {
 	if (Value < Min) Value = Min;
 	else if (Value > Max) Value = Max;
@@ -111,7 +111,7 @@ float UFFMathBlueprintHelper::ClampFloatByRef(UPARAM(ref) float& Value, const fl
 	return Value;
 }
 
-int UFFMathBlueprintHelper::ClampIntByRef(UPARAM(ref) int& Value, const int Min, const int Max)
+int& UFFMathBlueprintHelper::ClampIntByRef(UPARAM(ref) int& Value, const int Min, const int Max)
 {
 	if (Value < Min) Value = Min;
 	else if (Value > Max) Value = Max;

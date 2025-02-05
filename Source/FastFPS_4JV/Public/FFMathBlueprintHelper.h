@@ -21,16 +21,16 @@ class FASTFPS_4JV_API UFFMathBlueprintHelper : public UObject
 public:
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static float IncrementFloat(UPARAM(ref) float& Value, float Amount);
+	static float& IncrementFloat(UPARAM(ref) float& Value, float Amount);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static int IncrementInt(UPARAM(ref) int& Value, int Amount);
+	static int& IncrementInt(UPARAM(ref) int& Value, int Amount);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static float DecrementFloat(UPARAM(ref) float& Value, float Amount);
+	static float& DecrementFloat(UPARAM(ref) float& Value, float Amount);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static int DecrementInt(UPARAM(ref) int& Value, int Amount);
+	static int& DecrementInt(UPARAM(ref) int& Value, int Amount);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper|Vector")
 	static float GetAngleBetweenVectors(const FVector VectorA = FVector(0,0,0), const FVector VectorB = FVector(0,0,0));
@@ -51,10 +51,10 @@ public:
 	static void RandomOutput(ERandomPinOut& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static float ClampFloatByRef(UPARAM(ref) float& Value, const float Min, const float Max);
+	static float& ClampFloatByRef(UPARAM(ref) float& Value, const float Min, const float Max);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
-	static int ClampIntByRef(UPARAM(ref) int& Value, const int Min, const int Max);
+	static int& ClampIntByRef(UPARAM(ref) int& Value, const int Min, const int Max);
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
 	static FVector GetOffsetBasedOnTransform(const FVector Offset, const USceneComponent* ToUseTransform);
