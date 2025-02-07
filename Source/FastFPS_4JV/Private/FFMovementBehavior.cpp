@@ -115,19 +115,24 @@ void UFFMovementBehavior::JumpBehavior(const float InitialHeight, const float Ta
 {
 	if (!IsMovementReady()) return;
 
-	if (!Curve || MaxTime <= 0.0f) return;
+	if (!Curve || MaxTime <= 0.0f)
+	{
+		prevVeloJump = 0;
+		return;
+	}
 
 	float Value0To1 = FMath::Clamp(Timer / MaxTime, 0.0f, 1.0f);
 
 	float CurveValue = Curve->GetFloatValue(Value0To1);
 
-	float StartHeight = InitialHeight;
 	float CurrentHeight = ObjectToMove->GetComponentLocation().Z;
-	float DesiredHeight = FMath::Lerp(StartHeight, InitialHeight + TargetHeight, CurveValue);
+	float DesiredHeight = FMath::Lerp(InitialHeight, InitialHeight + TargetHeight, CurveValue);
 
 	float VelocityZ = (DesiredHeight - CurrentHeight) / GetWorld()->DeltaTimeSeconds;
 
-	CurVelocity.Z = VelocityZ;
+	if (VelocityZ > 0) prevVeloJump = VelocityZ;
+
+	CurVelocity.Z = prevVeloJump;
 }
 
 void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins)

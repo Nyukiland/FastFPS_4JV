@@ -32,6 +32,7 @@ private:
 	float SlideTimer;
 	bool JumpDoOnce;
 	FVector SlideDir;
+	float prevVeloJump;
 
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
