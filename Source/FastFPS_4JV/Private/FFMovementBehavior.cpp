@@ -122,7 +122,6 @@ void UFFMovementBehavior::JumpBehavior(const float InitialHeight, const float Ta
 	}
 
 	float Value0To1 = FMath::Clamp(Timer / MaxTime, 0.0f, 1.0f);
-
 	float CurveValue = Curve->GetFloatValue(Value0To1);
 
 	float CurrentHeight = ObjectToMove->GetComponentLocation().Z;
@@ -130,7 +129,7 @@ void UFFMovementBehavior::JumpBehavior(const float InitialHeight, const float Ta
 
 	float VelocityZ = (DesiredHeight - CurrentHeight) / GetWorld()->DeltaTimeSeconds;
 
-	if (VelocityZ > 0) prevVeloJump = VelocityZ;
+	if (VelocityZ > 0) prevVeloJump = FMath::FInterpTo(prevVeloJump, VelocityZ, GetWorld()->DeltaTimeSeconds, 8.0f);
 
 	CurVelocity.Z = prevVeloJump;
 }
