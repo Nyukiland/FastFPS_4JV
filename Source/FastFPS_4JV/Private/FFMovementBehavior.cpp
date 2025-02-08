@@ -96,8 +96,8 @@ void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFl
 
 	if (bHit)
 	{
-		if (GroundHit.Distance > TraceSize - 5) CurVelocity.Z = -Gravity;
-		else CurVelocity.Z = 0;
+		//if (GroundHit.Distance > TraceSize - 5) CurVelocity.Z = -Gravity;
+		CurVelocity.Z = 0;
 
 		OutputPins = EGroundStatusOutputPin::Grounded;
 	}
