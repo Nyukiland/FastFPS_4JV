@@ -212,39 +212,21 @@ void UFFMovementBehavior::GiveVelocity(const FVector GroundNormal, const FVector
 	if (bHitDir)
 	{
 		FVector HitNormal = HitResultDir.ImpactNormal;
-		float DotProduct = FVector::DotProduct(VeloToGive.GetSafeNormal(), HitNormal);
+		float DotProduct = FVector::DotProduct(FVector(0,0,1), HitNormal);
 
-		if (VeloToGive.Z <= 0)
+		if (VeloToGive.Z <= 0 && FMath::Abs(DotProduct) >= 0.1)
 		{
 			float Magnitude = VeloToGive.Length();
 			VeloToGive = FVector::VectorPlaneProject(VeloToGive, HitNormal);
 			VeloToGive = VeloToGive.GetSafeNormal() * Magnitude;
-			ObjectToMove->SetPhysicsLinearVelocity(VeloToGive);
-		}
-
-		/*if (FMath::Abs(DotProduct) > 0.65f)
-		{
-			if (VeloToGive.Z < 0)
-			{
-				ObjectToMove->SetPhysicsLinearVelocity(FVector(0, 0, VeloToGive.Z));
-			}
-			else ObjectToMove->SetPhysicsLinearVelocity(FVector::ZeroVector);
 		}
 		else
 		{
-			if (VeloToGive.Z <= 0)
-			{
-				float Magnitude = VeloToGive.Length();
-				VeloToGive = FVector::VectorPlaneProject(VeloToGive, HitNormal);
-				VeloToGive = VeloToGive.GetSafeNormal() * Magnitude;
-				ObjectToMove->SetPhysicsLinearVelocity(VeloToGive);
-			}
-		}*/
+			VeloToGive = FVector(0, 0, VeloToGive.Z);
+		}
 	}
-	else
-	{
-		ObjectToMove->SetPhysicsLinearVelocity(VeloToGive);
-	}
+
+	ObjectToMove->SetPhysicsLinearVelocity(VeloToGive);
 }
 
 void UFFMovementBehavior::AddExternalForce(FVector Force)
