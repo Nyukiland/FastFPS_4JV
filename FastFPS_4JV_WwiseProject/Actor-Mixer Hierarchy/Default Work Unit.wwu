@@ -1085,11 +1085,7 @@
 										<CustomStateList>
 											<CustomState>
 												<StateRef Name="alive" ID="{D06758EB-6E26-4739-9575-54568D90BC9C}"/>
-												<CustomState Name="" ID="{08C68B96-67BF-4826-A9CF-8C1C4A2B368A}" ShortID="164900959">
-													<PropertyList>
-														<Property Name="Volume" Type="Real64" Value="-108"/>
-													</PropertyList>
-												</CustomState>
+												<CustomState Name="" ID="{08C68B96-67BF-4826-A9CF-8C1C4A2B368A}" ShortID="164900959"/>
 											</CustomState>
 											<CustomState>
 												<StateRef Name="dead" ID="{8C6D1EF9-44E1-4D70-8423-DF37B871DBBD}"/>
@@ -1262,11 +1258,7 @@
 											</CustomState>
 											<CustomState>
 												<StateRef Name="alive" ID="{ED1B0D55-3FFB-49E1-8B95-C606CD53FBFB}"/>
-												<CustomState Name="" ID="{0461408C-5EB1-4210-BD3B-BF4C08B39EAE}" ShortID="482005827">
-													<PropertyList>
-														<Property Name="Volume" Type="Real64" Value="-108"/>
-													</PropertyList>
-												</CustomState>
+												<CustomState Name="" ID="{0461408C-5EB1-4210-BD3B-BF4C08B39EAE}" ShortID="482005827"/>
 											</CustomState>
 										</CustomStateList>
 									</StateInfo>
