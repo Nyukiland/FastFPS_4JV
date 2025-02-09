@@ -10,6 +10,20 @@
 						<State Name="end" ID="{E0F18F21-7CF2-4990-A016-304C58DDBBCF}"/>
 					</ChildrenList>
 				</StateGroup>
+				<StateGroup Name="Robot_life" ID="{EB5EB586-D017-4A52-B8DE-E021F0033AA6}">
+					<ChildrenList>
+						<State Name="None" ID="{19772988-A917-479B-A221-6B7395564AEA}"/>
+						<State Name="alive" ID="{ED1B0D55-3FFB-49E1-8B95-C606CD53FBFB}"/>
+						<State Name="dead" ID="{39EC630A-9404-4033-A486-50CF989DD99E}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="Bird_life" ID="{597C8145-3900-491D-9103-E920141A6C08}">
+					<ChildrenList>
+						<State Name="None" ID="{425A920B-D8B0-401A-92F6-00DEFDCF2A9F}"/>
+						<State Name="alive" ID="{D06758EB-6E26-4739-9575-54568D90BC9C}"/>
+						<State Name="dead" ID="{8C6D1EF9-44E1-4D70-8423-DF37B871DBBD}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

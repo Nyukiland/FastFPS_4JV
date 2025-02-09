@@ -214,6 +214,88 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Ennemy" ID="{8887A609-EECF-4E8A-993A-68B072585D0F}" ShortID="951934106">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Folder Name="ROBOT" ID="{ABAD028D-7048-405F-93A0-9F8FEDDCF69A}" ShortID="1044815084">
+							<ChildrenList>
+								<Event Name="Death_Robot" ID="{F9845385-3216-4603-9C92-8576A2511D10}">
+									<ChildrenList>
+										<Action Name="" ID="{5448965F-1F66-4DE3-8DE3-8951F72346CA}" ShortID="506175160">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Death_Robot" ID="{5816C0B6-33E7-402A-8940-7DAD27B80880}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="iddle_robot" ID="{520AA746-692C-443D-8F87-2C3623FD6A41}">
+									<ChildrenList>
+										<Action Name="" ID="{26118E74-E4AF-4BFE-A607-28264BA59A8D}" ShortID="77895241">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Iddle_robot" ID="{D26D6B7E-AFE5-4987-9805-7BF3870F37FE}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Voice_Robot" ID="{0377F94B-6091-47A4-82E4-6ECCFF40A52E}">
+									<ChildrenList>
+										<Action Name="" ID="{F30621FE-70A0-4A0A-86EB-08661A2A5FF4}" ShortID="595374383">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Voice" ID="{3ABAE5EB-B64F-4612-B94E-0593D12EBD79}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="BIRD" ID="{7BD872CA-4429-4C41-9B48-2DAD5B67C778}" ShortID="930519700">
+							<ChildrenList>
+								<Event Name="Death_Bird" ID="{2363624B-0C36-45CA-B69E-56C7198AA1B1}">
+									<ChildrenList>
+										<Action Name="" ID="{42117698-B3A7-483B-9741-7115887E12C0}" ShortID="686050792">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Death_Bird" ID="{12EDD5F0-D2DC-4381-978E-56F2714AE301}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="iddle_bird" ID="{851E9479-42C6-4C11-A6E2-09B1CC520A96}">
+									<ChildrenList>
+										<Action Name="" ID="{B34044AC-DA02-4A29-B656-16396E355496}" ShortID="298749772">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Iddle_Bird" ID="{93CE1CE4-3224-4E42-9D54-F375E6E16C28}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Voice_Bird" ID="{017B1467-9983-4507-B296-AD0C7B7DC942}">
+									<ChildrenList>
+										<Action Name="" ID="{3F77A213-C01A-421C-868E-CFD23727E591}" ShortID="493681204">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Voice_Bird" ID="{3BD6A05E-817D-456D-8FBC-A28CF3B5CDC6}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
