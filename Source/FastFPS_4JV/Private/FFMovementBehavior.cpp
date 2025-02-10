@@ -163,12 +163,15 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 
 	SlideTimer += GetWorld()->DeltaTimeSeconds;
 
-	float dotDown = FVector::DotProduct(SlopeNormal, SlideDir);
-	if (dot != 1 && dotDown > 0) SlideTimer = 0;
-
 	float Value0To1 = FMath::Clamp(SlideTimer / MaxTime, 0, 1);
 	float CurveEval = Curve->GetFloatValue(Value0To1);
-	CurveEval = FMath::Lerp(CurveEval, 1, SlideMultiply);
+	CurveEval = FMath::Lerp(1, SlideMultiply, CurveEval);
+
+	float dotDown = FVector::DotProduct(SlopeNormal, SlideDir);
+	if (dot != 1 && dotDown > 0)
+	{
+		CurveEval = SlideMultiply;
+	}
 
 	if (dot == 1) ProjectedSlideDir = SlideDir;
 
