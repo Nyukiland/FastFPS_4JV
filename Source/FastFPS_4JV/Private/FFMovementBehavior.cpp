@@ -134,7 +134,7 @@ void UFFMovementBehavior::JumpBehavior(const float InitialHeight, const float Ta
 	CurVelocity.Z = prevVeloJump;
 }
 
-void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins)
+void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const float MaxSlideSpeed, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins)
 {
 	if (!IsMovementReady()) return;
 	if (!Curve) return;
@@ -178,6 +178,7 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 	float StoredZ = CurVelocity.Z;
 
 	CurVelocity = ProjectedSlideDir * CurveEval;
+	CurVelocity = CurVelocity.GetClampedToMaxSize(MaxSlideSpeed);
 	CurVelocity.Z = StoredZ;
 }
 
