@@ -146,12 +146,17 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 
 	if (!IsSlide)
 	{
+		OutputPins = EInUseStatusOutputPin::NotInUse;
 		SlideDir = CurVelocity;
 		SlideDir.Z = 0;
 		SlideTimer = 0;
 		return;
 	}
-	else if (MaxTime < SlideTimer) return;
+	else if (MaxTime < SlideTimer)
+	{
+		OutputPins = EInUseStatusOutputPin::NotInUse;
+		return;
+	}
 
 	OutputPins = EInUseStatusOutputPin::InUse;
 
