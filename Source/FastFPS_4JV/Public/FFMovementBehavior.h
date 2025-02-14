@@ -16,8 +16,8 @@ enum class EGroundStatusOutputPin : uint8
 UENUM()
 enum class EInUseStatusOutputPin : uint8
 {
-	InUse,
-	NotInUse
+	NotInUse,
+	InUse
 };
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
