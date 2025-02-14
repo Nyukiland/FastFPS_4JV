@@ -34,3 +34,8 @@ void UFFBlueprintHelper::CheckCurrentLayout(EKeyboardOutputPin& OutputPins)
 		UE_LOG(LogTemp, Error, TEXT("Failed to retrieve keyboard layout name"));
 	}
 }
+
+float UFFBlueprintHelper::EvaluateCurve(const UCurveFloat* Curve, const float Value)
+{
+	return Curve->GetFloatValue(Value);
+}

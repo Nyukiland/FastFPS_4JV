@@ -22,4 +22,7 @@ class FASTFPS_4JV_API UFFBlueprintHelper : public UObject
 public:
 	UFUNCTION(BlueprintCallable, Category = "Keyboard", meta = (ExpandEnumAsExecs = "OutputPins"))
 	static void CheckCurrentLayout(EKeyboardOutputPin& OutputPins);
+
+	UFUNCTION(BlueprintCallable, Category = "Curve")
+	static float EvaluateCurve(const UCurveFloat* Curve, const float Value);
 };
