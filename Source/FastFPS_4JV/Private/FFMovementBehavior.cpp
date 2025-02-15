@@ -82,7 +82,7 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 	CurVelocity = FVector(NewVelo.X, NewVelo.Y, CurVelocity.Z);
 }
 
-void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFloat* Curve, const float Timer, const float MaxTime, FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins)
+void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFloat* Curve, const float Timer, const float MaxTime, FHitResult& GroundHit, float TraceSize, float TraceTolerance, EGroundStatusOutputPin& OutputPins)
 {
 	if (!IsMovementReady()) return;
 	if (!Curve) return;
@@ -94,9 +94,12 @@ void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFl
 
 	bool bHit = GetWorld()->LineTraceSingleByChannel(GroundHit, ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + VectorDown, ECC_Visibility, QueryParams);
 
+	DrawDebugLine(GetWorld(), ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + VectorDown, FColor::Red, false, 1.0f, 0, 5.0f);
+	DrawDebugLine(GetWorld(), ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + (VectorDown - FVector(0, 0, TraceTolerance)), FColor::Green, false, 1.0f, 0, 6.0f);
+
 	if (bHit)
 	{
-		//if (GroundHit.Distance > TraceSize - 5) CurVelocity.Z = -Gravity;
+		if (GroundHit.Distance > TraceSize - TraceTolerance) CurVelocity.Z = -Gravity;
 		CurVelocity.Z = 0;
 
 		OutputPins = EGroundStatusOutputPin::Grounded;
@@ -205,9 +208,14 @@ void UFFMovementBehavior::GiveVelocity(const FVector GroundNormal, const FVector
 
 	if (!GroundNormal.IsNearlyZero() && CurVelocity.Z <= 0)
 	{
-		float Magnitude = VeloToGive.Length();
-		VeloToGive = FVector::VectorPlaneProject(VeloToGive, GroundNormal);
-		VeloToGive = VeloToGive.GetSafeNormal() * Magnitude;
+		FVector Dir = FVector(VeloToGive.X, VeloToGive.Y, 0);
+		float Magnitude = Dir.Length();
+		Dir = FVector::VectorPlaneProject(Dir, GroundNormal);
+		Dir = VeloToGive.GetSafeNormal() * Magnitude;
+		if (VeloToGive.Z > 0) Dir.Z = VeloToGive.Z;
+		else Dir.Z += VeloToGive.Z;
+
+		VeloToGive = Dir;
 	}
 
 	FCollisionQueryParams QueryParams;
@@ -222,13 +230,18 @@ void UFFMovementBehavior::GiveVelocity(const FVector GroundNormal, const FVector
 	if (bHitDir)
 	{
 		FVector HitNormal = HitResultDir.ImpactNormal;
-		float DotProduct = FVector::DotProduct(FVector(0,0,1), HitNormal);
+		float DotProduct = FVector::DotProduct(FVector(0, 0, 1), HitNormal);
 
 		if (VeloToGive.Z <= 0 && FMath::Abs(DotProduct) >= 0.1)
 		{
-			float Magnitude = VeloToGive.Length();
-			VeloToGive = FVector::VectorPlaneProject(VeloToGive, HitNormal);
-			VeloToGive = VeloToGive.GetSafeNormal() * Magnitude;
+			FVector Dir = FVector(VeloToGive.X, VeloToGive.Y, 0);
+			float Magnitude = Dir.Length();
+			Dir = FVector::VectorPlaneProject(Dir, HitNormal);
+			Dir = VeloToGive.GetSafeNormal() * Magnitude;
+			if (VeloToGive.Z > 0) Dir.Z = VeloToGive.Z;
+			else Dir.Z += VeloToGive.Z;
+
+			VeloToGive = Dir;
 		}
 		else
 		{
