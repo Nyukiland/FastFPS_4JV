@@ -39,3 +39,12 @@ float UFFBlueprintHelper::EvaluateCurve(const UCurveFloat* Curve, const float Va
 {
 	return Curve->GetFloatValue(Value);
 }
+
+float& UFFBlueprintHelper::SmoothValueByRef(UPARAM(ref) float& CurValue, const float ValueToReach, const float SmoothSpeed, const float DeltaTime)
+{
+	float T = SmoothSpeed * DeltaTime;
+	T = FMath::Clamp(T, 0, 1);
+
+	CurValue = FMath::Lerp(CurValue, ValueToReach, T);
+	return CurValue;
+}

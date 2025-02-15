@@ -176,6 +176,7 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 	if (dot != 1 && dotDown > 0)
 	{
 		CurveEval = SlideMultiply;
+		SlideTimer = 0;
 	}
 
 	if (dot == 1) ProjectedSlideDir = SlideDir;

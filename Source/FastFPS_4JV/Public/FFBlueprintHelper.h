@@ -20,9 +20,12 @@ class FASTFPS_4JV_API UFFBlueprintHelper : public UObject
 	GENERATED_BODY()
 	
 public:
-	UFUNCTION(BlueprintCallable, Category = "Keyboard", meta = (ExpandEnumAsExecs = "OutputPins"))
+	UFUNCTION(BlueprintCallable, Category = "Helper", meta = (ExpandEnumAsExecs = "OutputPins"))
 	static void CheckCurrentLayout(EKeyboardOutputPin& OutputPins);
 
-	UFUNCTION(BlueprintCallable, Category = "Curve")
+	UFUNCTION(BlueprintCallable, Category = "Helper")
 	static float EvaluateCurve(const UCurveFloat* Curve, const float Value);
+
+	UFUNCTION(BlueprintCallable, Category = "Helper")
+	static float& SmoothValueByRef(UPARAM(ref) float& CurValue, const float ValueToReach, const float SmoothSpeed, const float DeltaTime);
 };
