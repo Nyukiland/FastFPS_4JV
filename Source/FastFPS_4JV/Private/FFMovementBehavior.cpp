@@ -115,7 +115,7 @@ void UFFMovementBehavior::JumpBehavior(const float InitialHeight, const float Ta
 {
 	if (!IsMovementReady()) return;
 
-	if (!Curve || MaxTime <= 0.0f)
+	if (!Curve || Timer <= 0.0f)
 	{
 		prevVeloJump = 0;
 		return;
