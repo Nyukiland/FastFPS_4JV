@@ -55,7 +55,7 @@ public:
 	void MoveInDirection(const FVector2D Direction, const float Acceleration, const float Deceleration, const float MaxSpeed, EInUseStatusOutputPin& OutputPins);
 	
 	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
-	void GroundCheckGravity(const float Gravity, const UCurveFloat* Curve, const float Timer, const float MaxTime, FHitResult& GroundHit, float TraceSize, float TraceTolerance, EGroundStatusOutputPin& OutputPins);
+	void GroundCheckGravity(const float Gravity, const UCurveFloat* Curve, const float Timer, const float MaxTime, FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void JumpBehavior(const float InitialHeight, const float TargetHeight, const UCurveFloat* Curve, const float MaxTime, const float Timer);
@@ -64,7 +64,7 @@ public:
 	void Slide(const bool IsSlide, const float SlideMultiply, const float MaxSlideSpeed, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void GiveVelocity(const FVector GroundNormal, const FVector Offset, const float Dist);
+	void GiveVelocity(bool Grounded, const FVector GroundNormal, const FVector Offset, const float Dist);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void AddExternalForce(FVector Force);

@@ -82,7 +82,7 @@ void UFFMovementBehavior::MoveInDirection(const FVector2D Direction, const float
 	CurVelocity = FVector(NewVelo.X, NewVelo.Y, CurVelocity.Z);
 }
 
-void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFloat* Curve, const float Timer, const float MaxTime, FHitResult& GroundHit, float TraceSize, float TraceTolerance, EGroundStatusOutputPin& OutputPins)
+void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFloat* Curve, const float Timer, const float MaxTime, FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins)
 {
 	if (!IsMovementReady()) return;
 	if (!Curve) return;
@@ -90,16 +90,12 @@ void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFl
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(ObjectToMove->GetOwner());
 
-	FVector VectorDown = FVector(0, 0, -TraceSize);
+	FVector VectorDown = FVector(0, 0, -300);
 
 	bool bHit = GetWorld()->LineTraceSingleByChannel(GroundHit, ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + VectorDown, ECC_Visibility, QueryParams);
 
-	DrawDebugLine(GetWorld(), ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + VectorDown, FColor::Red, false, 1.0f, 0, 5.0f);
-	DrawDebugLine(GetWorld(), ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + (VectorDown - FVector(0, 0, TraceTolerance)), FColor::Green, false, 1.0f, 0, 6.0f);
-
-	if (bHit)
+	if (bHit && GroundHit.Distance <= TraceSize)
 	{
-		if (GroundHit.Distance > TraceSize - TraceTolerance) CurVelocity.Z = -Gravity;
 		CurVelocity.Z = 0;
 
 		OutputPins = EGroundStatusOutputPin::Grounded;
@@ -191,7 +187,7 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 	CurVelocity.Z = StoredZ;
 }
 
-void UFFMovementBehavior::GiveVelocity(const FVector GroundNormal, const FVector Offset, const float Dist)
+void UFFMovementBehavior::GiveVelocity(bool Grounded, const FVector GroundNormal, const FVector Offset, const float Dist)
 {
 	if (!IsMovementReady()) return;
 
@@ -206,14 +202,13 @@ void UFFMovementBehavior::GiveVelocity(const FVector GroundNormal, const FVector
 
 	FVector VeloToGive = CurVelocity;
 
-	if (!GroundNormal.IsNearlyZero() && CurVelocity.Z <= 0)
+	if (GroundNormal != FVector(0,0,0) && VeloToGive.Z < 0)
 	{
 		FVector Dir = FVector(VeloToGive.X, VeloToGive.Y, 0);
 		float Magnitude = Dir.Length();
 		Dir = FVector::VectorPlaneProject(Dir, GroundNormal);
-		Dir = VeloToGive.GetSafeNormal() * Magnitude;
-		if (VeloToGive.Z > 0) Dir.Z = VeloToGive.Z;
-		else Dir.Z += VeloToGive.Z;
+		Dir = Dir.GetSafeNormal() * Magnitude;
+		if (GroundNormal == FVector(0, 0, 1) || !Grounded) Dir.Z += VeloToGive.Z;
 
 		VeloToGive = Dir;
 	}
@@ -222,7 +217,7 @@ void UFFMovementBehavior::GiveVelocity(const FVector GroundNormal, const FVector
 	QueryParams.AddIgnoredActor(ObjectToMove->GetOwner());
 	FHitResult HitResultDir;
 	FVector Start = ObjectToMove->GetComponentLocation() + Offset;
-	FVector EndDir = Start + (VeloToGive.GetSafeNormal() * Dist);
+	FVector EndDir = Start + (CurVelocity.GetSafeNormal() * Dist);
 
 	bool bHitDir = GetWorld()->LineTraceSingleByChannel(HitResultDir, Start, EndDir, ECC_Visibility, QueryParams);
 
@@ -239,7 +234,6 @@ void UFFMovementBehavior::GiveVelocity(const FVector GroundNormal, const FVector
 			Dir = FVector::VectorPlaneProject(Dir, HitNormal);
 			Dir = VeloToGive.GetSafeNormal() * Magnitude;
 			if (VeloToGive.Z > 0) Dir.Z = VeloToGive.Z;
-			else Dir.Z += VeloToGive.Z;
 
 			VeloToGive = Dir;
 		}
