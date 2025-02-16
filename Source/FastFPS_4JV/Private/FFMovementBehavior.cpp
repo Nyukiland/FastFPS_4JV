@@ -94,9 +94,10 @@ void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFl
 
 	bool bHit = GetWorld()->LineTraceSingleByChannel(GroundHit, ObjectToMove->GetComponentLocation(), ObjectToMove->GetComponentLocation() + VectorDown, ECC_Visibility, QueryParams);
 
-	if (bHit && GroundHit.Distance <= TraceSize)
+	if (bHit && GroundHit.Distance <= TraceSize + 20)
 	{
-		CurVelocity.Z = 0;
+		if (GroundHit.Distance <= TraceSize) CurVelocity.Z = 0;
+		else CurVelocity.Z = -50;
 
 		OutputPins = EGroundStatusOutputPin::Grounded;
 	}
@@ -202,7 +203,7 @@ void UFFMovementBehavior::GiveVelocity(bool Grounded, const FVector GroundNormal
 
 	FVector VeloToGive = CurVelocity;
 
-	if (GroundNormal != FVector(0,0,0) && VeloToGive.Z < 0)
+	if (GroundNormal != FVector(0, 0, 0) && VeloToGive.Z < 0)
 	{
 		FVector Dir = FVector(VeloToGive.X, VeloToGive.Y, 0);
 		float Magnitude = Dir.Length();
@@ -225,22 +226,15 @@ void UFFMovementBehavior::GiveVelocity(bool Grounded, const FVector GroundNormal
 	if (bHitDir)
 	{
 		FVector HitNormal = HitResultDir.ImpactNormal;
-		float DotProduct = FVector::DotProduct(FVector(0, 0, 1), HitNormal);
 
-		if (VeloToGive.Z <= 0 && FMath::Abs(DotProduct) >= 0.1)
-		{
-			FVector Dir = FVector(VeloToGive.X, VeloToGive.Y, 0);
-			float Magnitude = Dir.Length();
-			Dir = FVector::VectorPlaneProject(Dir, HitNormal);
-			Dir = VeloToGive.GetSafeNormal() * Magnitude;
-			if (VeloToGive.Z > 0) Dir.Z = VeloToGive.Z;
+		FVector Dir = FVector(VeloToGive.X, VeloToGive.Y, 0);
+		float Magnitude = Dir.Length();
+		Dir = FVector::VectorPlaneProject(Dir, HitNormal);
+		Dir = Dir.GetSafeNormal() * Magnitude;
+		if (VeloToGive.Z > 0 && HitNormal.Z >= 0) Dir.Z = VeloToGive.Z;
+		else Dir.Z += VeloToGive.Z;
 
-			VeloToGive = Dir;
-		}
-		else
-		{
-			VeloToGive = FVector(0, 0, VeloToGive.Z);
-		}
+		VeloToGive = Dir;
 	}
 
 	ObjectToMove->SetPhysicsLinearVelocity(VeloToGive);
