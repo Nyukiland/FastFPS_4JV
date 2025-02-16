@@ -6,9 +6,6 @@
 #include "UObject/NoExportTypes.h"
 #include "FFEnemyManager.generated.h"
 
-/**
- * 
- */
 UCLASS()
 class FASTFPS_4JV_API UFFEnemyManager : public UObject
 {
@@ -20,10 +17,12 @@ private:
 	static UFFEnemyManager* Instance;
 
 public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "EnemyManager")
 	TArray<AActor*> EnemiesArray;
-
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "EnemyManager")
 	int EnemiesKilled;
+
+public:
 
 	UFUNCTION(BlueprintCallable, Category = "EnemyManager")
 	static UFFEnemyManager* GetEnemyManager(UObject* WorldContext);
