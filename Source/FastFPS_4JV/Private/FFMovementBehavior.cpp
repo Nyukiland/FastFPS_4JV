@@ -111,27 +111,19 @@ void UFFMovementBehavior::GroundCheckGravity(const float Gravity, const UCurveFl
 	}
 }
 
-void UFFMovementBehavior::JumpBehavior(const float InitialHeight, const float TargetHeight, const UCurveFloat* Curve, const float MaxTime, const float Timer)
+void UFFMovementBehavior::JumpBehavior(const float JumpVelo, const UCurveFloat* Curve, const float MaxTime, const float Timer)
 {
 	if (!IsMovementReady()) return;
 
-	if (!Curve || Timer <= 0.0f)
-	{
-		prevVeloJump = 0;
-		return;
-	}
+	if (!Curve || Timer <= 0.0f) return;
+
 
 	float Value0To1 = FMath::Clamp(Timer / MaxTime, 0.0f, 1.0f);
-	float CurveValue = Curve->GetFloatValue(Value0To1);
+	float CurveValue = FMath::Abs(Curve->GetFloatValue(Value0To1) - 1);
 
-	float CurrentHeight = ObjectToMove->GetComponentLocation().Z;
-	float DesiredHeight = FMath::Lerp(InitialHeight, InitialHeight + TargetHeight, CurveValue);
+	float VelocityZ = JumpVelo * CurveValue;
 
-	float VelocityZ = (DesiredHeight - CurrentHeight) / GetWorld()->DeltaTimeSeconds;
-
-	if (VelocityZ > 0) prevVeloJump = FMath::FInterpTo(prevVeloJump, VelocityZ, GetWorld()->DeltaTimeSeconds, 8.0f);
-
-	CurVelocity.Z = prevVeloJump;
+	CurVelocity.Z = VelocityZ;
 }
 
 void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, const float MaxSlideSpeed, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins)

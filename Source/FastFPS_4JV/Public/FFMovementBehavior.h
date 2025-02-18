@@ -32,7 +32,6 @@ private:
 	float SlideTimer;
 	bool JumpDoOnce;
 	FVector SlideDir;
-	float prevVeloJump;
 
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
@@ -58,7 +57,7 @@ public:
 	void GroundCheckGravity(const float Gravity, const UCurveFloat* Curve, const float Timer, const float MaxTime, FHitResult& GroundHit, float TraceSize, EGroundStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
-	void JumpBehavior(const float InitialHeight, const float TargetHeight, const UCurveFloat* Curve, const float MaxTime, const float Timer);
+	void JumpBehavior(const float JumpVelo, const UCurveFloat* Curve, const float MaxTime, const float Timer);
 
 	UFUNCTION(BlueprintCallable, Category = "Movement", meta = (ExpandEnumAsExecs = "OutputPins"))
 	void Slide(const bool IsSlide, const float SlideMultiply, const float MaxSlideSpeed, const UCurveFloat* Curve, float MaxTime, FVector SlopeNormal, EInUseStatusOutputPin& OutputPins);
