@@ -180,9 +180,9 @@ void UFFMovementBehavior::Slide(const bool IsSlide, const float SlideMultiply, c
 	CurVelocity.Z = StoredZ;
 }
 
-void UFFMovementBehavior::GiveVelocity(bool Grounded, const FVector GroundNormal, const FVector Offset, const float Dist)
+FVector UFFMovementBehavior::GiveVelocity(bool Grounded, const FVector GroundNormal, const FVector Offset, const float Dist, bool& hitRoof)
 {
-	if (!IsMovementReady()) return;
+	if (!IsMovementReady()) return FVector(0,0,0);
 
 	if (AwaitingForce.Num() > 0)
 	{
@@ -227,9 +227,16 @@ void UFFMovementBehavior::GiveVelocity(bool Grounded, const FVector GroundNormal
 		else Dir.Z += VeloToGive.Z;
 
 		VeloToGive = Dir;
+		
+		hitRoof = HitNormal.Z < 0;
+	}
+	else
+	{
+		hitRoof = false;
 	}
 
 	ObjectToMove->SetPhysicsLinearVelocity(VeloToGive);
+	return VeloToGive;
 }
 
 void UFFMovementBehavior::AddExternalForce(FVector Force)
