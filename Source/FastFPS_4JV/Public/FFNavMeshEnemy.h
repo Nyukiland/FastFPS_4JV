@@ -34,7 +34,7 @@ public:
 	TArray<FBoundingBox> BoundBoxes;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ANavMeshEnemy")
-	float BoxeSize = 50;
+	float BoxSize = 50;
 
 private:
 	void ConnectNeighbor();

@@ -58,38 +58,66 @@ void AFFNavMeshEnemy::GenerateGrid(TArray<FBox> Obstacles)
 {
 	BoundBoxes.Empty();
 
-	FVector BoxExtent = FVector(50, 50, 50); // Half-size of each grid cell
+	FVector GridSize = FVector(BoxSize, BoxSize, BoxSize);
+	FBox NavBounds = NavBox->Bounds.GetBox();
 
-	FVector NavBoxMin = NavBox->Bounds.GetBox().Min;
-	FVector NavBoxMax = NavBox->Bounds.GetBox().Max;
+	TSet<FIntVector> InvalidCells;
 
-	int NumX = FMath::FloorToInt((NavBoxMax.X - NavBoxMin.X) / BoxeSize);
-	int NumY = FMath::FloorToInt((NavBoxMax.Y - NavBoxMin.Y) / BoxeSize);
-	int NumZ = FMath::FloorToInt((NavBoxMax.Z - NavBoxMin.Z) / BoxeSize);
+	// Convert navigation bounds to grid indices
+	FIntVector GridMin = FIntVector(
+		FMath::FloorToInt(NavBounds.Min.X / GridSize.X),
+		FMath::FloorToInt(NavBounds.Min.Y / GridSize.Y),
+		FMath::FloorToInt(NavBounds.Min.Z / GridSize.Z)
+	);
 
-	for (int x = 0; x < NumX; x++)
+	FIntVector GridMax = FIntVector(
+		FMath::CeilToInt(NavBounds.Max.X / GridSize.X),
+		FMath::CeilToInt(NavBounds.Max.Y / GridSize.Y),
+		FMath::CeilToInt(NavBounds.Max.Z / GridSize.Z)
+	);
+
+	//Directly Compute Invalid Cells
+	for (const FBox& Obstacle : Obstacles)
 	{
-		for (int y = 0; y < NumY; y++)
+		FIntVector ObstacleMinIndex = FIntVector(
+			FMath::FloorToInt(Obstacle.Min.X / GridSize.X),
+			FMath::FloorToInt(Obstacle.Min.Y / GridSize.Y),
+			FMath::FloorToInt(Obstacle.Min.Z / GridSize.Z)
+		);
+
+		FIntVector ObstacleMaxIndex = FIntVector(
+			FMath::CeilToInt(Obstacle.Max.X / GridSize.X),
+			FMath::CeilToInt(Obstacle.Max.Y / GridSize.Y),
+			FMath::CeilToInt(Obstacle.Max.Z / GridSize.Z)
+		);
+
+		// Mark all grid cells occupied by the obstacle as invalid
+		for (int x = ObstacleMinIndex.X; x <= ObstacleMaxIndex.X; x++)
 		{
-			for (int z = 0; z < NumZ; z++)
+			for (int y = ObstacleMinIndex.Y; y <= ObstacleMaxIndex.Y; y++)
 			{
-				FVector CellMin = NavBoxMin + FVector(x * BoxeSize, y * BoxeSize, z * BoxeSize);
-				FVector CellMax = CellMin + FVector(BoxeSize, BoxeSize, BoxeSize);
-				FBox CellBox(CellMin, CellMax);
-
-				bool bBlocked = false;
-				for (const FBox& ObstacleBox : Obstacles)
+				for (int z = ObstacleMinIndex.Z; z <= ObstacleMaxIndex.Z; z++)
 				{
-					if (CellBox.Intersect(ObstacleBox))
-					{
-						bBlocked = true;
-						break;
-					}
+					InvalidCells.Add(FIntVector(x, y, z));
 				}
+			}
+		}
+	}
 
-				if (!bBlocked)
+	//Directly Generate Valid Bounding Boxes
+	for (int x = GridMin.X; x < GridMax.X; x++)
+	{
+		for (int y = GridMin.Y; y < GridMax.Y; y++)
+		{
+			for (int z = GridMin.Z; z < GridMax.Z; z++)
+			{
+				FIntVector GridPos(x, y, z);
+
+				if (!InvalidCells.Contains(GridPos)) // Add only valid boxes
 				{
-					BoundBoxes.Add(FBoundingBox(CellMin, CellMax));
+					FVector Min = FVector(x * GridSize.X, y * GridSize.Y, z * GridSize.Z);
+					FVector Max = Min + GridSize;
+					BoundBoxes.Add(FBoundingBox(Min, Max));
 				}
 			}
 		}
