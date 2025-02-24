@@ -10,8 +10,8 @@
 UENUM()
 enum class EShootStatusOutputPin : uint8
 {
-	Hit,
-	NoHit
+	NoHit,
+	Hit
 };
 
 UCLASS(ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
@@ -35,8 +35,8 @@ public:
 	void LookAround(USceneComponent* Pivot, USceneComponent* PivotY, const float Speed, const FVector Direction, const float MinClamp, const float MaxClamp);
 
 	UFUNCTION(BlueprintCallable, Category = "Shoot", meta = (ExpandEnumAsExecs = "OutputPins"))
-	void ShootLineTrace(USceneComponent* ShootPoint, float DistMax, FHitResult& HitResult, EShootStatusOutputPin& OutputPins);
+	void ShootTrace(USceneComponent* ShootPoint, float Radius, float DistMax, ECollisionChannel TraceChannel, FHitResult& HitResult, EShootStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Shoot", meta = (ExpandEnumAsExecs = "OutputPins"))
-	void ShootSphereTrace(USceneComponent* ShootPoint, float Radius, float DistMax, ECollisionChannel EnemyTrace, TArray<FHitResult>& HitResults, EShootStatusOutputPin& OutputPins);
+	void ShootLaserTrace(USceneComponent* ShootPoint, float Radius, float DistMax, ECollisionChannel TraceChannel, TArray<FHitResult>& HitResults, float& ImpactDist, EShootStatusOutputPin& OutputPins);
 };
