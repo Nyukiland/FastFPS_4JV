@@ -21,6 +21,23 @@ public:
 	FBoundingBox(const FVector Min, const FVector Max) : BoundBox(Min, Max) {}
 };
 
+USTRUCT()
+struct FPathNode
+{
+	GENERATED_BODY()
+
+	FBoundingBox* Box;
+	float GCost; 
+	float HCost; 
+	float FCost() const { return GCost + HCost; }
+	FPathNode* Parent;
+
+	FPathNode() {}
+	FPathNode(FBoundingBox* InBox, float InGCost, float InHCost, FPathNode* InParent)
+		: Box(InBox), GCost(InGCost), HCost(InHCost), Parent(InParent) {
+	}
+};
+
 UCLASS()
 class FASTFPS_4JV_API AFFNavMeshEnemy : public AActor
 {
@@ -30,7 +47,7 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "ANavMeshEnemy")
 	UBoxComponent* NavBox;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "ANavMeshEnemy")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ANavMeshEnemy")
 	TArray<FBoundingBox> BoundBoxes;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ANavMeshEnemy")
@@ -38,26 +55,30 @@ public:
 
 private:
 	void ConnectNeighbor();
-	void DrawDebug();
 
-	// Function to collect obstacles within NavBox
 	TArray<FBox> CollectObstacles();
 
-	// Function to generate the grid
 	void GenerateGrid(TArray<FBox> Obstacles);
-
-	virtual bool ShouldTickIfViewportsOnly() const override { return true; }
 
 protected:
 	virtual void BeginPlay() override;
 
-	UFUNCTION(BlueprintCallable, Category = "ANavMeshEnemy")
+	UFUNCTION(BlueprintCallable, Category = "NavMeshEnemy")
 	bool CheckValidity();
 
-	UFUNCTION(CallInEditor, BlueprintCallable, Category = "ANavMeshEnemy")
+	UFUNCTION(CallInEditor, BlueprintCallable, Category = "NavMeshEnemy")
 	void GenerateNavMesh();
+
+	UFUNCTION(CallInEditor, BlueprintCallable, Category = "NavMeshEnemy")
+	void DrawDebug();
+
+	UFUNCTION(CallInEditor, BlueprintCallable, Category = "NavMeshEnemy")
+	void TestPathfinding();
 
 public:
 	AFFNavMeshEnemy();
-	virtual void Tick(float DeltaTime) override;
+
+	UFUNCTION(BlueprintCallable, Category = "NavMeshEnemy")
+	TArray<FVector> FindPath(FVector StartPos, FVector EndPos);
+
 };

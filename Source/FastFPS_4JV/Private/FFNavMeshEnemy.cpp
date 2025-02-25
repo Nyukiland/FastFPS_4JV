@@ -15,6 +15,26 @@ AFFNavMeshEnemy::AFFNavMeshEnemy()
 	RootComponent = NavBox;
 }
 
+void AFFNavMeshEnemy::BeginPlay()
+{
+	Super::BeginPlay();
+
+	if (BoundBoxes.Num() == 0) GenerateNavMesh();
+}
+
+bool AFFNavMeshEnemy::CheckValidity()
+{
+	if (IsValid(NavBox))
+	{
+		return true;
+	}
+
+	UE_LOG(LogTemp, Error, TEXT("[FFNavMeshEnemy] bounding box is not valid"));
+	return false;
+}
+
+#pragma region NavMeshCreation
+
 TArray<FBox> AFFNavMeshEnemy::CollectObstacles()
 {
 	TArray<FBox> Obstacles;
@@ -61,61 +81,47 @@ void AFFNavMeshEnemy::GenerateGrid(TArray<FBox> Obstacles)
 	FVector GridSize = FVector(BoxSize, BoxSize, BoxSize);
 	FBox NavBounds = NavBox->Bounds.GetBox();
 
-	TSet<FIntVector> InvalidCells;
+	TSet<FVector> InvalidCells;
 
-	// Convert navigation bounds to grid indices
-	FIntVector GridMin = FIntVector(
-		FMath::FloorToInt(NavBounds.Min.X / GridSize.X),
-		FMath::FloorToInt(NavBounds.Min.Y / GridSize.Y),
-		FMath::FloorToInt(NavBounds.Min.Z / GridSize.Z)
-	);
-
-	FIntVector GridMax = FIntVector(
-		FMath::CeilToInt(NavBounds.Max.X / GridSize.X),
-		FMath::CeilToInt(NavBounds.Max.Y / GridSize.Y),
-		FMath::CeilToInt(NavBounds.Max.Z / GridSize.Z)
-	);
-
-	//Directly Compute Invalid Cells
+	// Compute invalid cells based on obstacle positions
 	for (const FBox& Obstacle : Obstacles)
 	{
-		FIntVector ObstacleMinIndex = FIntVector(
-			FMath::FloorToInt(Obstacle.Min.X / GridSize.X),
-			FMath::FloorToInt(Obstacle.Min.Y / GridSize.Y),
-			FMath::FloorToInt(Obstacle.Min.Z / GridSize.Z)
-		);
+		FVector ObstacleMin = Obstacle.Min;
+		FVector ObstacleMax = Obstacle.Max;
 
-		FIntVector ObstacleMaxIndex = FIntVector(
-			FMath::CeilToInt(Obstacle.Max.X / GridSize.X),
-			FMath::CeilToInt(Obstacle.Max.Y / GridSize.Y),
-			FMath::CeilToInt(Obstacle.Max.Z / GridSize.Z)
-		);
-
-		// Mark all grid cells occupied by the obstacle as invalid
-		for (int x = ObstacleMinIndex.X; x <= ObstacleMaxIndex.X; x++)
+		for (float x = ObstacleMin.X; x <= ObstacleMax.X; x += GridSize.X * 0.5f)
 		{
-			for (int y = ObstacleMinIndex.Y; y <= ObstacleMaxIndex.Y; y++)
+			for (float y = ObstacleMin.Y; y <= ObstacleMax.Y; y += GridSize.Y * 0.5f)
 			{
-				for (int z = ObstacleMinIndex.Z; z <= ObstacleMaxIndex.Z; z++)
+				for (float z = ObstacleMin.Z; z <= ObstacleMax.Z; z += GridSize.Z * 0.5f)
 				{
-					InvalidCells.Add(FIntVector(x, y, z));
+					FVector CellPos = FVector(
+						FMath::GridSnap(x, GridSize.X),
+						FMath::GridSnap(y, GridSize.Y),
+						FMath::GridSnap(z, GridSize.Z)
+					);
+					InvalidCells.Add(CellPos);
 				}
 			}
 		}
 	}
 
-	//Directly Generate Valid Bounding Boxes
-	for (int x = GridMin.X; x < GridMax.X; x++)
+	// Generate valid navigation boxes
+	for (float x = NavBounds.Min.X; x < NavBounds.Max.X; x += GridSize.X)
 	{
-		for (int y = GridMin.Y; y < GridMax.Y; y++)
+		for (float y = NavBounds.Min.Y; y < NavBounds.Max.Y; y += GridSize.Y)
 		{
-			for (int z = GridMin.Z; z < GridMax.Z; z++)
+			for (float z = NavBounds.Min.Z; z < NavBounds.Max.Z; z += GridSize.Z)
 			{
-				FIntVector GridPos(x, y, z);
+				FVector GridPos = FVector(
+					FMath::GridSnap(x, GridSize.X),
+					FMath::GridSnap(y, GridSize.Y),
+					FMath::GridSnap(z, GridSize.Z)
+				);
 
-				if (!InvalidCells.Contains(GridPos)) // Add only valid boxes
+				if (!InvalidCells.Contains(GridPos))
 				{
-					FVector Min = FVector(x * GridSize.X, y * GridSize.Y, z * GridSize.Z);
+					FVector Min = GridPos;
 					FVector Max = Min + GridSize;
 					BoundBoxes.Add(FBoundingBox(Min, Max));
 				}
@@ -125,6 +131,7 @@ void AFFNavMeshEnemy::GenerateGrid(TArray<FBox> Obstacles)
 
 	ConnectNeighbor();
 }
+
 
 void AFFNavMeshEnemy::ConnectNeighbor()
 {
@@ -145,33 +152,16 @@ void AFFNavMeshEnemy::ConnectNeighbor()
 	}
 }
 
+#pragma endregion
+
 void AFFNavMeshEnemy::DrawDebug()
 {
-	if (!IsSelectedInEditor() || !CheckValidity()) return;
+	if (!CheckValidity()) return;
 
 	for (const FBoundingBox Box : BoundBoxes)
 	{
-		DrawDebugBox(GetWorld(), Box.BoundBox.GetCenter(), Box.BoundBox.GetExtent(), FColor::Green, false, -1, 0, 2);
+		DrawDebugBox(GetWorld(), Box.BoundBox.GetCenter(), Box.BoundBox.GetExtent(), FColor::Green, false, 10, 0, 2);
 	}
-}
-
-// Called when the game starts or when spawned
-void AFFNavMeshEnemy::BeginPlay()
-{
-	Super::BeginPlay();
-
-	if (BoundBoxes.Num() == 0) GenerateNavMesh();
-}
-
-bool AFFNavMeshEnemy::CheckValidity()
-{
-	if (IsValid(NavBox))
-	{
-		return true;
-	}
-
-	UE_LOG(LogTemp, Error, TEXT("[FFNavMeshEnemy] bounding box is not valid"));
-	return false;
 }
 
 void AFFNavMeshEnemy::GenerateNavMesh()
@@ -182,11 +172,110 @@ void AFFNavMeshEnemy::GenerateNavMesh()
 	GenerateGrid(Obstacles);
 }
 
-// Called every frame
-void AFFNavMeshEnemy::Tick(float DeltaTime)
+void AFFNavMeshEnemy::TestPathfinding()
 {
-	Super::Tick(DeltaTime);
+	if (BoundBoxes.Num() < 2) return;
 
-	if (GIsEditor && GetWorld()->WorldType == EWorldType::Editor) DrawDebug();
+	FBoundingBox* StartBox = &BoundBoxes[0];
+	FBoundingBox* EndBox = &BoundBoxes.Last();
+
+	TArray<FVector> Path = FindPath(StartBox->BoundBox.GetCenter(), EndBox->BoundBox.GetCenter());
+
+	UE_LOG(LogTemp, Warning, TEXT("Path found with %d steps"), Path.Num());
+
+	for (int i = 0; i < Path.Num(); i++)
+	{
+		DrawDebugSphere(GetWorld(), Path[i], 20.0f, 12, FColor::Blue, false, 5.0f, 0, 3);
+
+		if (i > 0)
+		{
+			DrawDebugLine(GetWorld(), Path[i - 1], Path[i], FColor::Red, false, 5.0f, 0, 2);
+		}
+	}
 }
 
+TArray<FVector> AFFNavMeshEnemy::FindPath(FVector StartPos, FVector EndPos)
+{
+	TArray<FVector> Path;
+	if (BoundBoxes.Num() == 0) return Path;
+
+	// Find the closest bounding boxes to Start and End positions
+	FBoundingBox* StartBox = nullptr;
+	FBoundingBox* EndBox = nullptr;
+	float MinStartDist = FLT_MAX;
+	float MinEndDist = FLT_MAX;
+
+	for (FBoundingBox& Box : BoundBoxes)
+	{
+		float StartDist = FVector::Dist(StartPos, Box.BoundBox.GetCenter());
+		float EndDist = FVector::Dist(EndPos, Box.BoundBox.GetCenter());
+
+		if (StartDist < MinStartDist)
+		{
+			MinStartDist = StartDist;
+			StartBox = &Box;
+		}
+
+		if (EndDist < MinEndDist)
+		{
+			MinEndDist = EndDist;
+			EndBox = &Box;
+		}
+	}
+
+	if (!StartBox || !EndBox) return Path; // Return empty if we can't find valid boxes
+
+	// A* Pathfinding Setup
+	TSet<FBoundingBox*> ClosedSet;
+	TArray<FPathNode*> OpenSet;
+	OpenSet.Add(new FPathNode(StartBox, 0, FVector::Dist(StartBox->BoundBox.GetCenter(), EndBox->BoundBox.GetCenter()), nullptr));
+
+	while (OpenSet.Num() > 0)
+	{
+		OpenSet.Sort([](const FPathNode& A, const FPathNode& B) { return A.FCost() < B.FCost(); });
+		FPathNode* CurrentNode = OpenSet[0];
+		OpenSet.RemoveAt(0);
+
+		if (CurrentNode->Box == EndBox)
+		{
+			while (CurrentNode)
+			{
+				Path.Insert(CurrentNode->Box->BoundBox.GetCenter(), 0);
+				CurrentNode = CurrentNode->Parent;
+			}
+			break;
+		}
+
+		ClosedSet.Add(CurrentNode->Box);
+
+		for (FBoundingBox* Neighbor : CurrentNode->Box->Neighbors)
+		{
+			if (ClosedSet.Contains(Neighbor)) continue;
+
+			float NewGCost = CurrentNode->GCost + FVector::Dist(CurrentNode->Box->BoundBox.GetCenter(), Neighbor->BoundBox.GetCenter());
+
+			FPathNode* ExistingNode = nullptr;
+			for (FPathNode* Node : OpenSet)
+			{
+				if (Node->Box == Neighbor)
+				{
+					ExistingNode = Node;
+					break;
+				}
+			}
+
+			if (!ExistingNode || NewGCost < ExistingNode->GCost)
+			{
+				float HCost = FVector::Dist(Neighbor->BoundBox.GetCenter(), EndBox->BoundBox.GetCenter());
+				FPathNode* NewNode = new FPathNode(Neighbor, NewGCost, HCost, CurrentNode);
+
+				if (!ExistingNode) OpenSet.Add(NewNode);
+			}
+		}
+	}
+
+	// Clean up memory
+	for (FPathNode* Node : OpenSet) delete Node;
+
+	return Path;
+}
