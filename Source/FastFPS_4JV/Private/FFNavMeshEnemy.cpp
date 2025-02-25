@@ -142,9 +142,9 @@ void AFFNavMeshEnemy::ConnectNeighbor()
 			if (&Box == &OtherBox) continue;
 
 			FVector Diff = OtherBox.BoundBox.GetCenter() - Box.BoundBox.GetCenter();
-			if (FMath::Abs(Diff.X) <= 100.0f && Diff.Y == 0 && Diff.Z == 0 ||
-				FMath::Abs(Diff.Y) <= 100.0f && Diff.X == 0 && Diff.Z == 0 ||
-				FMath::Abs(Diff.Z) <= 100.0f && Diff.X == 0 && Diff.Y == 0)
+			if (FMath::Abs(Diff.X) <= BoxSize && Diff.Y == 0 && Diff.Z == 0 ||
+				FMath::Abs(Diff.Y) <= BoxSize && Diff.X == 0 && Diff.Z == 0 ||
+				FMath::Abs(Diff.Z) <= BoxSize && Diff.X == 0 && Diff.Y == 0)
 			{
 				Box.Neighbors.Add(&OtherBox);
 			}
