@@ -20,23 +20,15 @@ class FASTFPS_4JV_API UFFShootRelatedBehavior : public UActorComponent
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this component's properties
 	UFFShootRelatedBehavior();
 
-protected:
-	// Called when the game starts
-	virtual void BeginPlay() override;
-
 public:
-	// Called every frame
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
-
 	UFUNCTION(BlueprintCallable, Category = "Aim")
 	void LookAround(USceneComponent* Pivot, USceneComponent* PivotY, const float Speed, const FVector Direction, const float MinClamp, const float MaxClamp);
 
 	UFUNCTION(BlueprintCallable, Category = "Shoot", meta = (ExpandEnumAsExecs = "OutputPins"))
-	void ShootTrace(USceneComponent* ShootPoint, float Radius, float DistMax, ECollisionChannel TraceChannel, FHitResult& HitResult, EShootStatusOutputPin& OutputPins);
+	void ShootTrace(USceneComponent* ShootPoint, AActor* ToIgnore, float Radius, float DistMax, ECollisionChannel TraceChannel, FHitResult& HitResult, EShootStatusOutputPin& OutputPins);
 
 	UFUNCTION(BlueprintCallable, Category = "Shoot", meta = (ExpandEnumAsExecs = "OutputPins"))
-	void ShootLaserTrace(USceneComponent* ShootPoint, float Radius, float DistMax, ECollisionChannel TraceChannel, TArray<FHitResult>& HitResults, float& ImpactDist, EShootStatusOutputPin& OutputPins);
+	void ShootLaserTrace(USceneComponent* ShootPoint, AActor* ToIgnore, float Radius, float DistMax, ECollisionChannel TraceChannel, TArray<FHitResult>& HitResults, float& ImpactDist, EShootStatusOutputPin& OutputPins);
 };
