@@ -31,11 +31,12 @@ private:
 	TArray<FVector> AwaitingForce;
 	float SlideTimer;
 	bool JumpDoOnce;
-	FVector SlideDir;
 
 public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
 	FVector CurVelocity;
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	FVector SlideDir;
 
 protected:
 	virtual void BeginPlay() override;
