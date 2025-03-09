@@ -10,6 +10,8 @@
 					</PropertyList>
 					<ChildrenList>
 						<RandomSequenceContainer Name="RUN" ID="{BD9921A9-AB18-443E-BF73-9FE8D7F14829}" ShortID="370393935">
+							<Comment>footstep on flood and not on grass
+</Comment>
 							<PropertyList>
 								<Property Name="MakeUpGain" Type="Real64">
 									<ValueList>
@@ -376,6 +378,10 @@
 									</MediaIDList>
 								</AudioFileSource>
 								<AudioFileSource Name="jump_v2" ID="{E43FDE5C-6E0F-4611-8ED8-7AD63707BED8}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>jump.v2.wav</AudioFile>
 									<MediaIDList>
@@ -796,6 +802,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Laser_End" ID="{DBFB1117-B72D-4AD2-B658-0CF96557C3FF}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.259256882943969"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0390661056490912"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.330286165942317"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.923380655233975"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Laser_End.wav</AudioFile>
 									<MediaIDList>
