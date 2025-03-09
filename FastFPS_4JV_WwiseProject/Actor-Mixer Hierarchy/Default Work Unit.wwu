@@ -74,10 +74,10 @@
 										<AudioFileSource Name="Footsteps, Human, Gravel, Run SND62072" ID="{8E0F2550-5F0F-43FA-8149-2F029E37C2AD}">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.022245852462141"/>
-												<Property Name="FadeOutDuration" Type="Real64" Value="0.126059811227421"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0580295391703299"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="0.00285203236694115"/>
-												<Property Name="TrimEnd" Type="Real64" Value="0.222458505230033"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.134377205619273"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Footsteps, Human, Gravel, Run SND62072.wav</AudioFile>
@@ -148,11 +148,11 @@
 										<AudioFileSource Name="Footsteps, Human, Gravel, Run SND62072 1" ID="{5255C07D-38CD-4022-94D1-4C293B9E258F}">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.0237987000188786"/>
-												<Property Name="FadeOutDuration" Type="Real64" Value="0.0844853850670191"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.026970782181721"/>
 												<Property Name="LoopBegin" Type="Real64" Value="0.0202288950160468"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="0.017254057513687"/>
-												<Property Name="TrimEnd" Type="Real64" Value="0.239176957362658"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.137592723695118"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Footsteps, Human, Gravel, Run SND62072 1.wav</AudioFile>
@@ -200,10 +200,10 @@
 										<AudioFileSource Name="Footsteps, Human, Gravel, Run SND62072 2" ID="{18E8ABCD-CBE7-4D1D-8734-0F3B7A458A53}">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.0160641225127431"/>
-												<Property Name="FadeOutDuration" Type="Real64" Value="0.0499772700396451"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0634222421427018"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="0.0202288950160468"/>
-												<Property Name="TrimEnd" Type="Real64" Value="0.290939129903719"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.126611693088581"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Footsteps, Human, Gravel, Run SND62072 2.wav</AudioFile>
@@ -251,10 +251,10 @@
 										<AudioFileSource Name="Footsteps, Human, Gravel, Run SND62072 3" ID="{A7B95F44-2941-4675-9029-9EC704A37CEB}">
 											<PropertyList>
 												<Property Name="FadeInDuration" Type="Real64" Value="0.0273489042966053"/>
-												<Property Name="FadeOutDuration" Type="Real64" Value="0.10437234905031"/>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.046914169681821"/>
 												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 												<Property Name="TrimBegin" Type="Real64" Value="0.00781397265617294"/>
-												<Property Name="TrimEnd" Type="Real64" Value="0.261209963263887"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.138585799977478"/>
 											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Footsteps, Human, Gravel, Run SND62072 3.wav</AudioFile>
@@ -270,15 +270,12 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<Sound Name="slide" ID="{29C0B41E-CA71-41E2-B4A3-6E789DBA6ACA}" ShortID="349033510">
+							<Comment>debut/fin like laser
+</Comment>
 							<PropertyList>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>11</Value>
-									</ValueList>
-								</Property>
 								<Property Name="MakeUpGain" Type="Real64">
 									<ValueList>
-										<Value>9</Value>
+										<Value>2</Value>
 									</ValueList>
 								</Property>
 								<Property Name="Pitch" Type="int32">
@@ -304,10 +301,10 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="slide_v2" ID="{60B131CE-1707-4F8D-BB6D-15B42E61F1A9}">
+								<AudioFileSource Name="slide_v2" ID="{3F440BC4-3A14-4827-9536-3EE08738A7D6}">
 									<PropertyList>
-										<Property Name="FadeInDuration" Type="Real64" Value="0.0292474138202952"/>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.223115985429109"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0316084981288599"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0914083594537299"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 									</PropertyList>
 									<Language>SFX</Language>
@@ -343,7 +340,7 @@
 								</ObjectList>
 							</ObjectLists>
 							<ActiveSourceList>
-								<ActiveSource Name="slide_v2" ID="{60B131CE-1707-4F8D-BB6D-15B42E61F1A9}" Platform="Linked"/>
+								<ActiveSource Name="slide_v2" ID="{3F440BC4-3A14-4827-9536-3EE08738A7D6}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="jump" ID="{4D54F675-4F8F-4DFB-833F-95A1E79E9FB2}" ShortID="279783379">
@@ -392,6 +389,11 @@
 						</Sound>
 						<Sound Name="double_jump" ID="{34130186-DDF5-4547-B37E-457D871C98EC}" ShortID="944783239">
 							<PropertyList>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
 								<Property Name="MakeUpGain" Type="Real64">
 									<ValueList>
 										<Value>3</Value>
@@ -471,6 +473,11 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="collide wall" ID="{80855F8F-573E-4D6F-9AB1-BEE95B2EAEDB}">
+									<PropertyList>
+										<Property Name="LoopBegin" Type="Real64" Value="0.0418191103507643"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0418191103507643"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>collide wall.wav</AudioFile>
 									<MediaIDList>
@@ -485,12 +492,15 @@
 						<Sound Name="death" ID="{2A27B893-664E-40F6-8F5B-D03A087A8F24}" ShortID="102482351">
 							<PropertyList>
 								<Property Name="Pitch" Type="int32">
-									<ValueList>
-										<Value>-300</Value>
-									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
-											<Modifier Name="" ID="{903E3EC2-222E-491E-98A2-1B53EC1A755E}"/>
+											<Modifier Name="" ID="{903E3EC2-222E-491E-98A2-1B53EC1A755E}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="250"/>
+													<Property Name="Min" Type="Real64" Value="-225"/>
+												</PropertyList>
+											</Modifier>
 										</ModifierInfo>
 									</ModifierList>
 								</Property>
@@ -504,22 +514,21 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="death" ID="{30977560-A834-425D-B580-3EC3D2851367}">
+								<AudioFileSource Name="death_v2" ID="{7D33BB90-92B9-4D6F-8C5C-9905263A86F9}">
 									<PropertyList>
-										<Property Name="FadeInDuration" Type="Real64" Value="0.113150680458153"/>
-										<Property Name="LoopBegin" Type="Real64" Value="0.301735147888407"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.058271097748176"/>
+										<Property Name="LoopBegin" Type="Real64" Value="0"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-										<Property Name="TrimBegin" Type="Real64" Value="0.143324195246993"/>
 									</PropertyList>
 									<Language>SFX</Language>
-									<AudioFile>death.wav</AudioFile>
+									<AudioFile>death.v2.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="461745261"/>
+										<MediaID ID="174085137"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="death" ID="{30977560-A834-425D-B580-3EC3D2851367}" Platform="Linked"/>
+								<ActiveSource Name="death_v2" ID="{7D33BB90-92B9-4D6F-8C5C-9905263A86F9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
