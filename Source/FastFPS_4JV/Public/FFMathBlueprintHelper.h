@@ -58,4 +58,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
 	static FVector GetOffsetBasedOnTransform(const FVector Offset, const USceneComponent* ToUseTransform);
+
+	UFUNCTION(BlueprintCallable, Category = "Math Helper")
+	static FVector RandomVector(const float Intensity);
 };

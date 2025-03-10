@@ -133,3 +133,11 @@ FVector UFFMathBlueprintHelper::GetOffsetBasedOnTransform(const FVector Offset, 
 
 	return Temp;
 }
+
+FVector UFFMathBlueprintHelper::RandomVector(const float Intensity)
+{
+	float T = FMath::RandRange(0.0f, Intensity);
+	FVector Random = FVector(T, T, T);
+
+    return Random.GetClampedToMaxSize(Intensity);
+}
