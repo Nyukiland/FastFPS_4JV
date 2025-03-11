@@ -28,4 +28,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Helper")
 	static float& SmoothValueByRef(UPARAM(ref) float& CurValue, const float ValueToReach, const float SmoothSpeed, const float DeltaTime);
+
+	UFUNCTION(BlueprintCallable, Category = "Helper")
+	static bool IsInSight(const AActor* Owner, const FVector StartPoint, const FVector EndPoint, const AActor* EndActor);
 };

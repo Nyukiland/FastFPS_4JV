@@ -61,4 +61,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Math Helper")
 	static FVector RandomVector(const float Intensity);
+
+	UFUNCTION(BlueprintCallable, Category = "Math Helper")
+	static float Get2dDistance(FVector A, FVector B);
 };

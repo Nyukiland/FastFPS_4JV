@@ -141,3 +141,11 @@ FVector UFFMathBlueprintHelper::RandomVector(const float Intensity)
 
     return Random.GetClampedToMaxSize(Intensity);
 }
+
+float UFFMathBlueprintHelper::Get2dDistance(FVector A, FVector B)
+{
+	A.Z = 0;
+	B.Z = 0;
+
+	return FVector::Dist(A, B);
+}

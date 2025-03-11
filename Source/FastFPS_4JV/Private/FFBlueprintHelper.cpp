@@ -48,3 +48,23 @@ float& UFFBlueprintHelper::SmoothValueByRef(UPARAM(ref) float& CurValue, const f
 	CurValue = FMath::Lerp(CurValue, ValueToReach, T);
 	return CurValue;
 }
+
+bool UFFBlueprintHelper::IsInSight(const AActor* Owner, const FVector StartPoint, const FVector EndPoint, const AActor* EndActor)
+{
+	if (!Owner || !Owner->GetWorld())
+	{
+		return false;
+	}
+
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(Owner);
+
+	FHitResult Hit;
+
+	bool bHit = Owner->GetWorld()->LineTraceSingleByChannel(Hit, StartPoint, EndPoint, ECC_Visibility, QueryParams);
+
+	if (!EndActor || !bHit) return !bHit;
+	else return EndActor == Hit.GetActor();
+
+	return false; 
+}
