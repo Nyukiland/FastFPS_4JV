@@ -223,12 +223,25 @@ FVector UFFMovementBehavior::GiveVelocity(bool Grounded, const FVector GroundNor
 		float Magnitude = Dir.Length();
 		Dir = FVector::VectorPlaneProject(Dir, HitNormal);
 		Dir = Dir.GetSafeNormal() * Magnitude;
-		if (VeloToGive.Z > 0 && HitNormal.Z >= 0) Dir.Z = VeloToGive.Z;
-		else Dir.Z += VeloToGive.Z;
 
-		VeloToGive = Dir;
-		
-		hitRoof = HitNormal.Z < 0;
+		Start = HitResultDir.ImpactPoint + HitNormal;
+		EndDir = Start + Dir.GetSafeNormal() * Dist;
+
+		bool bHit2 = GetWorld()->LineTraceSingleByChannel(HitResultDir, Start, EndDir, ECC_Visibility, QueryParams);
+
+		if (bHit2)
+		{
+			CurVelocity = FVector::Zero();
+		}
+		else
+		{
+			if (VeloToGive.Z > 0 && HitNormal.Z >= 0) Dir.Z = VeloToGive.Z;
+			else Dir.Z += VeloToGive.Z;
+
+			VeloToGive = Dir;
+
+			hitRoof = HitNormal.Z < 0;
+		}
 	}
 	else
 	{
