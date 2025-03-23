@@ -7,7 +7,7 @@
 					<ObjectInclusionList>
 						<ObjectRef Name="Shoot_empty" ID="{AE597D71-37F5-407E-9EF3-B32098F0E2AB}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Shoot" ID="{AA384353-F1D6-4245-91D5-CAC2CE4DA020}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
-						<ObjectRef Name="SLIDE" ID="{9D1441E3-E506-4330-A1CC-0BE99609852D}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
+						<ObjectRef Name="Slide_start" ID="{9D1441E3-E506-4330-A1CC-0BE99609852D}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="DOUBLE_JUMP" ID="{F24C0B36-AD14-464E-9622-F38E49724B8C}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="collide_wall" ID="{6B7CD9DE-99AD-470A-B650-56CD6E758099}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Reload" ID="{2AB8D60D-C15F-484A-89FB-CEA5BFB4125A}" WorkUnitID="{4E72EA34-7C55-4F00-8E6F-28E90B5056F8}" Origin="Manual" Filter="7"/>

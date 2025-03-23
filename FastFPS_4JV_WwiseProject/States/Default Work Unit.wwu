@@ -24,6 +24,13 @@
 						<State Name="dead" ID="{8C6D1EF9-44E1-4D70-8423-DF37B871DBBD}"/>
 					</ChildrenList>
 				</StateGroup>
+				<StateGroup Name="Slide_state" ID="{44C94B2C-D320-48A0-AB77-6C9DA81FC5E5}">
+					<ChildrenList>
+						<State Name="None" ID="{A3E85658-F0EE-44F0-9057-96C5B3F31490}"/>
+						<State Name="end" ID="{938F18A2-A803-4F78-B7CD-D4CC77A2C3F8}"/>
+						<State Name="loop" ID="{EAAEEBCA-8B09-40B8-B002-4F201A3B13F5}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

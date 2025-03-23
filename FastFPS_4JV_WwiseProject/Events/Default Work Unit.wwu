@@ -53,12 +53,12 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="SLIDE" ID="{9D1441E3-E506-4330-A1CC-0BE99609852D}">
+						<Event Name="Slide_start" ID="{9D1441E3-E506-4330-A1CC-0BE99609852D}">
 							<ChildrenList>
-								<Action Name="" ID="{684FE2A1-C976-4EF6-A16D-C22CDA281689}" ShortID="30890490">
+								<Action Name="" ID="{024EB9AE-824B-463F-9AE0-C85294F4EBD9}" ShortID="444345901">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="slide" ID="{29C0B41E-CA71-41E2-B4A3-6E789DBA6ACA}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+											<ObjectRef Name="Slide_start" ID="{2F39217C-2749-43ED-BCD0-7DC253CF9039}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -70,6 +70,50 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="collide_wall" ID="{08F45704-E2FF-45BF-8F7A-163E246C4209}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Wind" ID="{8B015EB8-EEAA-48E5-9190-138E640AFBC1}">
+							<ChildrenList>
+								<Action Name="" ID="{A1669BBC-C930-4578-B50C-C31B2EFFAC77}" ShortID="397436859">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="wind_loop" ID="{5115D138-C131-4CBC-89A1-5019EF070C7B}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Low_HP" ID="{A4B14003-DA54-45F0-930D-E92C285C826F}">
+							<ChildrenList>
+								<Action Name="" ID="{A032D998-FCC0-438D-ADF8-017B3B51C87F}" ShortID="536974277">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="1 HP" ID="{0819551A-564E-4811-BDD1-55D54F6AA55D}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Slide_Loop" ID="{525E2C8B-C618-4950-8763-47EE057C82BE}">
+							<ChildrenList>
+								<Action Name="" ID="{6CD43058-F185-4A3F-8BC4-8E139D3EA2B5}" ShortID="299626010">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Slide_Loop" ID="{DF314D1A-9D63-4684-939B-1551B665A2B4}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Slide_End" ID="{0B577831-B4ED-42F9-8C84-2074A4D3F938}">
+							<ChildrenList>
+								<Action Name="" ID="{CD27F783-59D5-4F0E-8197-21694319E11D}" ShortID="1068209721">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Slide_end" ID="{E8FD8FC9-A0BA-48C8-BC98-A0A6E5FF8A34}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
