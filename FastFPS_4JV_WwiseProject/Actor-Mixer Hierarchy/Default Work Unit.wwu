@@ -22,7 +22,7 @@
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>1010</Value>
+										<Value>1090</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -32,7 +32,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>3</Value>
+										<Value>-2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
