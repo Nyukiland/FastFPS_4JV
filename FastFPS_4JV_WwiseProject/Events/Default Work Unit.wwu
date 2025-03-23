@@ -9,17 +9,6 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="DOUBLE_JUMP" ID="{F24C0B36-AD14-464E-9622-F38E49724B8C}">
-							<ChildrenList>
-								<Action Name="" ID="{E419D9DE-96AB-4394-B90E-07E91BD88F91}" ShortID="872007784">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="double_jump" ID="{34130186-DDF5-4547-B37E-457D871C98EC}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="JUMP" ID="{3B6809BC-11C8-4C86-B33B-9B87A4C634A0}">
 							<ChildrenList>
 								<Action Name="" ID="{B36A69F1-C886-4978-B63A-CDF71D15E7A2}" ShortID="728709165">
@@ -64,17 +53,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="collide_wall" ID="{6B7CD9DE-99AD-470A-B650-56CD6E758099}">
-							<ChildrenList>
-								<Action Name="" ID="{E24506BE-0CFF-4E0A-A5D1-A41F9C7B006F}" ShortID="339204250">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="collide_wall" ID="{08F45704-E2FF-45BF-8F7A-163E246C4209}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Wind" ID="{8B015EB8-EEAA-48E5-9190-138E640AFBC1}">
 							<ChildrenList>
 								<Action Name="" ID="{A1669BBC-C930-4578-B50C-C31B2EFFAC77}" ShortID="397436859">
@@ -114,6 +92,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Slide_end" ID="{E8FD8FC9-A0BA-48C8-BC98-A0A6E5FF8A34}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="land" ID="{A17BA42A-6D01-4831-A93E-AAB5384E422D}">
+							<ChildrenList>
+								<Action Name="" ID="{1A14E6FA-35F6-4044-9418-FBEA721B939D}" ShortID="874081997">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Land" ID="{DDA5AE97-2E4D-4F13-8040-5C9705E062AA}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
