@@ -4,6 +4,9 @@
 		<WorkUnit Name="Default Work Unit" ID="{6A31D7F1-083D-42F9-BB55-C7FF2F9B241F}" PersistMode="Standalone">
 			<ChildrenList>
 				<StateGroup Name="Laser_state" ID="{EE6F79C0-D60A-4BD4-84FC-D05AC4207D52}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0"/>
+					</PropertyList>
 					<ChildrenList>
 						<State Name="None" ID="{67DA37E4-239F-4257-8091-4F874F249BDB}"/>
 						<State Name="Loop" ID="{BBF335AA-4D49-4ABE-812A-CCDDD67F6873}"/>
@@ -25,6 +28,9 @@
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="Slide_state" ID="{44C94B2C-D320-48A0-AB77-6C9DA81FC5E5}">
+					<PropertyList>
+						<Property Name="DefaultTransitionTime" Type="Real64" Value="0"/>
+					</PropertyList>
 					<ChildrenList>
 						<State Name="None" ID="{A3E85658-F0EE-44F0-9057-96C5B3F31490}"/>
 						<State Name="end" ID="{938F18A2-A803-4F78-B7CD-D4CC77A2C3F8}"/>
