@@ -22,7 +22,7 @@
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>1730</Value>
+										<Value>1010</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
