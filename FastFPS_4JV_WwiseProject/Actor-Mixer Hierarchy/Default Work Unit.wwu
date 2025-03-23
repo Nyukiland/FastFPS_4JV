@@ -21,6 +21,9 @@
 								</Property>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>1730</Value>
+									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
 											<Modifier Name="" ID="{57E63C65-3EF2-4E54-84E8-915B5DC31FC8}"/>
