@@ -212,6 +212,43 @@
 										</Local>
 									</Reference>
 								</ObjectList>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{2031E65D-84AE-4190-ACA2-315327FD9CC4}" ShortID="234749798">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="Footsteps_Volume" ID="{4DE7FA8C-DDA5-4DFD-9C15-3430F8A62041}" WorkUnitID="{58A30D99-4446-40E1-91F8-B0211A6F8031}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{95CF2C1E-EEF5-40F0-A832-6C25A074BBF0}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
 							</ObjectLists>
 						</RandomSequenceContainer>
 						<Sound Name="jump" ID="{4D54F675-4F8F-4DFB-833F-95A1E79E9FB2}" ShortID="279783379">
