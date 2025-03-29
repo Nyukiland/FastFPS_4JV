@@ -1,4 +1,5 @@
 #include "FFEnemyControl.h"
+#include "EngineUtils.h" 
 
 AFFEnemyControl* AFFEnemyControl::Instance = nullptr;
 
@@ -13,11 +14,24 @@ AFFEnemyControl* AFFEnemyControl::GetEnemyControl(UObject* WorldContext)
 {
 	if (!Instance)
 	{
-		UGameInstance* GameInstance = WorldContext->GetWorld()->GetGameInstance();
-		if (!GameInstance) return nullptr;
+		UWorld* World = WorldContext ? WorldContext->GetWorld() : nullptr;
+		if (!World) return nullptr;
 
-		Instance = NewObject<AFFEnemyControl>(GameInstance);
-		Instance->AddToRoot(); 
+		for (TActorIterator<AFFEnemyControl> It(World); It; ++It)
+		{
+			if (*It)
+			{
+				Instance = *It;
+				break;
+			}
+		}
+
+		if (!Instance)
+		{
+			FActorSpawnParameters SpawnParams;
+			SpawnParams.bNoFail = true;
+			Instance = World->SpawnActor<AFFEnemyControl>(AFFEnemyControl::StaticClass(), FVector::ZeroVector, FRotator::ZeroRotator, SpawnParams);
+		}
 	}
 	return Instance;
 }
@@ -44,7 +58,7 @@ void AFFEnemyControl::KillAllEnemies()
 	if (!Instance) return;
 
 	EnemiesKilled += EnemiesArray.Num();
-	for (int32 i = EnemiesArray.Num() - 1; i >= 0; i--)
+	for (int i = EnemiesArray.Num() - 1; i >= 0; i--)
 	{
 		if (EnemiesArray[i])
 		{
@@ -62,11 +76,17 @@ TArray<AActor*> AFFEnemyControl::GetAllEnemies()
 void AFFEnemyControl::BeginPlay()
 {
 	Super::BeginPlay();
-	Instance = this;
+	if (!Instance) Instance = this;
+	else this->Destroy();
 }
 
 void AFFEnemyControl::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+}
+
+void AFFEnemyControl::EndPlay(const EEndPlayReason::Type EndPlayReason)
+{
+	if (Instance == this) Instance = nullptr;
 }
