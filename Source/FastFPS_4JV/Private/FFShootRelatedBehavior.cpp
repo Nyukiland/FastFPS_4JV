@@ -2,7 +2,7 @@
 
 
 #include "FFShootRelatedBehavior.h"
-#include "FFEnemyManager.h"
+#include "FFEnemyControl.h"
 #include "Kismet/KismetSystemLibrary.h"
 
 UFFShootRelatedBehavior::UFFShootRelatedBehavior()
@@ -70,7 +70,7 @@ void UFFShootRelatedBehavior::ShootLaserTrace(USceneComponent* ShootPoint, AActo
 
 	FCollisionQueryParams QueryParams;
 	QueryParams.AddIgnoredActor(ToIgnore);
-	TArray<AActor*> EnemyActors = UFFEnemyManager::GetEnemyManager(GetWorld())->GetAllEnemies();
+	TArray<AActor*> EnemyActors = AFFEnemyControl::GetEnemyControl(GetWorld())->GetAllEnemies();
 	QueryParams.AddIgnoredActors(EnemyActors);
 	QueryParams.bReturnPhysicalMaterial = true;
 
