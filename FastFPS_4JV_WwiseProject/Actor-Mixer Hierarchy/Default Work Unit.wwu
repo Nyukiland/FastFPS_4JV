@@ -1782,32 +1782,22 @@
 						</Sound>
 						<Sound Name="Spawner_idle" ID="{9C3BD91E-2263-4E73-967D-EF6F1DED85CA}" ShortID="232424064">
 							<PropertyList>
-								<Property Name="3DPosition" Type="int16" Value="1"/>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
-								<Property Name="HoldEmitterPositionOrientation" Type="bool" Value="True"/>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
 										<Value>-1030</Value>
 									</ValueList>
 								</Property>
-								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="8"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
-										<Attenuation Name="Attenuation (Custom)" ID="{DC8F1AE7-0D3C-4622-861E-E4A6C7BEEB42}" ShortID="156586941">
-											<PropertyList>
-												<Property Name="ConeUse" Type="bool">
-													<ValueList>
-														<Value>True</Value>
-													</ValueList>
-												</Property>
-												<Property Name="RadiusMax" Type="Real64" Value="45"/>
-											</PropertyList>
+										<Attenuation Name="Attenuation (Custom)" ID="{E63EADFF-4F53-480B-94D2-1640543E37BE}" ShortID="949670168">
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
-														<Curve Name="VolumeDry" ID="{17649581-862A-48F4-A40E-638F3DE744AE}">
+														<Curve Name="VolumeDry" ID="{4646809D-AE01-41B0-810E-D36D7F2AD7AF}">
 															<PropertyList>
 																<Property Name="Flags" Type="int32" Value="3"/>
 															</PropertyList>
@@ -1818,7 +1808,19 @@
 																	<Flags>5</Flags>
 																</Point>
 																<Point>
-																	<XPos>45</XPos>
+																	<XPos>32.92254</XPos>
+																	<YPos>-2.67484</YPos>
+																	<Flags>0</Flags>
+																	<SegmentShape>Log1</SegmentShape>
+																</Point>
+																<Point>
+																	<XPos>49.64789</XPos>
+																	<YPos>-8.94171</YPos>
+																	<Flags>0</Flags>
+																	<SegmentShape>Log2</SegmentShape>
+																</Point>
+																<Point>
+																	<XPos>100</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -1839,7 +1841,32 @@
 													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
 												</HighPassFilterUsage>
 												<SpreadUsage>
-													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
+													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
+														<Curve Name="Spread" ID="{F9767C08-A803-4F4B-9D55-12071AEEB8E7}">
+															<PropertyList>
+																<Property Name="Flags" Type="int32" Value="1"/>
+															</PropertyList>
+															<PointList>
+																<Point>
+																	<XPos>0</XPos>
+																	<YPos>100</YPos>
+																	<Flags>5</Flags>
+																	<SegmentShape>Log2</SegmentShape>
+																</Point>
+																<Point>
+																	<XPos>43.83803</XPos>
+																	<YPos>0</YPos>
+																	<Flags>0</Flags>
+																	<SegmentShape>Exp2</SegmentShape>
+																</Point>
+																<Point>
+																	<XPos>100</XPos>
+																	<YPos>-0</YPos>
+																	<Flags>37</Flags>
+																</Point>
+															</PointList>
+														</Curve>
+													</CurveUsageInfo>
 												</SpreadUsage>
 												<FocusUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="None"/>
@@ -1901,6 +1928,12 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<PositioningInfo>
+								<Panner Name="" ID="{D6E05E41-539B-4009-AE4D-F67698897BD2}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-0.418848167539269"/>
+										<Property Name="PanY" Type="Real64" Value="-0.446927374301668"/>
+									</PropertyList>
+								</Panner>
 								<Position Name="" ID="{DD29D951-775F-480B-9891-62529EAA9BE7}"/>
 							</PositioningInfo>
 							<ActiveSourceList>
