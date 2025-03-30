@@ -1186,58 +1186,6 @@
 					<ChildrenList>
 						<Folder Name="Bird" ID="{0C9EEDC0-18A7-44F5-879C-5DF078FB4ACF}" ShortID="243607131">
 							<ChildrenList>
-								<Sound Name="Iddle_Bird" ID="{93CE1CE4-3224-4E42-9D54-F375E6E16C28}" ShortID="90050271">
-									<PropertyList>
-										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="bird idle-001" ID="{D8880C60-2B57-4EAE-9F06-3924ECA78E26}">
-											<PropertyList>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.13295901533383"/>
-												<Property Name="TrimEnd" Type="Real64" Value="1.52781994727008"/>
-											</PropertyList>
-											<Language>SFX</Language>
-											<AudioFile>bird idle-001.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="68561192"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<StateInfo>
-										<StateGroupList>
-											<StateGroupInfo>
-												<StateGroupRef Name="Bird_life" ID="{597C8145-3900-491D-9103-E920141A6C08}"/>
-											</StateGroupInfo>
-										</StateGroupList>
-										<CustomStateList>
-											<CustomState>
-												<StateRef Name="alive" ID="{D06758EB-6E26-4739-9575-54568D90BC9C}"/>
-												<CustomState Name="" ID="{EAB1DBF4-7F51-406D-B73A-5F184204D512}" ShortID="397618591"/>
-											</CustomState>
-											<CustomState>
-												<StateRef Name="dead" ID="{8C6D1EF9-44E1-4D70-8423-DF37B871DBBD}"/>
-												<CustomState Name="" ID="{B6476DB5-B620-4F7B-A893-6DE204189F95}" ShortID="1058086614">
-													<PropertyList>
-														<Property Name="Volume" Type="Real64" Value="-108"/>
-													</PropertyList>
-												</CustomState>
-											</CustomState>
-										</CustomStateList>
-									</StateInfo>
-									<ActiveSourceList>
-										<ActiveSource Name="bird idle-001" ID="{D8880C60-2B57-4EAE-9F06-3924ECA78E26}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<Sound Name="Voice_Bird" ID="{3BD6A05E-817D-456D-8FBC-A28CF3B5CDC6}" ShortID="948625380">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
@@ -1847,23 +1795,6 @@
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
-									<StateInfo>
-										<StateGroupList>
-											<StateGroupInfo>
-												<StateGroupRef Name="Robot_life" ID="{EB5EB586-D017-4A52-B8DE-E021F0033AA6}"/>
-											</StateGroupInfo>
-										</StateGroupList>
-										<CustomStateList>
-											<CustomState>
-												<StateRef Name="dead" ID="{39EC630A-9404-4033-A486-50CF989DD99E}"/>
-												<CustomState Name="" ID="{AAC889A7-202F-4C7F-94A2-2BC632E24AD0}" ShortID="472955541"/>
-											</CustomState>
-											<CustomState>
-												<StateRef Name="alive" ID="{ED1B0D55-3FFB-49E1-8B95-C606CD53FBFB}"/>
-												<CustomState Name="" ID="{0461408C-5EB1-4210-BD3B-BF4C08B39EAE}" ShortID="482005827"/>
-											</CustomState>
-										</CustomStateList>
-									</StateInfo>
 									<ActiveSourceList>
 										<ActiveSource Name="dead robot" ID="{E02C6CEF-E527-4BDF-9EAB-5FC9F6326DC8}" Platform="Linked"/>
 									</ActiveSourceList>
@@ -1883,11 +1814,15 @@
 										<Value>-1020</Value>
 									</ValueList>
 								</Property>
+								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="29"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
 										<Attenuation Name="Attenuation (Custom)" ID="{065E48AC-D69B-49EA-AE73-67FD1AD5A718}" ShortID="272519805">
+											<PropertyList>
+												<Property Name="RadiusMax" Type="Real64" Value="40"/>
+											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
@@ -1902,7 +1837,7 @@
 																	<Flags>5</Flags>
 																</Point>
 																<Point>
-																	<XPos>100</XPos>
+																	<XPos>40</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -1984,6 +1919,9 @@
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{0F9CD515-9A9F-4C5F-ADC9-CA87BFEF21A6}"/>
+							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="Spawner_idle" ID="{F0EC14D5-CC68-47A4-AAC6-C2498130BEB8}" Platform="Linked"/>
 							</ActiveSourceList>

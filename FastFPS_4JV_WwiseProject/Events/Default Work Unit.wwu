@@ -353,6 +353,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Destroyed" ID="{436F3D99-E6BC-46B2-98E4-C6D7E490EDFA}"/>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

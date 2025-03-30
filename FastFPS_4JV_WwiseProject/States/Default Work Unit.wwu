@@ -37,6 +37,13 @@
 						<State Name="loop" ID="{EAAEEBCA-8B09-40B8-B002-4F201A3B13F5}"/>
 					</ChildrenList>
 				</StateGroup>
+				<StateGroup Name="Spawners_life" ID="{46FF6659-62FA-44FE-9186-FA21F2A5EF8C}">
+					<ChildrenList>
+						<State Name="None" ID="{FD4A5268-61A8-45A6-B36B-3F83082FA460}"/>
+						<State Name="Destroyed" ID="{ADEB8EF8-D5E4-4063-9D29-4E72C4896C2B}"/>
+						<State Name="Alive" ID="{EF5E80AE-2D26-4EFC-A960-03D00B592A27}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>
