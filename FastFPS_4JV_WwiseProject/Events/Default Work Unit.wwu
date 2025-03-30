@@ -303,6 +303,17 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Bird_Shooting" ID="{CEDBDB8F-DFD9-4E9F-9D2E-832186316E6C}">
+									<ChildrenList>
+										<Action Name="" ID="{41D596B6-8892-462A-A433-94C930CC74E2}" ShortID="783269768">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Shot" ID="{B4592A57-74EB-41A6-9BB6-31F4CD3B5150}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>

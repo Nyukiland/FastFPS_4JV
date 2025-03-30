@@ -1758,27 +1758,56 @@
 				</Folder>
 				<Folder Name="Spawners" ID="{9C34A830-3B67-45FE-9A7E-BE65EB841558}" ShortID="204754423">
 					<ChildrenList>
-						<Sound Name="Idle" ID="{195CF1F4-D5F4-4027-94FD-C03F8D9E03C8}" ShortID="796259696">
+						<Sound Name="Open" ID="{7A8CD230-2DF2-44AD-A201-8840AE2028EC}" ShortID="288542767">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="spawners_open" ID="{5CA017F6-F00B-44C6-BE9E-287C2AE238D2}">
+									<Language>SFX</Language>
+									<AudioFile>spawners_open.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="338753718"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="spawners_open" ID="{5CA017F6-F00B-44C6-BE9E-287C2AE238D2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="Spawner_idle" ID="{9C3BD91E-2263-4E73-967D-EF6F1DED85CA}" ShortID="232424064">
 							<PropertyList>
+								<Property Name="3DPosition" Type="int16" Value="1"/>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
+								<Property Name="HoldEmitterPositionOrientation" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>-1020</Value>
+										<Value>-1030</Value>
 									</ValueList>
 								</Property>
-								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="29"/>
+								<Property Name="SpeakerPanning3DSpatializationMix" Type="int32" Value="8"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Attenuation">
 									<Custom>
-										<Attenuation Name="Attenuation (Custom)" ID="{065E48AC-D69B-49EA-AE73-67FD1AD5A718}" ShortID="272519805">
+										<Attenuation Name="Attenuation (Custom)" ID="{DC8F1AE7-0D3C-4622-861E-E4A6C7BEEB42}" ShortID="156586941">
 											<PropertyList>
-												<Property Name="RadiusMax" Type="Real64" Value="40"/>
+												<Property Name="ConeUse" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+												<Property Name="RadiusMax" Type="Real64" Value="45"/>
 											</PropertyList>
 											<CurveUsageInfoList>
 												<VolumeDryUsage>
 													<CurveUsageInfo Platform="Linked" CurveToUse="Custom">
-														<Curve Name="VolumeDry" ID="{6A177131-6B24-4320-9683-526FE2B775FE}">
+														<Curve Name="VolumeDry" ID="{17649581-862A-48F4-A40E-638F3DE744AE}">
 															<PropertyList>
 																<Property Name="Flags" Type="int32" Value="3"/>
 															</PropertyList>
@@ -1789,7 +1818,7 @@
 																	<Flags>5</Flags>
 																</Point>
 																<Point>
-																	<XPos>40</XPos>
+																	<XPos>45</XPos>
 																	<YPos>-200</YPos>
 																	<Flags>37</Flags>
 																</Point>
@@ -1863,7 +1892,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Spawner_idle" ID="{F0EC14D5-CC68-47A4-AAC6-C2498130BEB8}">
+								<AudioFileSource Name="Spawner_idle" ID="{363C51DF-D3F4-4E07-8ABF-98B8800B96C4}">
 									<Language>SFX</Language>
 									<AudioFile>Spawner_idle.wav</AudioFile>
 									<MediaIDList>
@@ -1872,32 +1901,10 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<PositioningInfo>
-								<Panner Name="" ID="{0F9CD515-9A9F-4C5F-ADC9-CA87BFEF21A6}"/>
+								<Position Name="" ID="{DD29D951-775F-480B-9891-62529EAA9BE7}"/>
 							</PositioningInfo>
 							<ActiveSourceList>
-								<ActiveSource Name="Spawner_idle" ID="{F0EC14D5-CC68-47A4-AAC6-C2498130BEB8}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="Open" ID="{7A8CD230-2DF2-44AD-A201-8840AE2028EC}" ShortID="288542767">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="spawners_open" ID="{5CA017F6-F00B-44C6-BE9E-287C2AE238D2}">
-									<Language>SFX</Language>
-									<AudioFile>spawners_open.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="338753718"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="spawners_open" ID="{5CA017F6-F00B-44C6-BE9E-287C2AE238D2}" Platform="Linked"/>
+								<ActiveSource Name="Spawner_idle" ID="{363C51DF-D3F4-4E07-8ABF-98B8800B96C4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
