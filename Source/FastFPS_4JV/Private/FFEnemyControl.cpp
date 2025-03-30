@@ -140,6 +140,8 @@ void AFFEnemyControl::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (Waves.Num() == 0) return;
+
 	WaveControlPassive(DeltaTime);
 	WaveControlAttack(DeltaTime);
 }
