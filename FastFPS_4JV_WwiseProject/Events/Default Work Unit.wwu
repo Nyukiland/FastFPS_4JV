@@ -329,6 +329,32 @@
 						</Folder>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Spawners" ID="{016551CA-855B-4EF8-9563-19F4F1A58BD2}" ShortID="470568248">
+					<ChildrenList>
+						<Event Name="Spawners_Idle" ID="{0D2FD0CF-7005-43F0-B871-5E02A1F2C702}">
+							<ChildrenList>
+								<Action Name="" ID="{E3EA8B59-91DF-4255-A84F-871B47E59DBA}" ShortID="1068355136">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Idle" ID="{195CF1F4-D5F4-4027-94FD-C03F8D9E03C8}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Spawners_Open" ID="{676E0428-BA17-46C5-AC39-26AD2C720505}">
+							<ChildrenList>
+								<Action Name="" ID="{40100CFA-0D7D-40F4-9DE3-C4DDAF1595E7}" ShortID="222362869">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Open" ID="{7A8CD230-2DF2-44AD-A201-8840AE2028EC}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
