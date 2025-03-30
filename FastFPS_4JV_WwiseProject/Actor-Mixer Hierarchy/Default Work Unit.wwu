@@ -1808,7 +1808,6 @@
 						<Sound Name="Idle" ID="{195CF1F4-D5F4-4027-94FD-C03F8D9E03C8}" ShortID="796259696">
 							<PropertyList>
 								<Property Name="3DSpatialization" Type="int16" Value="2"/>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
 										<Value>-1020</Value>
