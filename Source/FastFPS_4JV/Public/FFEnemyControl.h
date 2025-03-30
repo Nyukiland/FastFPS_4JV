@@ -39,8 +39,8 @@ public:
 UENUM(BlueprintType)
 enum class EWAVESTATE : uint8
 {
-	InBetween,
 	InWave,
+	InBetween,
 	Win,
 	None
 };
