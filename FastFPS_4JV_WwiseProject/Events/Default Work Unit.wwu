@@ -322,10 +322,10 @@
 					<ChildrenList>
 						<Event Name="Spawners_Idle" ID="{0D2FD0CF-7005-43F0-B871-5E02A1F2C702}">
 							<ChildrenList>
-								<Action Name="" ID="{E3EA8B59-91DF-4255-A84F-871B47E59DBA}" ShortID="1068355136">
+								<Action Name="" ID="{C0D0E7ED-A635-4A78-98C7-3BF9CEBB9077}" ShortID="111727689">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Idle" ID="{195CF1F4-D5F4-4027-94FD-C03F8D9E03C8}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+											<ObjectRef Name="Spawner_idle" ID="{9C3BD91E-2263-4E73-967D-EF6F1DED85CA}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
