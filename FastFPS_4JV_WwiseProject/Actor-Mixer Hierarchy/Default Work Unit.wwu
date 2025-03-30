@@ -14,15 +14,10 @@
 </Comment>
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="5"/>
-								<Property Name="MakeUpGain" Type="Real64">
-									<ValueList>
-										<Value>5</Value>
-									</ValueList>
-								</Property>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>1090</Value>
+										<Value>1410</Value>
 									</ValueList>
 									<ModifierList>
 										<ModifierInfo>
@@ -46,13 +41,6 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Step_1" ID="{6838FC1B-2234-4C29-8D69-0A13D80D772B}" ShortID="899072530">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>9</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -69,19 +57,24 @@
 												<MediaID ID="696315926"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="HERO - CK - FOOT Boot Walk Wood Solid" ID="{36ECEEB8-241D-46C2-9729-359FEF6F1820}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0829288298196166"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.282787325420518"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>HERO - CK - FOOT Boot Walk Wood Solid.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="52978220"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="footsteps_1" ID="{6C95484B-5793-4F21-AD35-49A32A619860}" Platform="Linked"/>
+										<ActiveSource Name="HERO - CK - FOOT Boot Walk Wood Solid" ID="{36ECEEB8-241D-46C2-9729-359FEF6F1820}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Step_2" ID="{51FC0AA5-F1A2-4D67-AC9B-F0C69FA75647}" ShortID="733095651">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>11</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -98,19 +91,24 @@
 												<MediaID ID="124891107"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="HERO - CK - FOOT Boot Walk Wood Solid 1" ID="{FAFE68FE-51FA-4EF4-B385-B25F142F1496}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0729129897416943"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.163623621548469"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>HERO - CK - FOOT Boot Walk Wood Solid 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="324811636"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="footsteps_2" ID="{DF89B70E-73C2-4242-B41B-8F39B0B1C61C}" Platform="Linked"/>
+										<ActiveSource Name="HERO - CK - FOOT Boot Walk Wood Solid 1" ID="{FAFE68FE-51FA-4EF4-B385-B25F142F1496}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Step_3" ID="{CFF10AFB-C077-42FF-8645-4BE4759841CF}" ShortID="919200451">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>7</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -127,19 +125,24 @@
 												<MediaID ID="536890761"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="HERO - CK - FOOT Boot Walk Wood Solid 2" ID="{201CFA07-3ED5-446D-8837-5BAA85794F8D}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0715737182728566"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.232263762072635"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>HERO - CK - FOOT Boot Walk Wood Solid 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="537032457"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="footsteps_3" ID="{9705E273-46FF-4F80-BD7E-549FB81FF727}" Platform="Linked"/>
+										<ActiveSource Name="HERO - CK - FOOT Boot Walk Wood Solid 2" ID="{201CFA07-3ED5-446D-8837-5BAA85794F8D}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Step_4" ID="{3D6DC7EB-57E8-4F07-851E-001D7FE5B47F}" ShortID="926775397">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>5</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -156,19 +159,32 @@
 												<MediaID ID="334667697"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="HERO - CK - FOOT Boot Walk Wood Solid 4" ID="{658D6BDB-9C58-4BDA-9779-F01CE19BBC9F}">
+											<Language>SFX</Language>
+											<AudioFile>HERO - CK - FOOT Boot Walk Wood Solid 4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="483010370"/>
+											</MediaIDList>
+										</AudioFileSource>
+										<AudioFileSource Name="HERO - CK - FOOT Boot Walk Wood Solid 6" ID="{2D7CFE0E-7B57-4D99-B02A-290DA3E1DE91}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.0408260352420111"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.226584495593161"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.476643941264373"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>HERO - CK - FOOT Boot Walk Wood Solid 6.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="803049368"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="footsteps_4" ID="{4F217916-275A-4894-B5D4-A9F63C07D123}" Platform="Linked"/>
+										<ActiveSource Name="HERO - CK - FOOT Boot Walk Wood Solid 6" ID="{2D7CFE0E-7B57-4D99-B02A-290DA3E1DE91}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Step_5" ID="{788F6A9C-7537-4815-AEC3-84272963036C}" ShortID="340375433">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>7</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -185,9 +201,22 @@
 												<MediaID ID="914290519"/>
 											</MediaIDList>
 										</AudioFileSource>
+										<AudioFileSource Name="HERO - CK - FOOT Boot Walk Wood Solid 7" ID="{B58D02A8-DC92-45B0-865A-4B57D4AC0304}">
+											<PropertyList>
+												<Property Name="FadeOutDuration" Type="Real64" Value="0.052052675720549"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0336811431132964"/>
+												<Property Name="TrimEnd" Type="Real64" Value="0.240360891779554"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>HERO - CK - FOOT Boot Walk Wood Solid 7.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="617524218"/>
+											</MediaIDList>
+										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="footsteps_5" ID="{86D83E87-AEBB-4876-93F5-C57347015111}" Platform="Linked"/>
+										<ActiveSource Name="HERO - CK - FOOT Boot Walk Wood Solid 7" ID="{B58D02A8-DC92-45B0-865A-4B57D4AC0304}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
