@@ -13,6 +13,8 @@ public:
 	FWaveSetUp()
 	{
 		EnemyCount = 0;
+		FlyingOnSpawner = 0;
+		SpawnerCount = 0;
 		EnemyAtTheSameTime = 0;
 		TimeSpawn = 0;
 	}
