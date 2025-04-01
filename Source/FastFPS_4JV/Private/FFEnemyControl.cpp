@@ -132,7 +132,7 @@ void AFFEnemyControl::PlaceSpawner(int WaveCount)
 	for (int i = 0; i < Waves[WaveCount].SpawnerCount; i++)
 	{
 		AActor* Spawner = GetWorld()->SpawnActor<AActor>(SpawnerClass);
-		Spawner->SetActorLocation(SpawnerPos[i]);
+		Spawner->SetActorLocation(SpawnerPos[FMath::RandRange(i, SpawnerPos.Num() - 2)]);
 	}
 }
 
