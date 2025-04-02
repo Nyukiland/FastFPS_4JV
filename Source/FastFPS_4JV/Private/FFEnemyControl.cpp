@@ -129,10 +129,19 @@ void AFFEnemyControl::PlaceSpawner(int WaveCount)
 			return FVector::Dist(A, PlayerPos) > FVector::Dist(B, PlayerPos);
 		});
 
+	TArray<FVector> Temp = SpawnerPos;
+
 	for (int i = 0; i < Waves[WaveCount].SpawnerCount; i++)
 	{
 		AActor* Spawner = GetWorld()->SpawnActor<AActor>(SpawnerClass);
-		Spawner->SetActorLocation(SpawnerPos[FMath::RandRange(i, SpawnerPos.Num() - 2)]);
+		int t = 0;
+		if (Temp.Num() > 2)
+		{
+			t = FMath::RandRange(i, Temp.Num() - 2);
+		}
+
+		Spawner->SetActorLocation(Temp[t]);
+		Temp.RemoveAt(t);
 	}
 }
 
@@ -152,7 +161,7 @@ void AFFEnemyControl::WaveControlPassive(float DeltaTime)
 
 	Timer += DeltaTime;
 
-	if (Timer > TimeBetweenWave)
+	if (Timer > Waves[CurrentWave - 1].TimeAfterWave)
 	{
 		WaveState = EWAVESTATE::InWave;
 		Timer = 0;

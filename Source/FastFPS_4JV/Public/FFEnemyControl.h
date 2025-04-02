@@ -17,6 +17,7 @@ public:
 		SpawnerCount = 0;
 		EnemyAtTheSameTime = 0;
 		TimeSpawn = 0;
+		TimeAfterWave = 2;
 	}
 
 public:
@@ -34,6 +35,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
 	float TimeSpawn;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
+	float TimeAfterWave;
 };
 
 UENUM(BlueprintType)
@@ -72,8 +76,6 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
 	TArray<FWaveSetUp> Waves;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
-	float TimeBetweenWave;
 
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "EnemyManagerDebug")
