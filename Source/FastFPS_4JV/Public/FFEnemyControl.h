@@ -77,13 +77,14 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
 	TArray<FWaveSetUp> Waves;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
+	int EnemySpawned;
+
 protected:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "EnemyManagerDebug")
 	TArray<FVector> SpawnerPos;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "EnemyManagerDebug")
 	int CurrentWave;
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "EnemyManagerDebug")
-	int EnemySpawned;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
 	TSubclassOf<AActor> SpawnerClass;
