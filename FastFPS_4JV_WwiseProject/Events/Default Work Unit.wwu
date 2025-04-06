@@ -345,6 +345,17 @@
 						<Event Name="Destroyed" ID="{436F3D99-E6BC-46B2-98E4-C6D7E490EDFA}"/>
 					</ChildrenList>
 				</Folder>
+				<Event Name="Music" ID="{D0D4CD12-9329-42DB-8E3B-8EE2E1A5FCC9}">
+					<ChildrenList>
+						<Action Name="" ID="{883D3880-1CE7-4AAC-8123-9E52A12BFCD2}" ShortID="387177359">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Round n OST" ID="{D3E5E566-7CD0-4AE8-B2D3-605484542B4A}" WorkUnitID="{29D59A55-D3E2-4965-85BC-CCA9E95EA48B}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
