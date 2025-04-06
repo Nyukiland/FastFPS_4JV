@@ -1054,6 +1054,18 @@
 										<MediaID ID="83677764"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="Laser_Ending" ID="{BC0D12BA-A59D-44E8-BCC3-D8AE9B4CD141}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0766264956441365"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.46481877359112"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Laser_Ending.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="95439926"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<StateInfo>
 								<StateGroupList>
@@ -1077,7 +1089,7 @@
 								</CustomStateList>
 							</StateInfo>
 							<ActiveSourceList>
-								<ActiveSource Name="Laser_End" ID="{DBFB1117-B72D-4AD2-B658-0CF96557C3FF}" Platform="Linked"/>
+								<ActiveSource Name="Laser_Ending" ID="{BC0D12BA-A59D-44E8-BCC3-D8AE9B4CD141}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Laser_Start" ID="{7B970F67-470C-457C-864E-8B0F3BD06BE4}" ShortID="779045938">

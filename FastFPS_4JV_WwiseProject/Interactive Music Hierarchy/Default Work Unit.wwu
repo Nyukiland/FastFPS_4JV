@@ -27,7 +27,7 @@
 												<Property Name="DestinationJumpPositionPreset" Type="int16" Value="1"/>
 												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
-												<Property Name="ExitSourceAt" Type="int16" Value="3"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
 												<Property Name="SourceContextType" Type="int16" Value="2"/>
 											</PropertyList>
 											<ReferenceList>
@@ -43,7 +43,8 @@
 													<MusicFade Name="Source Fade-out" ID="{74CF3827-7965-4C58-B8E8-A3D85B8148C9}">
 														<PropertyList>
 															<Property Name="FadeCurve" Type="int16" Value="2"/>
-															<Property Name="FadeTime" Type="Real64" Value="1.8"/>
+															<Property Name="FadeOffset" Type="Real64" Value="0.2"/>
+															<Property Name="FadeTime" Type="Real64" Value="0.2"/>
 															<Property Name="FadeType" Type="int16" Value="1"/>
 														</PropertyList>
 													</MusicFade>
