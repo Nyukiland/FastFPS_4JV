@@ -87,6 +87,8 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
 	TSubclassOf<AActor> SpawnerClass;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
+	TSubclassOf<AActor> CombinedClass;
 
 public:
 	UFUNCTION(BlueprintCallable, Category = "EnemyManager")

@@ -46,7 +46,7 @@ void AFFEnemyControl::RegisterEnemySpawned(AActor* Spawned)
 {
 	if (!Instance) return;
 	EnemiesArray.Add(Spawned);
-	if (!Spawned->GetClass()->IsChildOf(SpawnerClass)) EnemySpawned++;
+	if (Spawned->GetClass()->IsChildOf(CombinedClass)) EnemySpawned++;
 }
 
 void AFFEnemyControl::EnemyDied(AActor* Died)
