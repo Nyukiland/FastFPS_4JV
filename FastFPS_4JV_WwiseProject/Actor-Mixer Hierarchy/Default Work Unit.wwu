@@ -1067,6 +1067,18 @@
 										<MediaID ID="95439926"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="Laser_EndwithLaser" ID="{E0835C85-65C6-4A2E-9300-469FF582EB16}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.00252405584812566"/>
+										<Property Name="TrimEnd" Type="Real64" Value="0.677288362594902"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>Laser_EndwithLaser.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="920514486"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<StateInfo>
 								<StateGroupList>
@@ -1090,7 +1102,7 @@
 								</CustomStateList>
 							</StateInfo>
 							<ActiveSourceList>
-								<ActiveSource Name="Laser_Ending" ID="{BC0D12BA-A59D-44E8-BCC3-D8AE9B4CD141}" Platform="Linked"/>
+								<ActiveSource Name="Laser_EndwithLaser" ID="{E0835C85-65C6-4A2E-9300-469FF582EB16}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Laser_Start" ID="{7B970F67-470C-457C-864E-8B0F3BD06BE4}" ShortID="779045938">
