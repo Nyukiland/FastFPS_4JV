@@ -133,14 +133,17 @@ void AFFEnemyControl::PlaceSpawner(int WaveCount)
 
 	for (int i = 0; i < Waves[WaveCount].SpawnerCount; i++)
 	{
-		AActor* Spawner = GetWorld()->SpawnActor<AActor>(SpawnerClass);
+		FActorSpawnParameters SpawnParams;
+		SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+		AActor* Spawner = GetWorld()->SpawnActor<AActor>(SpawnerClass, SpawnParams);
 		int t = 0;
 		if (Temp.Num() > 2)
 		{
 			t = FMath::RandRange(i, Temp.Num() - 2);
 		}
 
-		Spawner->SetActorLocation(Temp[t]);
+		if (Spawner) Spawner->SetActorLocation(Temp[t]);
+		else UE_LOG(LogTemp, Error, TEXT("Failed to place spawner"))
 		Temp.RemoveAt(t);
 	}
 }
