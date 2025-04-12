@@ -108,6 +108,7 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Damage_Taken" ID="{D7C384C6-7E52-492C-8A28-DF57EF93444B}"/>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Gun" ID="{1E8C82EA-523C-409D-BE4E-49EB6EEEC3D9}" ShortID="992075080">
