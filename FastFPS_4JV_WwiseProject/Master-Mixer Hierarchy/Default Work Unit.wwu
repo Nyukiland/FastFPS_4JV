@@ -10,7 +10,64 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AuxBus Name="Muffled" ID="{663224C9-05A0-4264-AC3A-88D60B59F909}"/>
+						<Bus Name="Muffled_Bus" ID="{9CD74A7D-4063-4BD1-B6D2-48FE7C57EB1B}">
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{3A36C768-14DF-4AFD-B956-ADA5453E93A6}" ShortID="280142128">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+														<ObjectRef Name="Ducking" ID="{1BCF050A-74D7-481A-9602-3C538BABFE58}" WorkUnitID="{9B483627-0B49-4476-A951-ABCA45E2604E}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
+						<Bus Name="IsMuffled_Bus" ID="{F6C633E0-E6E7-425F-8E00-F29EF07AA5F3}">
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{2516587E-C2E8-4C49-B388-7E20A8EE6F2B}" ShortID="767529707">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="Muffled" ID="{BF16C3D8-39DC-46AB-BCFE-E0912FB85746}" WorkUnitID="{58A30D99-4446-40E1-91F8-B0211A6F8031}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{F9846670-9D86-402E-A1F9-D076F9B438F0}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>-48</XPos>
+																		<YPos>-0</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-8.75501</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
 					</ChildrenList>
 				</Bus>
 			</ChildrenList>
