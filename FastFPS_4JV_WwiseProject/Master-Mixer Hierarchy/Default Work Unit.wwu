@@ -4,6 +4,13 @@
 		<WorkUnit Name="Default Work Unit" ID="{B1580637-B32A-4A29-8F33-B4019EA8C521}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<PropertyList>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
 							<ObjectRef Name="System" ID="{5CE3E73A-409D-431D-8744-5DA71709AE6E}" WorkUnitID="{90A79A28-C1D3-47B4-B639-56BC38C44A46}"/>

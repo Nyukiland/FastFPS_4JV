@@ -4,6 +4,19 @@
 		<WorkUnit Name="Default Work Unit" ID="{29D59A55-D3E2-4965-85BC-CCA9E95EA48B}" PersistMode="Standalone">
 			<ChildrenList>
 				<MusicSwitchContainer Name="Round n OST" ID="{D3E5E566-7CD0-4AE8-B2D3-605484542B4A}" ShortID="517795897">
+					<PropertyList>
+						<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>1</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -93,8 +106,19 @@
 						<MusicSegment Name="Trans_Vague" ID="{64F5BD1E-4390-4612-A29E-6C2B898212A7}" ShortID="693905130">
 							<PropertyList>
 								<Property Name="EndPosition" Type="Real64" Value="12558.1395348837"/>
+								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
 								<Property Name="Tempo" Type="Real64" Value="172"/>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -240,6 +264,19 @@
 							</ObjectLists>
 						</MusicSegment>
 						<MusicSwitchContainer Name="OST" ID="{9C012F58-FE6F-4E5A-A3D5-104BE70C5A97}" ShortID="722870811">
+							<PropertyList>
+								<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -576,6 +613,13 @@
 									</ObjectLists>
 								</MusicSegment>
 								<MusicPlaylistContainer Name="Phase_1_loop" ID="{2D3B4244-6F42-4937-A9E5-F446FFD3FAF7}" ShortID="803778348">
+									<PropertyList>
+										<Property Name="MaxSoundPerInstance" Type="int16">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
