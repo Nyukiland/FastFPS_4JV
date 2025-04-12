@@ -76,7 +76,8 @@
 												<DestinationFadeIn>
 													<MusicFade Name="Destination Fade-in" ID="{F4DB0321-7DBE-4B1F-B111-7EDC56DEA474}">
 														<PropertyList>
-															<Property Name="FadeTime" Type="Real64" Value="0.9"/>
+															<Property Name="FadeOffset" Type="Real64" Value="-5.6"/>
+															<Property Name="FadeTime" Type="Real64" Value="5.6"/>
 														</PropertyList>
 													</MusicFade>
 												</DestinationFadeIn>
