@@ -121,7 +121,7 @@
 								<Action Name="" ID="{2133C20B-B47A-4948-8CDA-BBEC255316E9}" ShortID="910617118">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Shoot" ID="{B4866FF1-C408-4D3D-BA0F-BF4659A50052}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+											<ObjectRef Name="Shoot_Void" ID="{207395F2-9F1D-456D-8C0B-5C43DFB4FA67}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -165,7 +165,7 @@
 								<Action Name="" ID="{F1993D58-F27F-415B-B9FC-E89F8BBED71F}" ShortID="717791406">
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="Shot base" ID="{C3522360-367D-4D0D-9C95-1AAA467A3602}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+											<ObjectRef Name="Shooting" ID="{072BF59F-7126-44CD-B321-2D1BFF45B918}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
@@ -173,6 +173,17 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="shot near empty" ID="{37347FDF-1122-4EF9-BA73-6A356FF4560B}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Shoot_Head" ID="{A7D1267B-709E-4D4A-A407-0D4F0DA0DD95}">
+							<ChildrenList>
+								<Action Name="" ID="{5DA034A5-1180-4EC4-81D8-1C510F6445CD}" ShortID="623511671">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Shoot_Head" ID="{257A0D3E-EDD5-49FB-9260-4027721ACE1C}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
