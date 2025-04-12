@@ -18,6 +18,7 @@ public:
 		EnemyAtTheSameTime = 0;
 		TimeSpawn = 0;
 		TimeAfterWave = 2;
+		EnemyPerSecAfterWave = 5;
 	}
 
 public:
@@ -38,6 +39,9 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
 	float TimeAfterWave;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "EnemyManager")
+	float EnemyPerSecAfterWave;
 };
 
 UENUM(BlueprintType)
