@@ -108,7 +108,28 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Damage_Taken" ID="{D7C384C6-7E52-492C-8A28-DF57EF93444B}"/>
+						<Event Name="Damage_Taken" ID="{D7C384C6-7E52-492C-8A28-DF57EF93444B}">
+							<ChildrenList>
+								<Action Name="" ID="{BE6B2E01-2369-4D54-84F1-55283926E5C6}" ShortID="21240810">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Damage" ID="{963FBC40-B181-4B87-9AA1-8F987F42C896}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Heal" ID="{9112DE12-CF0C-42E7-81E9-099B44EDF842}">
+							<ChildrenList>
+								<Action Name="" ID="{8FC518B8-447D-4436-AE0D-59EFA67450A4}" ShortID="419811765">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Heal" ID="{B2CF9E03-9D19-4E81-A768-C71F1F5DB445}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Gun" ID="{1E8C82EA-523C-409D-BE4E-49EB6EEEC3D9}" ShortID="992075080">
@@ -257,6 +278,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="CHARGIN_LASER" ID="{09A34D06-37A8-4AB4-9C8C-63EADC46FBFD}">
+							<ChildrenList>
+								<Action Name="" ID="{DA1E3F01-1C42-40AF-8341-5DFE1708B034}" ShortID="1040588715">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="charginLaser" ID="{6C9C7CB9-1FE0-46DA-8ACE-538EAF8B368F}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Ennemy" ID="{8887A609-EECF-4E8A-993A-68B072585D0F}" ShortID="951934106">
@@ -284,6 +316,39 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Voice" ID="{3ABAE5EB-B64F-4612-B94E-0593D12EBD79}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="EXPLODIN" ID="{D3A71E03-CEFB-427E-B8AE-9AE3FDBFA518}">
+									<ChildrenList>
+										<Action Name="" ID="{12042F6B-B37D-4EA8-A3F1-2FE2136A8A29}" ShortID="168715516">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Explodin'" ID="{62A58E0D-9E74-4D1F-A243-C880FCE2B438}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="MELTING" ID="{5D0FF294-36A7-4764-A850-A2F2CBD5F878}">
+									<ChildrenList>
+										<Action Name="" ID="{20DDA8F3-13FD-4118-9D9E-82019ACEA9B8}" ShortID="70444786">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="BigOne_Meltin'" ID="{268F9B0D-9738-4F5C-BCFC-F8C76D5E6680}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="TIMER" ID="{A1074994-1185-4FAE-B6A9-F11EBCB0C21E}">
+									<ChildrenList>
+										<Action Name="" ID="{3EE44490-C4A1-4B2C-99A8-AADD8A493E48}" ShortID="321045850">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Timer+Beep_2" ID="{E7732059-2EB7-46E8-B35E-EE66516BE0B4}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

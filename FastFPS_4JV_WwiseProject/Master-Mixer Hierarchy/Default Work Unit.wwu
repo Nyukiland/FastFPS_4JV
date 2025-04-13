@@ -17,7 +17,7 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Bus Name="Muffled_Bus" ID="{9CD74A7D-4063-4BD1-B6D2-48FE7C57EB1B}">
+						<Bus Name="Muffled_Bus_Shoot" ID="{9CD74A7D-4063-4BD1-B6D2-48FE7C57EB1B}">
 							<ObjectLists>
 								<ObjectList Name="Effects">
 									<Reference>
@@ -34,7 +34,7 @@
 								</ObjectList>
 							</ObjectLists>
 						</Bus>
-						<Bus Name="IsMuffled_Bus" ID="{F6C633E0-E6E7-425F-8E00-F29EF07AA5F3}">
+						<Bus Name="IsMuffled_Bus_Shoot" ID="{F6C633E0-E6E7-425F-8E00-F29EF07AA5F3}">
 							<ObjectLists>
 								<ObjectList Name="RTPC">
 									<Reference>
@@ -60,13 +60,13 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
-																		<XPos>-35.31034</XPos>
-																		<YPos>-5.68292</YPos>
+																		<XPos>-35.60125</XPos>
+																		<YPos>-1.62787</YPos>
 																		<Flags>0</Flags>
 																	</Point>
 																	<Point>
 																		<XPos>0</XPos>
-																		<YPos>-17.71518</YPos>
+																		<YPos>-2.81922</YPos>
 																		<Flags>37</Flags>
 																	</Point>
 																</PointList>
@@ -80,6 +80,53 @@
 								</ObjectList>
 							</ObjectLists>
 						</Bus>
+						<Bus Name="IsMuffled_Bus_Laser" ID="{D9C9E79C-4373-4702-A01E-91A050146DEE}">
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{2BE198CE-221E-4EC2-A951-DC53631E9AF2}" ShortID="278104910">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="Muffled" ID="{BF16C3D8-39DC-46AB-BCFE-E0912FB85746}" WorkUnitID="{58A30D99-4446-40E1-91F8-B0211A6F8031}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{7A3FE9DB-9776-4681-A179-0EA1B4FBCAD2}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>-48</XPos>
+																		<YPos>0.09001</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>-35.49091</XPos>
+																		<YPos>-3.55037</YPos>
+																		<Flags>0</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-5.93151</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
+						<Bus Name="MuffledBus_Laser" ID="{118F290B-067E-4F16-A09B-6072FF7C834B}"/>
 					</ChildrenList>
 				</Bus>
 			</ChildrenList>
