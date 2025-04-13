@@ -106,13 +106,13 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
-																		<XPos>-35.49091</XPos>
-																		<YPos>-3.55037</YPos>
+																		<XPos>-35.24221</XPos>
+																		<YPos>-5.12175</YPos>
 																		<Flags>0</Flags>
 																	</Point>
 																	<Point>
 																		<XPos>0</XPos>
-																		<YPos>-5.93151</YPos>
+																		<YPos>-11.10816</YPos>
 																		<Flags>37</Flags>
 																	</Point>
 																</PointList>
@@ -126,7 +126,23 @@
 								</ObjectList>
 							</ObjectLists>
 						</Bus>
-						<Bus Name="MuffledBus_Laser" ID="{118F290B-067E-4F16-A09B-6072FF7C834B}"/>
+						<Bus Name="MuffledBus_Laser" ID="{118F290B-067E-4F16-A09B-6072FF7C834B}">
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{CE76DDFD-7A6F-4FA2-8057-5ADE77B6DF06}" ShortID="418412682">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise Meter" CompanyID="0" PluginID="129" PluginType="3">
+														<ObjectRef Name="Ducking" ID="{1BCF050A-74D7-481A-9602-3C538BABFE58}" WorkUnitID="{9B483627-0B49-4476-A951-ABCA45E2604E}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</Bus>
 					</ChildrenList>
 				</Bus>
 			</ChildrenList>
