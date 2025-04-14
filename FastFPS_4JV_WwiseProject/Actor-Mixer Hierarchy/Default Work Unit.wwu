@@ -2526,6 +2526,7 @@
 								</Sound>
 								<RandomSequenceContainer Name="Explodin'" ID="{62A58E0D-9E74-4D1F-A243-C880FCE2B438}" ShortID="977927802">
 									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
 										<Property Name="Pitch" Type="int32">
 											<ModifierList>
 												<ModifierInfo>
@@ -2596,6 +2597,9 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<Sound Name="BigOne_Meltin'" ID="{268F9B0D-9738-4F5C-BCFC-F8C76D5E6680}" ShortID="831698897">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -2623,6 +2627,9 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Timer+Beep_2" ID="{E7732059-2EB7-46E8-B35E-EE66516BE0B4}" ShortID="574621108">
+									<PropertyList>
+										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
