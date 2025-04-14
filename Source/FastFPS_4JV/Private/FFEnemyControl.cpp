@@ -139,7 +139,7 @@ void AFFEnemyControl::PlaceSpawner(int WaveCount)
 		int t = 0;
 		if (Temp.Num() > 2)
 		{
-			t = FMath::RandRange(i, Temp.Num() - 2);
+			t = FMath::RandRange(i, Temp.Num()-1);
 		}
 
 		if (Spawner) Spawner->SetActorLocation(Temp[t]);
