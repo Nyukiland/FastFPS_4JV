@@ -354,6 +354,20 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="STOP_Timer" ID="{C0CDF626-6B3B-446E-8E89-C1885A9F30F4}">
+									<ChildrenList>
+										<Action Name="" ID="{67A9DF69-DFD7-4888-82D5-780F42DEE9C9}" ShortID="901217424">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Timer+Beep_2" ID="{E7732059-2EB7-46E8-B35E-EE66516BE0B4}" WorkUnitID="{67C43032-129F-4AD5-9303-FFC4B60D29F4}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="BIRD" ID="{7BD872CA-4429-4C41-9B48-2DAD5B67C778}" ShortID="930519700">
