@@ -2599,6 +2599,11 @@
 								<Sound Name="BigOne_Meltin'" ID="{268F9B0D-9738-4F5C-BCFC-F8C76D5E6680}" ShortID="831698897">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
