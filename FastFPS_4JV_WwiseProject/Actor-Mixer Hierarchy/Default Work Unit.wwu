@@ -775,7 +775,21 @@
 						</Folder>
 						<Sound Name="1 HP" ID="{0819551A-564E-4811-BDD1-55D54F6AA55D}" ShortID="880670317">
 							<PropertyList>
-								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>24</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ValueList>
+										<Value>460</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -788,9 +802,9 @@
 							<ChildrenList>
 								<AudioFileSource Name="Heartbeat" ID="{86024D74-3251-45B3-A297-0985358DD5D8}">
 									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0295833251189277"/>
 										<Property Name="FadeOutDuration" Type="Real64" Value="0.537578869923926"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-										<Property Name="TrimBegin" Type="Real64" Value="2.13720379994146"/>
 										<Property Name="TrimEnd" Type="Real64" Value="4.07117629510634"/>
 									</PropertyList>
 									<Language>SFX</Language>
@@ -1487,6 +1501,13 @@
 										<MediaID ID="920514486"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="Laser_EndShort" ID="{31AB4FAF-99F5-4054-B66F-5107CD3A418C}">
+									<Language>SFX</Language>
+									<AudioFile>Laser_EndShort.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="658501801"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<StateInfo>
 								<StateGroupList>
@@ -1510,7 +1531,7 @@
 								</CustomStateList>
 							</StateInfo>
 							<ActiveSourceList>
-								<ActiveSource Name="Laser_EndwithLaser" ID="{E0835C85-65C6-4A2E-9300-469FF582EB16}" Platform="Linked"/>
+								<ActiveSource Name="Laser_EndShort" ID="{31AB4FAF-99F5-4054-B66F-5107CD3A418C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Laser_Start" ID="{7B970F67-470C-457C-864E-8B0F3BD06BE4}" ShortID="779045938">
@@ -2599,11 +2620,6 @@
 								<Sound Name="BigOne_Meltin'" ID="{268F9B0D-9738-4F5C-BCFC-F8C76D5E6680}" ShortID="831698897">
 									<PropertyList>
 										<Property Name="3DSpatialization" Type="int16" Value="2"/>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-5</Value>
-											</ValueList>
-										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
