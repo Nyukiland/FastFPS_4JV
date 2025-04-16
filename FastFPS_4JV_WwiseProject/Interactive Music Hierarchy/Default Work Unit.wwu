@@ -572,7 +572,6 @@
 												<MusicPlaylistItem Name="" ID="{D6C961EB-7CCF-4E5A-AAAF-03686AE42A1C}" ShortID="436191975">
 													<PropertyList>
 														<Property Name="LoopCount" Type="int16" Value="0"/>
-														<Property Name="PlayMode" Type="int16" Value="1"/>
 													</PropertyList>
 													<ChildrenList>
 														<MusicPlaylistItem Name="" ID="{CFD6702C-40C4-44E7-8C91-085DA44EF15B}" ShortID="687768039">
@@ -744,7 +743,9 @@
 									<ChildrenList>
 										<MusicSegment Name="HC_3" ID="{67A3211E-C46D-40E0-A0C0-896B390414FE}" ShortID="120237604">
 											<PropertyList>
-												<Property Name="EndPosition" Type="Real64" Value="89302.335600907"/>
+												<Property Name="EndPosition" Type="Real64" Value="107668.446189036"/>
+												<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+												<Property Name="Tempo" Type="Real64" Value="172"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -820,7 +821,7 @@
 															<MusicCue Name="Exit Cue" ID="{99741344-31C0-4E1B-AA87-129E2CFE37DC}">
 																<PropertyList>
 																	<Property Name="CueType" Type="int16" Value="1"/>
-																	<Property Name="TimeMs" Type="Real64" Value="89302.335600907"/>
+																	<Property Name="TimeMs" Type="Real64" Value="89302.3255813954"/>
 																</PropertyList>
 															</MusicCue>
 														</Local>
