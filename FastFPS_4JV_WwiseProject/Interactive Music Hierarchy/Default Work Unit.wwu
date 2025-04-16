@@ -827,7 +827,7 @@
 								<ObjectList Name="Entries">
 									<Reference>
 										<Local>
-											<MultiSwitchEntry Name="" ID="{68052314-9FF9-49BB-A17E-4FDC9654D1BE}">
+											<MultiSwitchEntry Name="" ID="{C5BDFF0B-6719-47D9-A983-54A769AC24E1}">
 												<ReferenceList>
 													<Reference Name="AudioNode">
 														<ObjectRef Name="Phase_1_loop" ID="{2D3B4244-6F42-4937-A9E5-F446FFD3FAF7}" WorkUnitID="{29D59A55-D3E2-4965-85BC-CCA9E95EA48B}"/>
@@ -845,7 +845,7 @@
 									</Reference>
 									<Reference>
 										<Local>
-											<MultiSwitchEntry Name="" ID="{8A588746-B7E1-4226-979B-6EFA55A4D7F3}">
+											<MultiSwitchEntry Name="" ID="{3E67D299-85FE-42A7-A7FD-AA8B05891804}">
 												<ReferenceList>
 													<Reference Name="AudioNode">
 														<ObjectRef Name="Phase_2_loop" ID="{642CA7FC-94D9-431C-ADBF-0EF116D103C1}" WorkUnitID="{29D59A55-D3E2-4965-85BC-CCA9E95EA48B}"/>
@@ -863,7 +863,7 @@
 									</Reference>
 									<Reference>
 										<Local>
-											<MultiSwitchEntry Name="" ID="{8C366DFA-5BBB-4318-B28F-9B0865DA36DF}">
+											<MultiSwitchEntry Name="" ID="{A3FA83F8-A968-4F17-B2E2-F40AF1FC944C}">
 												<ReferenceList>
 													<Reference Name="AudioNode">
 														<ObjectRef Name="Phase_3_1_loop" ID="{99C7C173-628D-41A6-B2CD-DC94574F1427}" WorkUnitID="{29D59A55-D3E2-4965-85BC-CCA9E95EA48B}"/>
@@ -881,7 +881,7 @@
 									</Reference>
 									<Reference>
 										<Local>
-											<MultiSwitchEntry Name="" ID="{F4D8EC98-BD2C-4327-BB5B-101A9D59C304}">
+											<MultiSwitchEntry Name="" ID="{399A594A-922B-4573-825C-33E1465705EB}">
 												<ObjectLists>
 													<ObjectList Name="EntryPath">
 														<Reference>
@@ -905,7 +905,7 @@
 						<ObjectList Name="Entries">
 							<Reference>
 								<Local>
-									<MultiSwitchEntry Name="" ID="{557CC5CE-D272-40D8-8658-A0D2AB4E59CA}">
+									<MultiSwitchEntry Name="" ID="{2518272A-AE9A-4246-AF04-06AAAC7033FF}">
 										<ReferenceList>
 											<Reference Name="AudioNode">
 												<ObjectRef Name="OST" ID="{9C012F58-FE6F-4E5A-A3D5-104BE70C5A97}" WorkUnitID="{29D59A55-D3E2-4965-85BC-CCA9E95EA48B}"/>
@@ -923,7 +923,7 @@
 							</Reference>
 							<Reference>
 								<Local>
-									<MultiSwitchEntry Name="" ID="{AD474517-CB15-4EDC-A935-E07C6123935B}">
+									<MultiSwitchEntry Name="" ID="{FBC7F7B0-92B3-46DC-9B5B-56A9C704AF8B}">
 										<ReferenceList>
 											<Reference Name="AudioNode">
 												<ObjectRef Name="Trans_Vague" ID="{64F5BD1E-4390-4612-A29E-6C2B898212A7}" WorkUnitID="{29D59A55-D3E2-4965-85BC-CCA9E95EA48B}"/>

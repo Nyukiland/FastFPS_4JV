@@ -334,9 +334,20 @@
 										<MediaID ID="191091896"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="jump_vf" ID="{F9369085-248C-4436-B364-6BE02BE3181A}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0147881011655128"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>jump.vf.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="507894285"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="jump_v2" ID="{E43FDE5C-6E0F-4611-8ED8-7AD63707BED8}" Platform="Linked"/>
+								<ActiveSource Name="jump_vf" ID="{F9369085-248C-4436-B364-6BE02BE3181A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="death" ID="{2A27B893-664E-40F6-8F5B-D03A087A8F24}" ShortID="102482351">
@@ -702,6 +713,11 @@
 								<Sound Name="wind_loop" ID="{5115D138-C131-4CBC-89A1-5019EF070C7B}" ShortID="1006026252">
 									<PropertyList>
 										<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+										<Property Name="Priority" Type="int16">
+											<ValueList>
+												<Value>100</Value>
+											</ValueList>
+										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
 												<Value>-8</Value>
@@ -963,9 +979,16 @@
 										<MediaID ID="312173797"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="NewHeal" ID="{B61CB320-B844-4328-BC27-D308AB06044F}">
+									<Language>SFX</Language>
+									<AudioFile>NewHeal.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="412858822"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Heal" ID="{59A064B1-5894-4A13-8055-CE4530CD709A}" Platform="Linked"/>
+								<ActiveSource Name="NewHeal" ID="{B61CB320-B844-4328-BC27-D308AB06044F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
