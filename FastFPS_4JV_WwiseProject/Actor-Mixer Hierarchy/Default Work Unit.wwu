@@ -782,7 +782,6 @@
 								</Property>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
-								<Property Name="LoopCount" Type="int32" Value="1"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
 										<Value>480</Value>
