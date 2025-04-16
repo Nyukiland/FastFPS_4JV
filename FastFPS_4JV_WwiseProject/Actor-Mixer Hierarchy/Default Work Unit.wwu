@@ -780,14 +780,17 @@
 										<Value>24</Value>
 									</ValueList>
 								</Property>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="IsLoopingInfinite" Type="bool" Value="False"/>
+								<Property Name="LoopCount" Type="int32" Value="1"/>
 								<Property Name="Pitch" Type="int32">
 									<ValueList>
-										<Value>460</Value>
+										<Value>480</Value>
 									</ValueList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>3</Value>
+										<Value>9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
