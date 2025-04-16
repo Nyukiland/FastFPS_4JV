@@ -5,15 +5,14 @@
 			<ChildrenList>
 				<MusicSwitchContainer Name="Round n OST" ID="{D3E5E566-7CD0-4AE8-B2D3-605484542B4A}" ShortID="517795897">
 					<PropertyList>
-						<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 						<Property Name="MaxSoundPerInstance" Type="int16">
 							<ValueList>
 								<Value>1</Value>
 							</ValueList>
 						</Property>
-						<Property Name="UseMaxSoundPerInstance" Type="bool">
+						<Property Name="Priority" Type="int16">
 							<ValueList>
-								<Value>True</Value>
+								<Value>100</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Volume" Type="Real64">
@@ -883,7 +882,6 @@
 									<Reference>
 										<Local>
 											<MultiSwitchEntry Name="" ID="{F4D8EC98-BD2C-4327-BB5B-101A9D59C304}">
-												<ReferenceList/>
 												<ObjectLists>
 													<ObjectList Name="EntryPath">
 														<Reference>

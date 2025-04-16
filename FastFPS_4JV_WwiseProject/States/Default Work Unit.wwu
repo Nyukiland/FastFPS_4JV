@@ -46,6 +46,7 @@
 				</StateGroup>
 				<StateGroup Name="Music" ID="{ABFCC617-D5C2-49B0-81F6-B8DFE123101C}">
 					<ChildrenList>
+						<State Name="None" ID="{9FBD1871-0145-46FB-A3EC-1E8EBF0FE0FE}"/>
 						<State Name="Phase_1" ID="{DEA2CA2C-0A75-49E3-B952-53A773EF8C11}"/>
 						<State Name="Phase_2" ID="{D376D687-3AAF-4C12-B6A4-CECE34620835}"/>
 						<State Name="Phase_3" ID="{65A1A9E4-FEA4-4AB3-8AFA-70CA919292D7}"/>
@@ -53,6 +54,7 @@
 				</StateGroup>
 				<StateGroup Name="Round_loop" ID="{90A5F2AE-6023-4BDD-BA67-D729ED2B3CBA}">
 					<ChildrenList>
+						<State Name="None" ID="{108622EA-29DC-41AC-B266-BCC12709CF8A}"/>
 						<State Name="Jingle_on" ID="{0A934669-ED58-4D42-B9E1-0FDAF9F65097}"/>
 						<State Name="Jingle_off" ID="{C57A969E-1261-4916-848B-9D2F514B0B79}"/>
 					</ChildrenList>
