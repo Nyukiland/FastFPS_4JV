@@ -1055,6 +1055,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Reload_Short" ID="{387C848B-EC8E-4C8C-AD47-F099A3F8D086}" ShortID="608261806">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -2386,6 +2393,11 @@
 												</ModifierInfo>
 											</ModifierList>
 										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2396,7 +2408,7 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<Sound Name="Voice_Robot_2" ID="{54242036-AE2B-4B93-9862-950AA954B14F}" ShortID="67029309">
+										<Sound Name="BigGuy_BruitDePorte-001" ID="{4CEEAEA6-D3EA-45EB-A1CD-27B821652EB6}" ShortID="782068481">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -2406,19 +2418,24 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="iddle robot-003" ID="{A529F1FF-0707-4FE5-B7F5-5800E1BD5332}">
+												<AudioFileSource Name="BigGuy_BruitDePorte-001" ID="{F4925BB8-93EE-4527-A576-F9B24AB8A8C8}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.214807271957397"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.398331821442826"/>
+													</PropertyList>
 													<Language>SFX</Language>
-													<AudioFile>iddle robot-003.wav</AudioFile>
+													<AudioFile>BigGuy_BruitDePorte-001.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="775717325"/>
+														<MediaID ID="607745834"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="iddle robot-003" ID="{A529F1FF-0707-4FE5-B7F5-5800E1BD5332}" Platform="Linked"/>
+												<ActiveSource Name="BigGuy_BruitDePorte-001" ID="{F4925BB8-93EE-4527-A576-F9B24AB8A8C8}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="Voice_Robot" ID="{23ED0067-0562-4383-9D1B-041676FCB590}" ShortID="705495729">
+										<Sound Name="BigGuy_BruitDePorte-002" ID="{C94F2CF2-AE10-4A9C-89AF-4D6CEAF43F86}" ShortID="332608426">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
@@ -2428,16 +2445,48 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<AudioFileSource Name="iddle robot-002" ID="{4DF59761-8EC6-4650-B6BE-E2876D904DA1}">
+												<AudioFileSource Name="BigGuy_BruitDePorte-002" ID="{42CDBEDC-C631-452C-A47C-DDB3A4DDACD4}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.253501105077058"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.446644716514553"/>
+													</PropertyList>
 													<Language>SFX</Language>
-													<AudioFile>iddle robot-002.wav</AudioFile>
+													<AudioFile>BigGuy_BruitDePorte-002.wav</AudioFile>
 													<MediaIDList>
-														<MediaID ID="777888904"/>
+														<MediaID ID="510724314"/>
 													</MediaIDList>
 												</AudioFileSource>
 											</ChildrenList>
 											<ActiveSourceList>
-												<ActiveSource Name="iddle robot-002" ID="{4DF59761-8EC6-4650-B6BE-E2876D904DA1}" Platform="Linked"/>
+												<ActiveSource Name="BigGuy_BruitDePorte-002" ID="{42CDBEDC-C631-452C-A47C-DDB3A4DDACD4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="BigGuy_BruitDePorte-003" ID="{8997EBA7-EDF4-42A5-BB3B-227139A69232}" ShortID="660058015">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BigGuy_BruitDePorte-003" ID="{58F27E25-9289-4AB6-855E-8D58291D78CD}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.263851419731913"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.503106496281954"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>BigGuy_BruitDePorte-003.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1056611344"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BigGuy_BruitDePorte-003" ID="{58F27E25-9289-4AB6-855E-8D58291D78CD}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
 									</ChildrenList>
