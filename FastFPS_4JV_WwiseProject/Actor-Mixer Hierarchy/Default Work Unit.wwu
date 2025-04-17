@@ -2489,6 +2489,72 @@
 												<ActiveSource Name="BigGuy_BruitDePorte-003" ID="{58F27E25-9289-4AB6-855E-8D58291D78CD}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<Sound Name="BigGuy_Attack_1" ID="{A610D8A2-E79C-49BE-A13E-D3DABDACF4BB}" ShortID="22556773">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BigGuy_Attack_1" ID="{163D6D9F-0E0A-423E-9B69-7D0BA044684A}">
+													<Language>SFX</Language>
+													<AudioFile>BigGuy_Attack_1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="470934659"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BigGuy_Attack_1" ID="{163D6D9F-0E0A-423E-9B69-7D0BA044684A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="BigGuy_Attack_2" ID="{B34F2F9D-B2F3-4389-9986-4D172A25AA07}" ShortID="501693982">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BigGuy_Attack_2" ID="{5F937E44-8807-4215-8348-B0A21B1BCD45}">
+													<Language>SFX</Language>
+													<AudioFile>BigGuy_Attack_2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="184628867"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BigGuy_Attack_2" ID="{5F937E44-8807-4215-8348-B0A21B1BCD45}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="BigGuy_Attack_3" ID="{8E7F50C1-D755-466A-AD69-92E9D28AB089}" ShortID="815457297">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{BA4321C9-F168-4B51-AD9F-8F77CC698EE7}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{B1580637-B32A-4A29-8F33-B4019EA8C521}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="BigGuy_Attack_3" ID="{FA83B062-CBD5-44DC-AE7C-9AF84749E6FF}">
+													<Language>SFX</Language>
+													<AudioFile>BigGuy_Attack_3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="442362398"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="BigGuy_Attack_3" ID="{FA83B062-CBD5-44DC-AE7C-9AF84749E6FF}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<Sound Name="Death_Robot" ID="{5816C0B6-33E7-402A-8940-7DAD27B80880}" ShortID="754575517">
