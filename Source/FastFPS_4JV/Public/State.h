@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Abstract, Blueprintable)
 class FASTFPS_4JV_API UState : public UObject
 {
 	GENERATED_BODY()

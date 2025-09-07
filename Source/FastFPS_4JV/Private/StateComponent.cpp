@@ -6,29 +6,26 @@
 // Sets default values for this component's properties
 UStateComponent::UStateComponent()
 {
-	// Set this component to be initialized when the game starts, and to be ticked every frame.  You can turn these features
-	// off to improve performance if you don't need them.
-	PrimaryComponentTick.bCanEverTick = true;
+	PrimaryComponentTick.bCanEverTick = false;
 
-	// ...
 }
 
-
-// Called when the game starts
-void UStateComponent::BeginPlay()
+void UStateComponent::InitStateComponent(AGameController* Controller)
 {
-	Super::BeginPlay();
-
-	// ...
-	
+	Owner = Controller;
 }
 
-
-// Called every frame
-void UStateComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+void UStateComponent::EnableStateComponent()
 {
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	// ...
+	Enable = true;
 }
 
+void UStateComponent::DisableStateComponent()
+{
+	Enable = false;
+}
+
+void UStateComponent::TickStateComponent(float DeltaTime)
+{
+
+}
