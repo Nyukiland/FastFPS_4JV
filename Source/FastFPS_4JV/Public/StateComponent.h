@@ -20,8 +20,20 @@ public:
 public:	
 	UStateComponent();
 	// Called every frame
-	virtual void InitStateComponent(AGameController* Controller);
-	virtual void EnableStateComponent();
-	virtual void DisableStateComponent();
-	virtual void TickStateComponent(float DeltaTime);
+
+	UFUNCTION(BlueprintNativeEvent, Category = "State")
+	void InitStateComponent(AGameController* Controller);
+	virtual void InitStateComponent_Implementation(AGameController* Controller);
+
+	UFUNCTION(BlueprintNativeEvent, Category = "State")
+	void EnableStateComponent();
+	virtual void EnableStateComponent_Implementation();
+
+	UFUNCTION(BlueprintNativeEvent, Category = "State")
+	void DisableStateComponent();
+	virtual void DisableStateComponent_Implementation();
+	
+	UFUNCTION(BlueprintNativeEvent, Category = "State")
+	void TickStateComponent(float DeltaTime);
+	virtual void TickStateComponent_Implementation(float DeltaTime);
 };

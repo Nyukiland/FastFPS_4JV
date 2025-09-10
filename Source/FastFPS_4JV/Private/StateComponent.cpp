@@ -1,6 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "StateComponent.h"
 
 // Sets default values for this component's properties
@@ -10,22 +7,22 @@ UStateComponent::UStateComponent()
 
 }
 
-void UStateComponent::InitStateComponent(AGameController* Controller)
+void UStateComponent::InitStateComponent_Implementation(AGameController* Controller)
 {
 	Owner = Controller;
 }
 
-void UStateComponent::EnableStateComponent()
+void UStateComponent::EnableStateComponent_Implementation()
 {
 	Enable = true;
 }
 
-void UStateComponent::DisableStateComponent()
+void UStateComponent::DisableStateComponent_Implementation()
 {
 	Enable = false;
 }
 
-void UStateComponent::TickStateComponent(float DeltaTime)
+void UStateComponent::TickStateComponent_Implementation(float DeltaTime)
 {
 
 }
