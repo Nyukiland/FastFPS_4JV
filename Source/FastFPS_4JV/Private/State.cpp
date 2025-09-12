@@ -1,4 +1,6 @@
 #include "State.h"
+#include "StateComponent.h"
+#include "GameController.h"
 
 void UState::OnEnter_Implementation(AGameController* GameController)
 {
@@ -22,5 +24,7 @@ UStateComponent* UState::GetStateComponentByClass(TSubclassOf<UStateComponent> C
 		return nullptr;
 	}
 
-	return Cast<UStateComponent>(Owner->FindComponentByClass(ComponentClass));
+	UStateComponent* StateComponent = Owner.GetStateComponentByClass<UStateComponent>();
+
+	return ;
 }

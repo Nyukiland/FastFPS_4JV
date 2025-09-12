@@ -4,24 +4,32 @@
 #include "GameFramework/Pawn.h"
 #include "GameController.generated.h"
 
+class UState;
+class UStateComponent;
+
 UCLASS()
 class FASTFPS_4JV_API AGameController : public APawn
 {
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
 	AGameController();
 
+public:
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "State")
+	TSubclassOf<UState> DefaultState;
+
+private:
+	TArray<UStateComponent*> StateComponents;
+
 protected:
-	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+	UFUNCTION(BlueprintCallable, Category = "State")
+	UStateComponent* GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass) const;
 };

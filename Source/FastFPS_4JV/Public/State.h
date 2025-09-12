@@ -2,9 +2,10 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "GameController.h"
-#include "StateComponent.h"
 #include "State.generated.h"
+
+class AGameController;
+class UStateComponent;
 
 UCLASS(Abstract, Blueprintable)
 class FASTFPS_4JV_API UState : public UObject

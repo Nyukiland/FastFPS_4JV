@@ -1,34 +1,49 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "GameController.h"
+#include "StateComponent.h"
+#include "Components/ActorComponent.h"
 
-// Sets default values
 AGameController::AGameController()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
 
-// Called when the game starts or when spawned
 void AGameController::BeginPlay()
 {
 	Super::BeginPlay();
 	
+	TArray<UActorComponent*> Components;
+	GetComponents(Components);
+
+	for (UActorComponent* Comp : Components)
+	{
+		if (UStateComponent* StateComp = Cast<UStateComponent>(Comp))
+		{
+			StateComponents.Add(StateComp);
+		}
+	}
 }
 
-// Called every frame
 void AGameController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
 }
 
-// Called to bind functionality to input
 void AGameController::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
 
 }
 
+UStateComponent* AGameController::GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass) const
+{
+	for (UStateComponent* Comp : StateComponents)
+	{
+		if (Comp && Comp->IsA(ComponentClass))
+		{
+			return Comp;
+		}
+	}
+	return nullptr;
+}

@@ -2,9 +2,9 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "GameController.h"
 #include "StateComponent.generated.h"
 
+class AGameController;
 
 UCLASS(Abstract, Blueprintable, ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
 class FASTFPS_4JV_API UStateComponent : public UActorComponent
