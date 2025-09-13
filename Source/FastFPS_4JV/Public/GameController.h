@@ -19,8 +19,12 @@ public:
 	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "State")
 	TSubclassOf<UState> DefaultState;
 
+	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "State")
+	TArray<TSubclassOf<UStateComponent>> DefaultActiveComponent;
+
 private:
 	TArray<UStateComponent*> StateComponents;
+	int ActiveComponentCount;
 
 protected:
 	virtual void BeginPlay() override;
@@ -31,5 +35,5 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UFUNCTION(BlueprintCallable, Category = "State")
-	UStateComponent* GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass) const;
+	UStateComponent* GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass, bool activate = true);
 };

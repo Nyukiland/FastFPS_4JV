@@ -17,14 +17,14 @@ void UState::Tick_Implementation(float DeltaTime)
 
 }
 
-UStateComponent* UState::GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass) const
+UStateComponent* UState::GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass, bool activate)
 {
 	if (!Owner)
 	{
 		return nullptr;
 	}
 
-	UStateComponent* StateComponent = Owner.GetStateComponentByClass<UStateComponent>();
+	UStateComponent* StateComponent = Owner->GetStateComponentByClass(ComponentClass, activate);
 
 	return ;
 }
