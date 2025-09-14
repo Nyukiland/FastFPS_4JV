@@ -26,10 +26,6 @@ public:
 	virtual void OnExit_Implementation();
 
 	UFUNCTION(BlueprintNativeEvent, Category = "State")
-	void Tick(float DeltaTime);
-	virtual void Tick_Implementation(float DeltaTime);
-
-	UFUNCTION(BlueprintCallable, Category = "State")
-	UStateComponent* GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass, bool activate = true);
-
+	void OnTick(float DeltaTime);
+	virtual void OnTick_Implementation(float DeltaTime);
 };

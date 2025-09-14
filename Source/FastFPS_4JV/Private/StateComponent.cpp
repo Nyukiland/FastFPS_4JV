@@ -14,12 +14,12 @@ void UStateComponent::InitStateComponent_Implementation(AGameController* Control
 
 void UStateComponent::EnableStateComponent_Implementation()
 {
-	Enable = true;
+
 }
 
 void UStateComponent::DisableStateComponent_Implementation()
 {
-	Enable = false;
+
 }
 
 void UStateComponent::TickStateComponent_Implementation(float DeltaTime)

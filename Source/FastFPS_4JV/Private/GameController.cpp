@@ -1,17 +1,18 @@
+#include "Components/ActorComponent.h"
 #include "GameController.h"
 #include "StateComponent.h"
-#include "Components/ActorComponent.h"
+#include "State.h"
 
 AGameController::AGameController()
 {
 	PrimaryActorTick.bCanEverTick = true;
-
-	ActiveComponentCount = 0;
 }
 
 void AGameController::BeginPlay()
 {
 	Super::BeginPlay();
+
+	ChangeState(DefaultState);
 
 	TArray<UActorComponent*> Components;
 	GetComponents(Components);
@@ -46,6 +47,11 @@ void AGameController::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
+	if (CurrentState)
+	{
+		CurrentState->OnTick(DeltaTime);
+	}
+
 	for (int i = 0; i < ActiveComponentCount; i++)
 	{
 		if (StateComponents[i])
@@ -59,27 +65,24 @@ void AGameController::SetupPlayerInputComponent(UInputComponent* PlayerInputComp
 
 }
 
-UStateComponent* AGameController::GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass, bool activate)
+//Get StateComponent -------------------------------------------------------------------------------------------------
+UStateComponent* AGameController::GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass)
 {
+	int I = 0;
+	return GetStateComponentByClass(ComponentClass, I);
+}
+
+UStateComponent* AGameController::GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass, int& Index)
+{
+	Index = -1;
+
 	for (int i = 0; i < StateComponents.Num(); i++)
 	{
 		UStateComponent* Comp = StateComponents[i];
 
 		if (Comp && Comp->IsA(ComponentClass))
 		{
-			if (activate)
-			{
-				StateComponents.Swap(i, ActiveComponentCount);
-				Comp->EnableStateComponent();
-				ActiveComponentCount += 1;
-			}
-			else
-			{
-				StateComponents.Swap(i, ActiveComponentCount - 1);
-				Comp->DisableStateComponent();
-				ActiveComponentCount--;
-			}
-
+			Index = i;
 			return Comp;
 		}
 	}
@@ -87,4 +90,66 @@ UStateComponent* AGameController::GetStateComponentByClass(TSubclassOf<UStateCom
 	UE_LOG(LogTemp, Error, TEXT("Failed to get component of class: %s"), ComponentClass->GetName());
 
 	return nullptr;
+}
+
+//Activate StateComponent -------------------------------------------------------------------------------------------------
+void AGameController::ActivateStateComponent(TSubclassOf<UStateComponent> ComponentClass)
+{
+	int I = 0;
+	UStateComponent* Comp = GetStateComponentByClass(ComponentClass, I);
+	ActivateStateComponent(Comp, I);
+}
+
+void AGameController::ActivateStateComponent(UStateComponent* Comp, int Index)
+{
+	if (!Comp || Index < 0 || Index > StateComponents.Num())
+		return;
+
+	StateComponents.Swap(Index, ActiveComponentCount);
+	Comp->EnableStateComponent();
+	ActiveComponentCount++;
+}
+
+//Deactivate StateComponent -------------------------------------------------------------------------------------------------
+void AGameController::DeactivateStateComponent(TSubclassOf<UStateComponent> ComponentClass)
+{
+	int I = 0;
+	UStateComponent* Comp = GetStateComponentByClass(ComponentClass, I);
+	DeactivateStateComponent(Comp, I);
+}
+
+void AGameController::DeactivateStateComponent(UStateComponent* Comp, int Index)
+{
+	if (!Comp || Index < 0 || Index > StateComponents.Num())
+		return;
+
+	StateComponents.Swap(Index, ActiveComponentCount - 1);
+	Comp->DisableStateComponent();
+	ActiveComponentCount--;
+}
+
+//Change State -------------------------------------------------------------------------------------------------
+void AGameController::ChangeState(TSubclassOf<UState> StateClass)
+{
+	if (!*StateClass)
+	{
+		UE_LOG(LogTemp, Warning, TEXT("ChangeState called with null class."));
+		return;
+	}
+
+	if (CurrentState)
+	{
+		CurrentState->OnExit();
+		CurrentState = nullptr;
+	}
+
+	UState* NewState = NewObject<UState>(this, StateClass);
+	if (!NewState)
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to create state of class: %s"), *StateClass->GetName());
+		return;
+	}
+
+	NewState->OnEnter(this);
+	CurrentState = NewState;
 }

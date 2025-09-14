@@ -24,7 +24,8 @@ public:
 
 private:
 	TArray<UStateComponent*> StateComponents;
-	int ActiveComponentCount;
+	int ActiveComponentCount = 0;
+	UState* CurrentState;
 
 protected:
 	virtual void BeginPlay() override;
@@ -35,5 +36,19 @@ public:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
 	UFUNCTION(BlueprintCallable, Category = "State")
-	UStateComponent* GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass, bool activate = true);
+	UStateComponent* GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass);
+	UStateComponent* GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass, int& Index);
+
+	UFUNCTION(BlueprintCallable, Category = "State")
+	void ActivateStateComponent(TSubclassOf<UStateComponent> ComponentClass);
+
+	void ActivateStateComponent(UStateComponent* Comp, int Index);
+
+	UFUNCTION(BlueprintCallable, Category = "State")
+	void DeactivateStateComponent(TSubclassOf<UStateComponent> ComponentClass);
+
+	void DeactivateStateComponent(UStateComponent* Comp, int Index);
+
+	UFUNCTION(BlueprintCallable, Category = "State")
+	void ChangeState(TSubclassOf<UState> StateClass);
 };

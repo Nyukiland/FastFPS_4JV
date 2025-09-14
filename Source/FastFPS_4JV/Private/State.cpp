@@ -12,19 +12,7 @@ void UState::OnExit_Implementation()
 
 }
 
-void UState::Tick_Implementation(float DeltaTime)
+void UState::OnTick_Implementation(float DeltaTime)
 {
 
-}
-
-UStateComponent* UState::GetStateComponentByClass(TSubclassOf<UStateComponent> ComponentClass, bool activate)
-{
-	if (!Owner)
-	{
-		return nullptr;
-	}
-
-	UStateComponent* StateComponent = Owner->GetStateComponentByClass(ComponentClass, activate);
-
-	return ;
 }

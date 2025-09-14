@@ -14,9 +14,6 @@ class FASTFPS_4JV_API UStateComponent : public UActorComponent
 protected:
 	AGameController* Owner;
 
-public:
-	bool Enable;
-
 public:	
 	UStateComponent();
 	// Called every frame
