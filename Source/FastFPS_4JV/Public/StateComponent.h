@@ -16,7 +16,6 @@ protected:
 
 public:	
 	UStateComponent();
-	// Called every frame
 
 	UFUNCTION(BlueprintNativeEvent, Category = "State")
 	void InitStateComponent(AGameController* Controller);

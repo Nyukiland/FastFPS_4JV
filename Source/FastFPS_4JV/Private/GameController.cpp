@@ -1,5 +1,5 @@
-#include "Components/ActorComponent.h"
 #include "GameController.h"
+#include "Components/ActorComponent.h"
 #include "StateComponent.h"
 #include "State.h"
 
@@ -87,7 +87,7 @@ UStateComponent* AGameController::GetStateComponentByClass(TSubclassOf<UStateCom
 		}
 	}
 
-	UE_LOG(LogTemp, Error, TEXT("Failed to get component of class: %s"), ComponentClass->GetName());
+	UE_LOG(LogTemp, Error, TEXT("Failed to get component of class: %s"), *ComponentClass->GetName());
 
 	return nullptr;
 }
