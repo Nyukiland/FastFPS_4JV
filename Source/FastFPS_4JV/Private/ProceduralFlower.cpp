@@ -63,6 +63,57 @@ bool AProceduralFlower::IsTriangleDegenerate(const FVector& A, const FVector& B,
 	return areaSq <= KINDA_SMALL_NUMBER;
 }
 
+void AProceduralFlower::RandomizeFlower()
+{
+	LayerCount = FMath::RandRange(1, 6);
+
+	// Resize arrays
+	LayerPetalNum.SetNum(LayerCount);
+	LayerDiameter.SetNum(LayerCount);
+	LayerPetalLength.SetNum(LayerCount);
+	LayerPetalSharpness.SetNum(LayerCount);
+	LayerFlowerHeight.SetNum(LayerCount);
+	LayerCurvature1.SetNum(LayerCount);
+	LayerCurvature2.SetNum(LayerCount);
+	LayerBump.SetNum(LayerCount);
+	LayerBumpNum.SetNum(LayerCount);
+	LayerScale.SetNum(LayerCount);
+	LayerRotationDeg.SetNum(LayerCount);
+
+	int BasePetalNum = 8;
+	float BaseDiameter = 200.f;
+	float BasePetalLength = 80.f;
+	float BaseSharpness = 0.1f;
+	float BaseHeight = 300.f;
+
+	for (int32 L = 0; L < LayerCount; ++L)
+	{
+		float LayerRatio = 1.f - (float)L / (float)(LayerCount); 
+
+		LayerPetalNum[L] = BasePetalNum + L * 2;
+
+		LayerDiameter[L] = BaseDiameter * LayerRatio + FMath::FRandRange(-10.f, 10.f);
+
+		LayerPetalLength[L] = BasePetalLength * LayerRatio + FMath::FRandRange(-10.f, 10.f);
+
+		LayerPetalSharpness[L] = BaseSharpness + L * 0.2f;
+
+		LayerFlowerHeight[L] = BaseHeight - L * 50.f;
+
+		LayerCurvature1[L] = 0.8f + FMath::FRandRange(-0.2f, 0.2f);
+		LayerCurvature2[L] = 0.2f + FMath::FRandRange(-0.05f, 0.05f);
+
+		LayerBump[L] = 2.f + FMath::FRandRange(-0.5f, 0.5f);
+		LayerBumpNum[L] = 10 + L;
+
+		LayerScale[L] = 1.f - (0.2f * L);
+
+		LayerRotationDeg[L] = FMath::FRandRange(0.f, 360.f);
+	}
+
+	BuildAllLayers();
+}
+
 void AProceduralFlower::BuildAllLayers()
 {
 	ProcMesh->ClearAllMeshSections();
