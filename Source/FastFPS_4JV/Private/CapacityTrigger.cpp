@@ -12,3 +12,8 @@ void UCapacityTrigger::ResetTrigger_Implementation()
 {
 
 }
+
+TArray<UStatContainer*> UCapacityTrigger::GetStats_Implementation()
+{
+	return TArray<UStatContainer*>();
+}

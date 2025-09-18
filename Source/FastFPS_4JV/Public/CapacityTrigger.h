@@ -4,6 +4,8 @@
 #include "UObject/NoExportTypes.h"
 #include "CapacityTrigger.generated.h"
 
+class UStatContainer;
+
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnTriggerActivated);
 
 UCLASS(Abstract, Blueprintable, EditInlineNew, DefaultToInstanced)
@@ -23,4 +25,7 @@ public:
 	void ResetTrigger();
 	virtual void ResetTrigger_Implementation();
 
+	UFUNCTION(BlueprintNativeEvent, Category = "Capacity|Effect")
+	TArray<UStatContainer*> GetStats();
+	virtual TArray<UStatContainer*> GetStats_Implementation();
 };

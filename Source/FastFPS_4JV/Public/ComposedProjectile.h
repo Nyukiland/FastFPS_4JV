@@ -12,7 +12,7 @@ class FASTFPS_4JV_API AComposedProjectile : public AActor
 	GENERATED_BODY()
 	
 public:
-	UPROPERTY(EditAnywhere, Instanced, BlueprintReadOnly)
+	UPROPERTY(EditAnywhere, Instanced, BlueprintReadWrite)
 	UCapacityEffect* OnHitCapacity;
 
 protected:
