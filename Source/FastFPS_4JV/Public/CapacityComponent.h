@@ -17,17 +17,18 @@ private:
 
 	void ExecuteEffect();
 
+	bool CheckTriggers();
+
 public:
 	UPROPERTY(EditAnywhere, Instanced, BlueprintReadOnly, Category = "Capacity")
-	UCapacityTrigger* Trigger;
+	TArray<UCapacityTrigger*> Triggers;
 
 	UPROPERTY(EditAnywhere, Instanced, BlueprintReadOnly, Category = "Capacity")
-	UCapacityEffect* Effect;
+	TArray<UCapacityEffect*> Effects;
 
 	virtual void EnableStateComponent_Implementation() override;
 
 	virtual void DisableStateComponent_Implementation() override;
 
 	virtual void TickStateComponent_Implementation(float DeltaTime) override;
-
 };

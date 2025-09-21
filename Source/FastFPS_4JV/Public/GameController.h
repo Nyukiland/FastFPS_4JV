@@ -16,10 +16,10 @@ public:
 	AGameController();
 
 public:
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "State")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "State")
 	TSubclassOf<UState> DefaultState;
 
-	UPROPERTY(BlueprintReadWrite, VisibleAnywhere, Category = "State")
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "State")
 	TArray<TSubclassOf<UStateComponent>> DefaultActiveComponent;
 
 private:

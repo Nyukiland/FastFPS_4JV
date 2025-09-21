@@ -4,7 +4,7 @@
 
 bool UCapacityComponent::CheckValidity()
 {
-	if (!Trigger || !Effect)
+	if (Triggers.Num() == 0 || Effects.Num() == 0)
 	{
 		UE_LOG(LogTemp, Error, TEXT("Wrong set up on %s"), *this->GetName());
 		return false;
@@ -19,23 +19,38 @@ void UCapacityComponent::ExecuteEffect()
 		return;
 
 	AActor* Source = GetTypedOuter<AActor>();
-	Effect->ApplyEffect(Source, nullptr);
+
+	for (UCapacityEffect* Effect : Effects)
+	{
+		if (!Effect) continue;
+		Effect->ApplyEffect(Source, nullptr);
+	}
+}
+
+bool UCapacityComponent::CheckTriggers()
+{
+	int TriggerCount = 0;
+	int TriggerValid = 0;
+	
+	for (UCapacityTrigger* Trigger : Triggers)
+	{
+		if (!Trigger) continue;
+
+		TriggerCount++;
+		if (Trigger->TriggerReady) TriggerValid++;
+	}
+
+	return TriggerValid == TriggerCount;
 }
 
 void UCapacityComponent::EnableStateComponent_Implementation()
 {
-	if (!CheckValidity())
-		return;
-
-	Trigger->OnTriggered.AddDynamic(this, &UCapacityComponent::ExecuteEffect);
+	
 }
 
 void UCapacityComponent::DisableStateComponent_Implementation()
 {
-	if (!CheckValidity())
-		return;
 
-	Trigger->OnTriggered.RemoveDynamic(this, &UCapacityComponent::ExecuteEffect);
 }
 
 void UCapacityComponent::TickStateComponent_Implementation(float DeltaTime)
@@ -43,5 +58,19 @@ void UCapacityComponent::TickStateComponent_Implementation(float DeltaTime)
 	if (!CheckValidity())
 		return;
 
-	Trigger->TickTrigger(DeltaTime);
+	for (UCapacityTrigger* Trigger : Triggers)
+	{
+		if (!Trigger) continue;
+		Trigger->TickTrigger(DeltaTime);
+	}
+
+	if (CheckTriggers())
+	{
+		ExecuteEffect();
+		for (UCapacityTrigger* Trigger : Triggers)
+		{
+			if (!Trigger) continue;
+			Trigger->ResetTrigger();
+		}
+	}
 }
